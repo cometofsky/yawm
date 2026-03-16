@@ -116,91 +116,125 @@ export default function Home() {
         </div>
 
         <script dangerouslySetInnerHTML={{ __html: `
-          var bengaliMonths = ['জানুয়ারি', 'ফেব্রুয়ারি', 'মার্চ', 'এপ্রিল', 'মে', 'জুন', 'জুলাই', 'আগস্ট', 'সেপ্টেম্বর', 'অক্টোবর', 'নভেম্বর', 'ডিসেম্বর'];
-          var bengaliDigits = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
-          var hijriMonths = ['Muharram', 'Safar', 'Rabi al-Awwal', 'Rabi al-Thani', 'Jumada al-Awwal', 'Jumada al-Thani', 'Rajab', 'Shaban', 'Ramadan', 'Shawwal', 'Dhu al-Qidah', 'Dhu al-Hijjah'];
+          // ── Bengali calendar data ──────────────────────────────────────────
+          // Bangla Academy revised calendar (1987): 12 fixed months
+          // Boishakh–Bhadro = 31 days, Ashwin–Magh = 30 days,
+          // Falgun = 29 days (30 in leap), Chaitra = always 31 days.
+          // Bengali New Year = April 14 of Gregorian year G.
+          // Bengali year X = G − 593 (for date ≥ Apr 14) or G − 594 (before Apr 14).
+          // "Leap" if Gregorian year (bengaliYear + 594), which contains Falgun, is a leap year.
+          var banglaMonthNames = ['বৈশাখ','জ্যৈষ্ঠ','আষাঢ়','শ্রাবণ','ভাদ্র','আশ্বিন','কার্তিক','অগ্রহায়ণ','পৌষ','মাঘ','ফাল্গুন','চৈত্র'];
+          var bengaliDigits   = ['০','১','২','৩','৪','৫','৬','৭','৮','৯'];
+          var hijriMonthNames = ['Muharram','Safar',"Rabi' al-Awwal","Rabi' al-Thani",'Jumada al-Awwal','Jumada al-Thani','Rajab',"Sha'ban",'Ramadan','Shawwal',"Dhu al-Qi'dah",'Dhu al-Hijjah'];
 
           function toBengaliNumber(num) {
-            return String(num).split('').map(function(d) { return bengaliDigits[parseInt(d)]; }).join('');
+            return String(num).split('').map(function(ch) {
+              var n = parseInt(ch);
+              return isNaN(n) ? ch : bengaliDigits[n];
+            }).join('');
           }
 
-          function getHijriDate(gregDate) {
-            var day = gregDate.getDate();
-            var month = gregDate.getMonth();
-            var year = gregDate.getFullYear();
-            
-            var jd = Math.floor((1461 * (year + 4800 + Math.floor((month - 14) / 12))) / 4) + 
-                     Math.floor((367 * (month - 2 - 12 * (Math.floor((month - 14) / 12)))) / 12) - 
-                     Math.floor((3 * (Math.floor((year + 4900 + Math.floor((month - 14) / 12)) / 100))) / 4) + 
-                     day - 32075;
-            
-            var l = jd - 1948440 + 10632;
-            var n = Math.floor((l - 1) / 10631);
-            l = l - 10631 * n + 354;
-            var j = (Math.floor((10985 - l) / 5316)) * (Math.floor((50 * l) / 17719)) + 
-                    (Math.floor(l / 5670)) * (Math.floor((43 * l) / 15238));
-            l = l - (Math.floor((30 - j) / 15)) * (Math.floor((17719 * j) / 50)) - 
-                (Math.floor(j / 16)) * (Math.floor((15238 * j) / 43)) + 29;
-            var hMonth = Math.floor((24 * l) / 709);
-            var hDay = l - Math.floor((709 * hMonth) / 24);
-            var hYear = 30 * n + j - 30;
+          // Returns "DD MonthName YYYY" in Bengali script using the proper Bengali solar calendar.
+          function getBengaliDate(date) {
+            var monthDays = [31,31,31,31,31,30,30,30,30,30,29,31]; // base (non-leap)
+            var y = date.getFullYear();
+            var m = date.getMonth();
+            var d = date.getDate();
 
-            return {
-              day: hDay,
-              month: hMonth,
-              year: hYear
-            };
+            var newYearThis = new Date(y,     3, 14); // April 14 this year
+            var newYearPrev = new Date(y - 1, 3, 14); // April 14 last year
+            var today       = new Date(y, m, d);
+
+            var banglaYear, dayIndex;
+            if (today >= newYearThis) {
+              banglaYear = y - 593;
+              dayIndex   = Math.round((today - newYearThis) / 86400000);
+            } else {
+              banglaYear = y - 594;
+              dayIndex   = Math.round((today - newYearPrev) / 86400000);
+            }
+
+            // Falgun (index 10) spans Feb–Mar of Gregorian year (banglaYear + 594).
+            // If that year is a Gregorian leap year, Feb has 29 days → Falgun = 30 days.
+            var falgunYear = banglaYear + 594;
+            var isLeap = (falgunYear % 4 === 0 && falgunYear % 100 !== 0) || (falgunYear % 400 === 0);
+            if (isLeap) monthDays[10] = 30;
+
+            var banglaMonth = 0;
+            var rem = dayIndex;
+            while (banglaMonth < 11 && rem >= monthDays[banglaMonth]) {
+              rem -= monthDays[banglaMonth];
+              banglaMonth++;
+            }
+
+            return toBengaliNumber(rem + 1) + ' ' + banglaMonthNames[banglaMonth] + ' ' + toBengaliNumber(banglaYear);
+          }
+
+          // Returns the exact Hijri date for Dhaka using the Umm al-Qura calendar via Intl API.
+          // Falls back to a mathematical approximation if the Intl calendar extension is unavailable.
+          function getHijriDate(date) {
+            try {
+              var parts = new Intl.DateTimeFormat('en-u-ca-islamic-umalqura', {
+                day: 'numeric', month: 'numeric', year: 'numeric',
+                timeZone: 'Asia/Dhaka'
+              }).formatToParts(date);
+              var hDay = 1, hMonth = 1, hYear = 1;
+              for (var i = 0; i < parts.length; i++) {
+                if      (parts[i].type === 'day')   hDay   = parseInt(parts[i].value);
+                else if (parts[i].type === 'month') hMonth = parseInt(parts[i].value);
+                else if (parts[i].type === 'year')  hYear  = parseInt(parts[i].value);
+              }
+              return hDay + ' ' + hijriMonthNames[hMonth - 1] + ' ' + hYear + ' AH';
+            } catch (e) {
+              // Mathematical fallback (approximate ±1 day)
+              var day   = date.getDate();
+              var month = date.getMonth() + 1; // 1-based
+              var year  = date.getFullYear();
+              var jd = Math.floor((1461*(year+4800+Math.floor((month-14)/12)))/4) +
+                       Math.floor((367*(month-2-12*Math.floor((month-14)/12)))/12) -
+                       Math.floor((3*Math.floor((year+4900+Math.floor((month-14)/12))/100))/4) +
+                       day - 32075;
+              var l = jd - 1948440 + 10632;
+              var n = Math.floor((l-1)/10631);
+              l = l - 10631*n + 354;
+              var j = Math.floor((10985-l)/5316)*Math.floor((50*l)/17719) +
+                      Math.floor(l/5670)*Math.floor((43*l)/15238);
+              l = l - Math.floor((30-j)/15)*Math.floor((17719*j)/50) -
+                      Math.floor(j/16)*Math.floor((15238*j)/43) + 29;
+              var fhMonth = Math.floor((24*l)/709);
+              var fhDay   = l - Math.floor((709*fhMonth)/24);
+              var fhYear  = 30*n + j - 30;
+              return fhDay + ' ' + hijriMonthNames[fhMonth-1] + ' ' + fhYear + ' AH';
+            }
           }
 
           function formatTime(date, timeZone) {
-            var options = {
-              timeZone: timeZone,
-              hour12: true,
-              hour: '2-digit',
-              minute: '2-digit',
-              second: '2-digit'
-            };
-            
             try {
-              return date.toLocaleTimeString('en-US', options);
+              return date.toLocaleTimeString('en-US', {
+                timeZone: timeZone, hour12: true,
+                hour: '2-digit', minute: '2-digit', second: '2-digit'
+              });
             } catch (e) {
               var utcTime = date.getTime() + (date.getTimezoneOffset() * 60000);
-              var offsets = {
-                'Asia/Dhaka': 6 * 60,
-                'Europe/London': 0,
-                'Australia/Sydney': 11 * 60
-              };
-              var offset = offsets[timeZone] || 0;
-              var localDate = new Date(utcTime + (offset * 60000));
-              var hours = localDate.getHours();
-              var minutes = localDate.getMinutes();
-              var seconds = localDate.getSeconds();
+              var offsets = { 'Asia/Dhaka': 6*60, 'Europe/London': 0, 'Australia/Sydney': 11*60 };
+              var localDate = new Date(utcTime + ((offsets[timeZone] || 0) * 60000));
+              var hours = localDate.getHours(), minutes = localDate.getMinutes(), seconds = localDate.getSeconds();
               var ampm = hours >= 12 ? 'PM' : 'AM';
-              hours = hours % 12;
-              hours = hours ? hours : 12;
-              minutes = minutes < 10 ? '0' + minutes : minutes;
-              seconds = seconds < 10 ? '0' + seconds : seconds;
-              return hours + ':' + minutes + ':' + seconds + ' ' + ampm;
+              hours = hours % 12 || 12;
+              return hours + ':' + (minutes<10?'0':'')+minutes + ':' + (seconds<10?'0':'')+seconds + ' ' + ampm;
             }
           }
 
           function updateClocks() {
             var now = new Date();
-            
-            document.getElementById('dhaka-time').textContent = formatTime(now, 'Asia/Dhaka');
+            document.getElementById('dhaka-time').textContent  = formatTime(now, 'Asia/Dhaka');
             document.getElementById('london-time').textContent = formatTime(now, 'Europe/London');
             document.getElementById('sydney-time').textContent = formatTime(now, 'Australia/Sydney');
-            
-            var monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-            var englishDate = monthNames[now.getMonth()] + ' ' + now.getDate() + ', ' + now.getFullYear();
-            document.getElementById('english-date').textContent = englishDate;
-            
-            var bengaliDate = toBengaliNumber(now.getDate()) + ' ' + bengaliMonths[now.getMonth()] + ' ' + toBengaliNumber(now.getFullYear());
-            document.getElementById('bengali-date').textContent = bengaliDate;
-            
-            var hijri = getHijriDate(now);
-            var hijriDate = hijri.day + ' ' + hijriMonths[hijri.month - 1] + ' ' + hijri.year + ' AH';
-            document.getElementById('hijri-date').textContent = hijriDate;
+
+            var monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+            document.getElementById('english-date').textContent = monthNames[now.getMonth()] + ' ' + now.getDate() + ', ' + now.getFullYear();
+            document.getElementById('bengali-date').textContent = getBengaliDate(now);
+            document.getElementById('hijri-date').textContent   = getHijriDate(now);
           }
 
           updateClocks();
