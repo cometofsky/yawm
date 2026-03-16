@@ -13,123 +13,69 @@ export default function Home() {
           }
           body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #0a0a0a;
+            color: #f0f0f0;
             min-height: 100vh;
-            padding: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
           }
           .container {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.25);
-            padding: 100px 120px;
-            max-width: 1400px;
+            background: #0a0a0a;
             width: 100%;
           }
-          h1 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 60px;
-            font-size: 112px;
-            letter-spacing: -0.5px;
-          }
           .section {
-            margin-bottom: 50px;
-            padding: 56px 60px;
-            background: #f8f9fa;
-            border-radius: 12px;
+            border-bottom: 1px solid #222;
           }
           .section h2 {
-            color: #667eea;
-            margin-bottom: 30px;
+            color: #818cf8;
             font-size: 72px;
-            border-bottom: 4px solid #667eea;
-            padding-bottom: 14px;
+            padding: 20px 20px 0;
+            border-bottom: 2px solid #1e1e2e;
+            background: #111;
           }
           .time-row, .date-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 36px 0;
-            border-bottom: 1px solid #e0e0e0;
+            padding: 14px 20px;
+            border-bottom: 1px solid #1a1a1a;
           }
           .time-row:last-child, .date-row:last-child {
             border-bottom: none;
           }
           .label {
             font-weight: 700;
-            color: #555;
+            color: #9ca3af;
             font-size: 60px;
           }
           .value {
             font-size: 72px;
-            color: #333;
+            color: #ffffff;
             font-weight: 600;
           }
           .bengali {
             font-size: 64px;
           }
-          /* iPad landscape / large tablets */
+          /* iPad landscape */
           @media (max-width: 1024px) {
-            .container {
-              padding: 80px 88px;
-            }
-            h1 {
-              font-size: 96px;
-            }
-            .section h2 {
-              font-size: 64px;
-            }
-            .label {
-              font-size: 52px;
-            }
-            .value {
-              font-size: 64px;
-            }
-            .bengali {
-              font-size: 56px;
-            }
+            .section h2 { font-size: 64px; padding: 20px 30px 12px; }
+            .time-row, .date-row { padding: 24px 30px; }
+            .label { font-size: 52px; }
+            .value { font-size: 64px; }
+            .bengali { font-size: 56px; }
           }
-          /* iPad portrait / small tablets */
+          /* iPad portrait */
           @media (max-width: 768px) {
-            .container {
-              padding: 60px 56px;
-            }
-            h1 {
-              font-size: 280px;
-            }
-            .section h2 {
-              font-size: 180px;
-            }
-            .label {
-              font-size: 180px;
-            }
-            .value {
-              font-size: 180px;
-            }
-            .bengali {
-              font-size: 180px;
-            }
+            .section h2 { font-size: 48px; padding: 16px 20px 10px; }
+            .time-row, .date-row { padding: 20px; }
+            .label { font-size: 40px; }
+            .value { font-size: 48px; }
+            .bengali { font-size: 42px; }
           }
           /* Phones */
           @media (max-width: 480px) {
-            .container {
-              padding: 40px 36px;
-            }
-            h1 {
-              font-size: 56px;
-            }
-            .section h2 {
-              font-size: 44px;
-            }
-            .label, .value {
-              font-size: 36px;
-            }
-            .bengali {
-              font-size: 36px;
-            }
+            .section h2 { font-size: 32px; padding: 12px 16px 8px; }
+            .time-row, .date-row { padding: 14px 16px; }
+            .label, .value { font-size: 28px; }
+            .bengali { font-size: 26px; }
           }
         `}} />
       </head>
@@ -137,7 +83,7 @@ export default function Home() {
         <div className="container">
 
           <div className="section">
-            <h2>⏰ Current Times</h2>
+            <h2>⏰</h2>
             <div className="time-row">
               <span className="label">Dhaka</span>
               <span className="value" id="dhaka-time">--:--:--</span>
@@ -153,7 +99,7 @@ export default function Home() {
           </div>
 
           <div className="section">
-            <h2>📅 Today's Date</h2>
+            <h2>📅</h2>
             <div className="date-row">
               <span className="label">English</span>
               <span className="value" id="english-date">--</span>
