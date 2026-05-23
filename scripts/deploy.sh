@@ -1,22 +1,22 @@
 #!/bin/bash
 set -e
 
-echo "Starting deployment process for Iyyam Clock..."
+echo "Starting lightweight deployment process for Iyyam Clock..."
 
-# Ensure we are in the correct directory (the script is in the root, the app is in world-clock)
-cd "$(dirname "$0")/world-clock" || exit 1
+# Ensure we are in the correct directory
+cd "$(dirname "$0")" || exit 1
 
-echo "1/4 Pulling latest changes from Git..."
+echo "1/3 Pulling latest changes from Git..."
 # If on VPS, this assumes git tracking is set up. We pull main branch.
 # git checkout main
 git pull origin main
 
-echo "2/4 Building new Docker image and starting container..."
-# --build ensures it rebuilds the image. -d runs it in the background.
-docker-compose up -d --build
+echo "2/3 Installing dependencies..."
+npm ci
 
-echo "3/4 Cleaning up dangling Docker images to save disk space..."
-docker image prune -f
+echo "3/3 Building static HTML export..."
+npm run build
 
-echo "4/4 Deployment completed successfully!"
-echo "The app is now running on http://localhost:3055"
+echo "Deployment completed successfully!"
+echo "The static files are now located in the /out directory."
+echo "Nginx will serve them automatically using zero additional RAM."
