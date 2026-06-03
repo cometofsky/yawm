@@ -8,19 +8,19 @@
     "start": "next start"
   },
   "dependencies": {
+    "@csstools/postcss-cascade-layers": "^6.0.0",
     "bangla-calendar": "^7.0.0",
     "lucide-react": "^1.16.0",
     "next": "16.1.6",
+    "postcss-preset-env": "^11.3.0",
     "react": "19.2.3",
     "react-dom": "19.2.3"
   },
   "devDependencies": {
-    "@csstools/postcss-cascade-layers": "^6.0.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "postcss-preset-env": "^11.3.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   },
