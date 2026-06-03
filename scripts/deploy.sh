@@ -7,8 +7,8 @@ echo "Starting lightweight deployment process for Iyyam Clock..."
 cd "$(dirname "$0")" || exit 1
 
 echo "1/3 Pulling latest changes from Git..."
-# If on VPS, this assumes git tracking is set up. We pull main branch.
-# git checkout main
+# Ensure we use HTTPS to avoid SSH permission issues on the server
+git remote set-url origin https://github.com/cometofsky/yawm.git
 git pull origin main
 
 echo "2/3 Installing dependencies..."
