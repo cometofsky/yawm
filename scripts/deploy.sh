@@ -15,6 +15,7 @@ echo "2/3 Installing dependencies..."
 npm ci
 
 echo "3/3 Building static HTML export..."
+rm -rf .next
 npm run build
 
 echo "Deployment completed successfully!"
