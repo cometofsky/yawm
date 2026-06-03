@@ -21,16 +21,24 @@ export default function CalendarDisplay() {
 
   // Load offset from localStorage on mount
   useEffect(() => {
-    const savedOffset = localStorage.getItem('hijriOffset');
-    if (savedOffset) {
-      setHijriOffset(parseInt(savedOffset, 10));
+    try {
+      const savedOffset = localStorage.getItem('hijriOffset');
+      if (savedOffset) {
+        setHijriOffset(parseInt(savedOffset, 10));
+      }
+    } catch (e) {
+      console.warn('localStorage unavailable');
     }
     setIsOffsetLoaded(true);
   }, []);
 
   const updateOffset = (newOffset: number) => {
     setHijriOffset(newOffset);
-    localStorage.setItem('hijriOffset', newOffset.toString());
+    try {
+      localStorage.setItem('hijriOffset', newOffset.toString());
+    } catch (e) {
+      // skip
+    }
   };
 
   const fetchHijriDate = useCallback(async () => {
