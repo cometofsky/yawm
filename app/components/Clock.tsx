@@ -35,11 +35,11 @@ export default function Clock() {
     <div className="flex flex-col justify-center items-center">
       <div className="relative group">
         <div className="absolute -inset-1 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-3xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
-        <div className="relative flex items-end bg-black/40 backdrop-blur-xl px-8 py-6 sm:px-10 sm:py-8 md:px-12 md:py-8 rounded-3xl border border-white/10 shadow-2xl">
-          <span className="text-6xl sm:text-7xl md:text-8xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-white to-white/70 font-mono tracking-tighter drop-shadow-sm leading-none">
+        <div className="relative flex items-end bg-black/40 backdrop-blur-xl px-6 py-4 sm:px-10 sm:py-8 md:px-12 md:py-8 lg:px-16 lg:py-10 xl:px-20 xl:py-12 rounded-3xl border border-white/10 shadow-2xl">
+          <span className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-bold bg-clip-text text-transparent bg-gradient-to-br from-white to-white/70 font-mono tracking-tighter drop-shadow-sm leading-none">
             {timeString}
           </span>
-          <span className="text-xl sm:text-2xl md:text-3xl font-medium text-white/60 ml-2 sm:ml-4 mb-1 sm:mb-2 md:mb-3 leading-none">
+          <span className="text-lg sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-medium text-white/60 ml-2 sm:ml-4 mb-1 sm:mb-2 md:mb-3 lg:mb-4 xl:mb-5 leading-none">
             {period}
           </span>
         </div>
