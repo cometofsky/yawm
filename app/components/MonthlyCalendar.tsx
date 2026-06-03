@@ -36,16 +36,10 @@ export default function MonthlyCalendar({ hijriOffset }: MonthlyCalendarProps) {
   const getHijriDetails = (gregorianDate: Date) => {
     const shifted = new Date(gregorianDate);
     shifted.setDate(shifted.getDate() + hijriOffset);
-    const parts = new Intl.DateTimeFormat('en-US-u-ca-islamic', {
-      day: 'numeric', month: 'long', year: 'numeric'
-    }).formatToParts(shifted);
-    
-    let day = '1', monthStr = '', yearStr = '';
-    parts.forEach(p => {
-      if (p.type === 'day') day = p.value;
-      if (p.type === 'month') monthStr = p.value;
-      if (p.type === 'year') yearStr = p.value;
-    });
+    const day = new Intl.DateTimeFormat('en-US-u-ca-islamic', { day: 'numeric' }).format(shifted);
+    const monthStr = new Intl.DateTimeFormat('en-US-u-ca-islamic', { month: 'long' }).format(shifted);
+    let yearStr = new Intl.DateTimeFormat('en-US-u-ca-islamic', { year: 'numeric' }).format(shifted);
+    yearStr = yearStr.replace(/ AH/i, '').trim();
     return { day, full: `${day} ${monthStr} ${yearStr} AH` };
   };
 
@@ -114,14 +108,14 @@ export default function MonthlyCalendar({ hijriOffset }: MonthlyCalendarProps) {
       <div className="rounded-3xl bg-white/5 border border-white/10 p-4 sm:p-6 md:p-8 backdrop-blur-md shadow-2xl transition-all duration-500">
         
         {/* Header & Legend */}
-        <div className="flex flex-col md:flex-row items-center justify-between mb-6 md:mb-8 gap-4 md:gap-6">
+        <div className="flex flex-col md:flex-row items-center justify-between mb-6 md:mb-8 space-y-4 md:space-y-0 md:space-x-6">
           <div className="flex items-center space-x-3 text-white/80">
             <CalendarIcon className="w-6 h-6 text-blue-400" />
             <h2 className="text-2xl font-bold tracking-tight">Unified Calendar</h2>
           </div>
           
           {/* Interactive Legend */}
-          <div className="flex flex-wrap justify-center bg-black/40 px-2 py-2 rounded-2xl border border-white/5 gap-2">
+          <div className="flex flex-wrap justify-center bg-black/40 px-2 py-2 rounded-2xl border border-white/5 space-x-2">
             <div 
               onMouseEnter={() => setHoveredType('gregorian')}
               onMouseLeave={() => setHoveredType('none')}

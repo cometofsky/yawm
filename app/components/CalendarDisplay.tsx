@@ -120,8 +120,8 @@ export default function CalendarDisplay() {
         for (let test = -3; test <= 3; test++) {
           const tDate = new Date();
           tDate.setDate(tDate.getDate() + hijriOffset + test);
-          const parts = new Intl.DateTimeFormat('en-US-u-ca-islamic', {day: 'numeric'}).formatToParts(tDate);
-          const intlDay = parseInt(parts.find(p => p.type === 'day')?.value || '1', 10);
+          const dayStr = new Intl.DateTimeFormat('en-US-u-ca-islamic', {day: 'numeric'}).format(tDate);
+          const intlDay = parseInt(dayStr, 10);
           if (intlDay === aladhanDay) {
             bestOffset = test;
             break;

@@ -9,7 +9,7 @@ export default function Home() {
       <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-blue-900/30 blur-[120px] pointer-events-none" />
       <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] rounded-full bg-emerald-900/20 blur-[120px] pointer-events-none" />
 
-      <div className="z-10 w-full max-w-7xl mx-auto flex flex-col items-center gap-6 md:gap-8 lg:gap-12">
+      <div className="z-10 w-full max-w-7xl mx-auto flex flex-col items-center space-y-6 md:space-y-8 lg:space-y-12">
         <header className="text-center space-y-4 mb-6 md:mb-8">
           <h1 className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-white/60 tracking-tight">
             Universal Time Clock
