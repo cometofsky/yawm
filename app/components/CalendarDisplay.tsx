@@ -116,15 +116,18 @@ export default function CalendarDisplay() {
         // --- Calculate autoCorrectionOffset for the grid ---
         const aladhanDay = parseInt(h.day, 10);
         let bestOffset = 0;
-        // Test offsets -3 to +3 to see which Intl format matches the Aladhan day output
         for (let test = -3; test <= 3; test++) {
-          const tDate = new Date();
-          tDate.setDate(tDate.getDate() + hijriOffset + test);
-          const dayStr = new Intl.DateTimeFormat('en-US-u-ca-islamic', {day: 'numeric'}).format(tDate);
-          const intlDay = parseInt(dayStr, 10);
-          if (intlDay === aladhanDay) {
-            bestOffset = test;
-            break;
+          try {
+            const tDate = new Date();
+            tDate.setDate(tDate.getDate() + hijriOffset + test);
+            const dayStr = new Intl.DateTimeFormat('en-US-u-ca-islamic', {day: 'numeric'}).format(tDate);
+            const intlDay = parseInt(dayStr, 10);
+            if (intlDay === aladhanDay) {
+              bestOffset = test;
+              break;
+            }
+          } catch (e) {
+            break; // Safari 10 throws RangeError on exotic extensions, break early
           }
         }
         setAutoCorrectionOffset(bestOffset);

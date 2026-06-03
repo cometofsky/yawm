@@ -34,13 +34,17 @@ export default function MonthlyCalendar({ hijriOffset }: MonthlyCalendarProps) {
   };
 
   const getHijriDetails = (gregorianDate: Date) => {
-    const shifted = new Date(gregorianDate);
-    shifted.setDate(shifted.getDate() + hijriOffset);
-    const day = new Intl.DateTimeFormat('en-US-u-ca-islamic', { day: 'numeric' }).format(shifted);
-    const monthStr = new Intl.DateTimeFormat('en-US-u-ca-islamic', { month: 'long' }).format(shifted);
-    let yearStr = new Intl.DateTimeFormat('en-US-u-ca-islamic', { year: 'numeric' }).format(shifted);
-    yearStr = yearStr.replace(/ AH/i, '').trim();
-    return { day, full: `${day} ${monthStr} ${yearStr} AH` };
+    try {
+      const shifted = new Date(gregorianDate);
+      shifted.setDate(shifted.getDate() + hijriOffset);
+      const day = new Intl.DateTimeFormat('en-US-u-ca-islamic', { day: 'numeric' }).format(shifted);
+      const monthStr = new Intl.DateTimeFormat('en-US-u-ca-islamic', { month: 'long' }).format(shifted);
+      let yearStr = new Intl.DateTimeFormat('en-US-u-ca-islamic', { year: 'numeric' }).format(shifted);
+      yearStr = yearStr.replace(/ AH/i, '').trim();
+      return { day, full: `${day} ${monthStr} ${yearStr} AH` };
+    } catch (e) {
+      return { day: '-', full: 'Unavailable' };
+    }
   };
 
   const getBengaliDetails = (gregorianDate: Date) => {
