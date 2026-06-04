@@ -108,7 +108,7 @@ export default function CalendarDisplay() {
   const getHijriFromCoords = async (lat: number, lon: number) => {
     try {
       const today = new Date();
-      const todayDateStr = today.toLocaleDateString('en-GB').replace(/\//g, '-'); 
+      const todayDateStr = `${today.getDate()}-${today.getMonth() + 1}-${today.getFullYear()}`;
       
       const res = await fetch(`https://api.aladhan.com/v1/timings/${todayDateStr}?latitude=${lat}&longitude=${lon}`);
       const data = await res.json();
@@ -125,7 +125,7 @@ export default function CalendarDisplay() {
       const totalOffset = hijriOffset + maghribOffset;
       const targetDate = new Date();
       targetDate.setDate(targetDate.getDate() + totalOffset);
-      const targetDateStr = targetDate.toLocaleDateString('en-GB').replace(/\//g, '-'); 
+      const targetDateStr = `${targetDate.getDate()}-${targetDate.getMonth() + 1}-${targetDate.getFullYear()}`;
       
       let finalData = data;
       if (totalOffset !== 0) {

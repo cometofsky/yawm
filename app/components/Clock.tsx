@@ -51,8 +51,8 @@ export default function Clock({ timeZone, label, isMain = false }: ClockProps) {
   try {
     formattedTime = new Intl.DateTimeFormat('en-GB', formatOptions).format(time);
   } catch (e) {
-    // Fallback if timeZone is invalid
-    formatOptions.timeZone = undefined;
+    // Fallback if timeZone is invalid or undefined explicitly is unsupported
+    delete formatOptions.timeZone;
     formattedTime = new Intl.DateTimeFormat('en-GB', formatOptions).format(time);
   }
 
@@ -65,7 +65,7 @@ export default function Clock({ timeZone, label, isMain = false }: ClockProps) {
         <div className={`relative flex flex-col items-center bg-black/40 backdrop-blur-xl ${isMain ? 'px-6 py-4 sm:px-10 sm:py-8' : 'px-4 py-3 sm:px-6 sm:py-4'} rounded-3xl border border-white/10 shadow-2xl`}>
           <span className="text-white/60 uppercase tracking-widest text-xs sm:text-sm font-semibold mb-1 sm:mb-2">{displayLabel}</span>
           <div className="flex items-end">
-            <span className={`${isMain ? 'text-5xl sm:text-7xl md:text-8xl lg:text-9xl' : 'text-4xl sm:text-5xl md:text-6xl lg:text-7xl'} font-bold bg-clip-text text-transparent bg-gradient-to-br from-white to-white/70 font-mono tracking-tighter drop-shadow-sm leading-none`}>
+            <span className={`${isMain ? 'text-5xl sm:text-7xl md:text-8xl lg:text-9xl' : 'text-4xl sm:text-5xl md:text-6xl lg:text-7xl'} font-bold text-white font-mono tracking-tighter drop-shadow-sm leading-none`}>
               {formattedTime}
             </span>
           </div>
