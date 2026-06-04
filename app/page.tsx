@@ -9,18 +9,27 @@ export default function Home() {
       <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-blue-900/30 blur-[120px] pointer-events-none" />
       <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] rounded-full bg-emerald-900/20 blur-[120px] pointer-events-none" />
 
-      <div className="z-10 w-full max-w-7xl mx-auto flex flex-col items-center space-y-6 md:space-y-8 lg:space-y-12">
-        <header className="text-center space-y-4 mb-6 md:mb-8">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-white/60 tracking-tight">
-            Universal Time Clock
+      <div className="z-10 w-full max-w-7xl mx-auto flex flex-col items-center space-y-6 md:space-y-8 lg:space-y-12 mt-4 md:mt-8">
+        <header className="text-center space-y-4 mb-4 md:mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-white/60 tracking-tight">
+            Universal Time
           </h1>
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-white/50 max-w-2xl lg:max-w-4xl mx-auto font-light">
-            Synchronized global time featuring Gregorian, accurate location-based Hijri, and official Bengali calendars.
-          </p>
         </header>
 
         <section className="w-full">
-          <Clock />
+          <div className="flex flex-col lg:flex-row justify-center items-center gap-6 lg:gap-8 xl:gap-12 w-full">
+            <div className="order-2 lg:order-1 scale-90 lg:scale-100">
+              <Clock timeZone="Europe/London" label="London" />
+            </div>
+            
+            <div className="order-1 lg:order-2">
+              <Clock isMain={true} />
+            </div>
+            
+            <div className="order-3 lg:order-3 scale-90 lg:scale-100">
+              <Clock timeZone="Australia/Sydney" label="Sydney" />
+            </div>
+          </div>
         </section>
 
         <section className="w-full mt-4 md:mt-8">

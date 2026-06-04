@@ -107,18 +107,37 @@ export default function CalendarDisplay() {
 
   const getHijriFromCoords = async (lat: number, lon: number) => {
     try {
-      const targetDate = new Date();
-      targetDate.setDate(targetDate.getDate() + hijriOffset);
-      const dateStr = targetDate.toLocaleDateString('en-GB').replace(/\//g, '-'); 
+      const today = new Date();
+      const todayDateStr = today.toLocaleDateString('en-GB').replace(/\//g, '-'); 
       
-      const res = await fetch(`https://api.aladhan.com/v1/timings/${dateStr}?latitude=${lat}&longitude=${lon}`);
+      const res = await fetch(`https://api.aladhan.com/v1/timings/${todayDateStr}?latitude=${lat}&longitude=${lon}`);
       const data = await res.json();
       
-      if (data && data.data && data.data.date && data.data.date.hijri) {
-        const h = data.data.date.hijri;
+      let maghribOffset = 0;
+      if (data && data.data && data.data.timings && data.data.timings.Maghrib) {
+         const timeStr = data.data.timings.Maghrib.split(' ')[0];
+         const [mHours, mMins] = timeStr.split(':').map(Number);
+         if (today.getHours() > mHours || (today.getHours() === mHours && today.getMinutes() >= mMins)) {
+            maghribOffset = 1;
+         }
+      }
+
+      const totalOffset = hijriOffset + maghribOffset;
+      const targetDate = new Date();
+      targetDate.setDate(targetDate.getDate() + totalOffset);
+      const targetDateStr = targetDate.toLocaleDateString('en-GB').replace(/\//g, '-'); 
+      
+      let finalData = data;
+      if (totalOffset !== 0) {
+         const res2 = await fetch(`https://api.aladhan.com/v1/timings/${targetDateStr}?latitude=${lat}&longitude=${lon}`);
+         finalData = await res2.json();
+      }
+      
+      if (finalData && finalData.data && finalData.data.date && finalData.data.date.hijri) {
+        const h = finalData.data.date.hijri;
         setHijriDateStr(`${h.day} ${h.month.en} ${h.year} AH`);
         if (locationStatus === 'geolocation') {
-           setLocationName(data.data.meta.timezone);
+           setLocationName(finalData.data.meta.timezone);
         }
 
         // --- Calculate autoCorrectionOffset for the grid ---
@@ -127,7 +146,7 @@ export default function CalendarDisplay() {
         for (let test = -3; test <= 3; test++) {
           try {
             const tDate = new Date();
-            tDate.setDate(tDate.getDate() + hijriOffset + test);
+            tDate.setDate(tDate.getDate() + totalOffset + test);
             const dayStr = new Intl.DateTimeFormat('en-US-u-ca-islamic', {day: 'numeric'}).format(tDate);
             const intlDay = parseInt(dayStr, 10);
             if (intlDay === aladhanDay) {
@@ -138,7 +157,7 @@ export default function CalendarDisplay() {
             break; // Safari 10 throws RangeError on exotic extensions, break early
           }
         }
-        setAutoCorrectionOffset(bestOffset);
+        setAutoCorrectionOffset(bestOffset + maghribOffset);
 
       } else {
         fallbackGenericHijri();
