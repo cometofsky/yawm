@@ -1,5 +1,5 @@
 import './globals.css';
-import Script from 'next/script';
+
 
 export const metadata = {
   title: 'Universal Time Clock',
@@ -23,7 +23,7 @@ export default function RootLayout({
             `
           }}
         />
-        <Script src="https://unpkg.com/core-js-bundle@3.37.1/minified.js" strategy="beforeInteractive" />
+        <script src="https://unpkg.com/core-js-bundle@3.37.1/minified.js"></script>
       </head>
       <body className="antialiased selection:bg-blue-500/30">
         {children}
