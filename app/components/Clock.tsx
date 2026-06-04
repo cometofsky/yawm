@@ -42,7 +42,6 @@ export default function Clock({ timeZone, label, isMain = false }: ClockProps) {
   const formatOptions: Intl.DateTimeFormatOptions = {
     hour: '2-digit',
     minute: '2-digit',
-    second: '2-digit',
     hour12: false,
     timeZone: timeZone,
   };
