@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "npx babel out/_next/static -d out/_next/static --presets @babel/preset-env",
     "start": "next start"
   },
   "dependencies": {
@@ -17,6 +18,9 @@
     "react-dom": "19.2.3"
   },
   "devDependencies": {
+    "@babel/cli": "^7.29.7",
+    "@babel/core": "^7.29.7",
+    "@babel/preset-env": "^7.29.7",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
