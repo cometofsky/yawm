@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Calendar as CalendarIcon, Globe, Moon, CalendarDays, X } from 'lucide-react';
 const banglaCalendar = require('bangla-calendar');
 
@@ -17,6 +17,15 @@ export default function MonthlyCalendar({ hijriOffset }: MonthlyCalendarProps) {
   const [focusDate, setFocusDate] = useState<Date>(new Date());
   const [hoveredType, setHoveredType] = useState<CalendarType>('none');
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return <div className="w-full mx-auto mb-12 relative h-96 bg-white/5 rounded-3xl animate-pulse"></div>;
+  }
 
   const year = focusDate.getFullYear();
   const month = focusDate.getMonth();
