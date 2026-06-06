@@ -13,10 +13,25 @@ export default function Clock({ timeZone, label, isMain = false }: ClockProps) {
   const [localLabel, setLocalLabel] = useState<string>('');
 
   useEffect(() => {
-    setTime(new Date());
-    const interval = setInterval(() => {
+    let timeoutId: NodeJS.Timeout;
+    
+    const syncToMinute = () => {
       setTime(new Date());
-    }, 1000);
+      const now = new Date();
+      const msToNextMinute = (60 - now.getSeconds()) * 1000 - now.getMilliseconds();
+      timeoutId = setTimeout(syncToMinute, msToNextMinute + 50);
+    };
+    
+    syncToMinute();
+    
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible') {
+        clearTimeout(timeoutId);
+        syncToMinute();
+      }
+    };
+    
+    document.addEventListener('visibilitychange', handleVisibilityChange);
 
     if (!label) {
       try {
@@ -28,7 +43,10 @@ export default function Clock({ timeZone, label, isMain = false }: ClockProps) {
       }
     }
 
-    return () => clearInterval(interval);
+    return () => {
+      clearTimeout(timeoutId);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
   }, [label]);
 
   if (!time) {
@@ -60,8 +78,7 @@ export default function Clock({ timeZone, label, isMain = false }: ClockProps) {
   return (
     <div className="flex flex-col justify-center items-center">
       <div className="relative group">
-        <div className={`absolute -inset-1 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-3xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200`}></div>
-        <div className={`relative flex flex-col items-center bg-black/40 backdrop-blur-xl ${isMain ? 'px-6 py-4 sm:px-10 sm:py-8' : 'px-4 py-3 sm:px-6 sm:py-4'} rounded-3xl border border-white/10 shadow-2xl`}>
+        <div className={`relative flex flex-col items-center bg-[#111] ${isMain ? 'px-6 py-4 sm:px-10 sm:py-8' : 'px-4 py-3 sm:px-6 sm:py-4'} rounded-3xl border border-white/10 shadow-2xl`}>
           <span className="text-white/60 uppercase tracking-widest text-xs sm:text-sm font-semibold mb-1 sm:mb-2">{displayLabel}</span>
           <div className="flex items-end">
             <span className={`${isMain ? 'text-5xl sm:text-7xl md:text-8xl lg:text-9xl' : 'text-4xl sm:text-5xl md:text-6xl lg:text-7xl'} font-bold text-white font-mono tracking-tighter drop-shadow-sm leading-none`}>

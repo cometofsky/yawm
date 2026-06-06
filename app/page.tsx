@@ -5,9 +5,7 @@ export default function Home() {
   return (
     <main className="min-h-screen flex flex-col items-center justify-center p-4 sm:p-6 md:p-8 lg:p-12 xl:p-16 relative overflow-hidden">
       
-      {/* Subtle animated background gradients */}
-      <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-blue-900/30 blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] rounded-full bg-emerald-900/20 blur-[120px] pointer-events-none" />
+      {/* Background gradients removed for battery optimization */}
 
       <div className="z-10 w-full max-w-7xl mx-auto flex flex-col items-center space-y-4 md:space-y-6 lg:space-y-8 mt-2 md:mt-4">
         <header className="text-center mb-2 md:mb-4">

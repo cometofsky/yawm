@@ -118,7 +118,7 @@ export default function MonthlyCalendar({ hijriOffset }: MonthlyCalendarProps) {
 
   return (
     <div className="w-full mx-auto mb-12 relative">
-      <div className="rounded-3xl bg-white/5 border border-white/10 p-4 sm:p-6 md:p-8 backdrop-blur-md shadow-2xl transition-all duration-500">
+      <div className="rounded-3xl bg-[#111] border border-white/10 p-4 sm:p-6 md:p-8 shadow-2xl transition-all duration-500">
         
         {/* Header & Legend */}
         <div className="flex flex-col md:flex-row items-center justify-between mb-6 md:mb-8 space-y-4 md:space-y-0 md:space-x-6">
@@ -185,7 +185,7 @@ export default function MonthlyCalendar({ hijriOffset }: MonthlyCalendarProps) {
 
       {/* Expanded Day Modal */}
       {selectedDate && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200" onClick={() => setSelectedDate(null)}>
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 animate-in fade-in duration-200" onClick={() => setSelectedDate(null)}>
           <div 
             className="w-full max-w-md bg-[#0a0a0a] rounded-3xl border border-white/10 p-6 md:p-8 shadow-2xl transform transition-all max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}

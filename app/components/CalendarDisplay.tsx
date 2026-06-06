@@ -175,7 +175,7 @@ export default function CalendarDisplay() {
     <div className="w-full max-w-[1400px] mx-auto grid grid-cols-1 gap-6 mt-6 md:mt-12 px-2 sm:px-4 md:px-6 lg:px-8">
       
       {/* --- MOBILE/TABLET COMPACT VIEW --- */}
-      <div className="md:hidden flex flex-col space-y-3 bg-white/5 border border-white/10 rounded-3xl p-5 backdrop-blur-md shadow-lg relative overflow-hidden">
+      <div className="md:hidden flex flex-col space-y-3 bg-[#111] border border-white/10 rounded-3xl p-5 shadow-lg relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 via-emerald-400 to-orange-400 opacity-70"></div>
         
         {/* Gregorian Row */}
@@ -224,7 +224,7 @@ export default function CalendarDisplay() {
       {/* --- DESKTOP EXPANDED CARDS --- */}
       <div className="hidden md:grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 lg:gap-6">
         {/* English Card */}
-        <div className="group relative overflow-hidden rounded-3xl bg-white/5 border border-white/10 p-5 lg:p-8 backdrop-blur-md transition-all hover:bg-white/10 hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.2)]">
+        <div className="group relative overflow-hidden rounded-3xl bg-[#111] border border-white/10 p-5 lg:p-8 transition-all hover:bg-[#1a1a1a] hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.2)]">
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-indigo-500 opacity-70"></div>
           <div className="flex items-center space-x-3 md:space-x-4 mb-4 md:mb-6">
             <div className="p-2 md:p-3 bg-blue-500/20 rounded-xl text-blue-400">
@@ -238,7 +238,7 @@ export default function CalendarDisplay() {
         </div>
 
         {/* Hijri Card */}
-        <div className="group relative overflow-hidden rounded-3xl bg-white/5 border border-white/10 p-5 lg:p-8 backdrop-blur-md transition-all hover:bg-white/10 hover:shadow-[0_0_40px_-10px_rgba(16,185,129,0.2)]">
+        <div className="group relative overflow-hidden rounded-3xl bg-[#111] border border-white/10 p-5 lg:p-8 transition-all hover:bg-[#1a1a1a] hover:shadow-[0_0_40px_-10px_rgba(16,185,129,0.2)]">
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-400 to-teal-500 opacity-70"></div>
           <div className="flex justify-between items-start mb-4 md:mb-6">
             <div className="flex items-center space-x-3 md:space-x-4">
@@ -285,7 +285,7 @@ export default function CalendarDisplay() {
         </div>
 
         {/* Bengali Card */}
-        <div className="md:col-span-2 xl:col-span-1 group relative overflow-hidden rounded-3xl bg-white/5 border border-white/10 p-5 lg:p-8 backdrop-blur-md transition-all hover:bg-white/10 hover:shadow-[0_0_40px_-10px_rgba(245,158,11,0.2)]">
+        <div className="md:col-span-2 xl:col-span-1 group relative overflow-hidden rounded-3xl bg-[#111] border border-white/10 p-5 lg:p-8 transition-all hover:bg-[#1a1a1a] hover:shadow-[0_0_40px_-10px_rgba(245,158,11,0.2)]">
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-orange-400 to-amber-500 opacity-70"></div>
           <div className="flex items-center space-x-3 md:space-x-4 mb-4 md:mb-6">
             <div className="p-2 md:p-3 bg-orange-500/20 rounded-xl text-orange-400">
