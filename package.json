@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "npx babel out/_next/static -d out/_next/static --presets @babel/preset-env",
+    "postbuild": "node scripts/transpile-legacy.js",
     "start": "next start"
   },
   "dependencies": {
@@ -18,13 +18,13 @@
     "react-dom": "19.2.3"
   },
   "devDependencies": {
-    "@babel/cli": "^7.29.7",
     "@babel/core": "^7.29.7",
     "@babel/preset-env": "^7.29.7",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "core-js-bundle": "^3.49.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   },

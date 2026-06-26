@@ -13,18 +13,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <script 
-          dangerouslySetInnerHTML={{
-            __html: `
-              if (typeof window !== 'undefined' && typeof window.globalThis === 'undefined') {
-                window.globalThis = window;
-              }
-            `
-          }}
-        />
-        <script src="https://unpkg.com/core-js-bundle@3.37.1/minified.js"></script>
-      </head>
+      {/* The Safari-10 globalThis shim + self-hosted core-js are injected at the very top of
+          <head> (before Next's chunks) by scripts/transpile-legacy.js — ordering React/Next
+          can't guarantee here, and it must work offline. */}
       <body className="antialiased selection:bg-blue-500/30">
         {children}
       </body>
