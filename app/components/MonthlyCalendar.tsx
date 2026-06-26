@@ -2,11 +2,12 @@
 
 import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Calendar as CalendarIcon, Globe, Moon, CalendarDays, X } from 'lucide-react';
-import { gregorianToHijri, HIJRI_MONTHS } from '../lib/umalqura';
+import { resolveHijri, ResolvedLocation } from '../lib/hijri';
 const banglaCalendar = require('bangla-calendar');
 
 interface MonthlyCalendarProps {
-  hijriOffset: number;
+  location: ResolvedLocation;
+  manualOffset: number;
 }
 
 type CalendarType = 'none' | 'gregorian' | 'hijri' | 'bengali';
@@ -14,7 +15,7 @@ type CalendarType = 'none' | 'gregorian' | 'hijri' | 'bengali';
 const bnDigits = ['০','১','২','৩','৪','৫','৬','৭','৮','৯'];
 const WEEKDAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
-export default function MonthlyCalendar({ hijriOffset }: MonthlyCalendarProps) {
+export default function MonthlyCalendar({ location, manualOffset }: MonthlyCalendarProps) {
   const [focusDate, setFocusDate] = useState<Date>(new Date());
   const [hoveredType, setHoveredType] = useState<CalendarType>('none');
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
@@ -44,11 +45,10 @@ export default function MonthlyCalendar({ hijriOffset }: MonthlyCalendarProps) {
   };
 
   const getHijriDetails = (gregorianDate: Date) => {
-    const shifted = new Date(gregorianDate);
-    shifted.setDate(shifted.getDate() + hijriOffset);
-    const h = gregorianToHijri(shifted);
-    if (!h) return { day: '-', full: 'Out of range' };
-    return { day: String(h.d), full: `${h.d} ${HIJRI_MONTHS[h.m - 1]} ${h.y} AH` };
+    // Grid shares the headline's resolver (region offset + manual adjustment); whole-day, no Maghrib rollover.
+    const r = resolveHijri({ now: gregorianDate, location: location, manualOffset: manualOffset, applyRollover: false });
+    if (!r.hijri) return { day: '-', full: 'Out of range' };
+    return { day: String(r.hijri.d), full: r.text };
   };
 
   const getBengaliDetails = (gregorianDate: Date) => {
