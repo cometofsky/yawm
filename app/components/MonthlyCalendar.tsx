@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Calendar as CalendarIcon, Globe, Moon, CalendarDays, X } from 'lucide-react';
+import { gregorianToHijri, HIJRI_MONTHS } from '../lib/umalqura';
 const banglaCalendar = require('bangla-calendar');
 
 interface MonthlyCalendarProps {
@@ -43,17 +44,11 @@ export default function MonthlyCalendar({ hijriOffset }: MonthlyCalendarProps) {
   };
 
   const getHijriDetails = (gregorianDate: Date) => {
-    try {
-      const shifted = new Date(gregorianDate);
-      shifted.setDate(shifted.getDate() + hijriOffset);
-      const day = new Intl.DateTimeFormat('en-US-u-ca-islamic', { day: 'numeric' }).format(shifted);
-      const monthStr = new Intl.DateTimeFormat('en-US-u-ca-islamic', { month: 'long' }).format(shifted);
-      let yearStr = new Intl.DateTimeFormat('en-US-u-ca-islamic', { year: 'numeric' }).format(shifted);
-      yearStr = yearStr.replace(/ AH/i, '').trim();
-      return { day, full: `${day} ${monthStr} ${yearStr} AH` };
-    } catch (e) {
-      return { day: '-', full: 'Unavailable' };
-    }
+    const shifted = new Date(gregorianDate);
+    shifted.setDate(shifted.getDate() + hijriOffset);
+    const h = gregorianToHijri(shifted);
+    if (!h) return { day: '-', full: 'Out of range' };
+    return { day: String(h.d), full: `${h.d} ${HIJRI_MONTHS[h.m - 1]} ${h.y} AH` };
   };
 
   const getBengaliDetails = (gregorianDate: Date) => {
