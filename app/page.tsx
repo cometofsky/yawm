@@ -3,13 +3,15 @@ import CalendarDisplay from './components/CalendarDisplay';
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center p-4 sm:p-6 md:p-8 lg:p-12 xl:p-16 relative overflow-hidden">
-      
+    // Desk-clock layout: anchor to the top (no vertical centering) with a small top inset,
+    // so the clock sits near the top edge on iPad / smaller screens instead of floating mid-screen.
+    <main className="min-h-screen flex flex-col items-center px-4 sm:px-6 lg:px-8 pt-3 sm:pt-4 lg:pt-6 pb-8 lg:pb-10 relative overflow-hidden">
+
       {/* Background gradients removed for battery optimization */}
 
-      <div className="z-10 w-full max-w-7xl mx-auto flex flex-col items-center space-y-4 md:space-y-6 lg:space-y-8 mt-2 md:mt-4">
-        <header className="text-center mb-2 md:mb-4">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-white/60 tracking-tight">
+      <div className="z-10 w-full max-w-7xl mx-auto flex flex-col items-center space-y-4 md:space-y-5 lg:space-y-6">
+        <header className="text-center">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white/90 tracking-tight">
             Universal Time
           </h1>
         </header>
@@ -18,18 +20,18 @@ export default function Home() {
           <div className="w-full flex justify-center">
             <Clock isMain={true} />
           </div>
-          
+
           <div className="flex flex-row justify-center items-center gap-4 sm:gap-8 lg:gap-12 w-full scale-90 sm:scale-100">
             <Clock timeZone="Europe/London" label="London" />
             <Clock timeZone="Australia/Sydney" label="Sydney" />
           </div>
         </section>
 
-        <section className="w-full mt-2 md:mt-6">
+        <section className="w-full">
           <CalendarDisplay />
         </section>
       </div>
-      
+
     </main>
   );
 }

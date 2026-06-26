@@ -26,7 +26,7 @@ export default function MonthlyCalendar({ location, manualOffset }: MonthlyCalen
   }, []);
 
   if (!isMounted) {
-    return <div className="w-full mx-auto mb-12 relative h-96 bg-white/5 rounded-3xl animate-pulse"></div>;
+    return <div className="w-full mx-auto mb-6 relative h-96 bg-white/5 rounded-3xl animate-pulse"></div>;
   }
 
   const year = focusDate.getFullYear();
@@ -112,7 +112,7 @@ export default function MonthlyCalendar({ location, manualOffset }: MonthlyCalen
   };
 
   return (
-    <div className="w-full mx-auto mb-12 relative">
+    <div className="w-full mx-auto mb-6 relative">
       <div className="rounded-3xl bg-[#111] border border-white/10 p-4 sm:p-6 md:p-8 shadow-2xl transition-all duration-500">
         
         {/* Header & Legend */}
@@ -156,7 +156,7 @@ export default function MonthlyCalendar({ location, manualOffset }: MonthlyCalen
           <button onClick={() => navMonth(-1)} className="p-3 bg-white/5 hover:bg-white/10 rounded-xl transition-colors border border-white/10 text-white/70 hover:text-white active:scale-95">
             <ChevronLeft className="w-5 h-5" />
           </button>
-          <h3 className="text-xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-white/70">
+          <h3 className="text-xl md:text-3xl font-bold text-white/90">
             {monthName}
           </h3>
           <button onClick={() => navMonth(1)} className="p-3 bg-white/5 hover:bg-white/10 rounded-xl transition-colors border border-white/10 text-white/70 hover:text-white active:scale-95">

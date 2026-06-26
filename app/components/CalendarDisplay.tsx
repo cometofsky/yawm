@@ -184,7 +184,7 @@ export default function CalendarDisplay() {
   };
 
   return (
-    <div className="w-full max-w-[1400px] mx-auto grid grid-cols-1 gap-6 mt-6 md:mt-12 px-2 sm:px-4 md:px-6 lg:px-8">
+    <div className="w-full max-w-[1400px] mx-auto grid grid-cols-1 gap-4 md:gap-6 mt-2 md:mt-4 px-2 sm:px-4 md:px-6 lg:px-8">
       
       {/* --- MOBILE/TABLET COMPACT VIEW --- */}
       <div className="md:hidden flex flex-col space-y-3 bg-[#111] border border-white/10 rounded-3xl p-5 shadow-lg relative overflow-hidden">
