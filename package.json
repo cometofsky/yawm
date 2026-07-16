@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "postbuild": "node scripts/transpile-legacy.js",
-    "start": "next start"
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "test": "node scripts/verify-umalqura.js"
   },
   "dependencies": {
     "@csstools/postcss-cascade-layers": "^6.0.0",
