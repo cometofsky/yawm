@@ -1,0 +1,3750 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "postcss.config.mjs",
+      "file_type": "code",
+      "source_file": "postcss.config.mjs",
+      "source_location": "L1",
+      "id": "postcss_config_mjs",
+      "community": 15,
+      "norm_label": "postcss.config.mjs"
+    },
+    {
+      "label": "config",
+      "file_type": "code",
+      "source_file": "postcss.config.mjs",
+      "source_location": "L1",
+      "id": "iyyam_postcss_config_config",
+      "community": 15,
+      "norm_label": "config"
+    },
+    {
+      "label": "package.json",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L1",
+      "id": "package_json",
+      "community": 1,
+      "norm_label": "package.json"
+    },
+    {
+      "label": "name",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L2",
+      "id": "iyyam_package_name",
+      "community": 1,
+      "norm_label": "name"
+    },
+    {
+      "label": "version",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L3",
+      "id": "iyyam_package_version",
+      "community": 1,
+      "norm_label": "version"
+    },
+    {
+      "label": "private",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L4",
+      "id": "iyyam_package_private",
+      "community": 1,
+      "norm_label": "private"
+    },
+    {
+      "label": "scripts",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L5",
+      "id": "iyyam_package_scripts",
+      "community": 1,
+      "norm_label": "scripts"
+    },
+    {
+      "label": "dev",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L6",
+      "id": "iyyam_package_scripts_dev",
+      "community": 1,
+      "norm_label": "dev"
+    },
+    {
+      "label": "build",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L7",
+      "id": "iyyam_package_scripts_build",
+      "community": 1,
+      "norm_label": "build"
+    },
+    {
+      "label": "postbuild",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L8",
+      "id": "iyyam_package_scripts_postbuild",
+      "community": 1,
+      "norm_label": "postbuild"
+    },
+    {
+      "label": "start",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L9",
+      "id": "iyyam_package_scripts_start",
+      "community": 1,
+      "norm_label": "start"
+    },
+    {
+      "label": "typecheck",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L10",
+      "id": "iyyam_package_scripts_typecheck",
+      "community": 1,
+      "norm_label": "typecheck"
+    },
+    {
+      "label": "test",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L11",
+      "id": "iyyam_package_scripts_test",
+      "community": 1,
+      "norm_label": "test"
+    },
+    {
+      "label": "dependencies",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L13",
+      "id": "iyyam_package_dependencies",
+      "community": 1,
+      "norm_label": "dependencies"
+    },
+    {
+      "label": "@csstools/postcss-cascade-layers",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L14",
+      "id": "iyyam_package_dependencies_csstools_postcss_cascade_layers",
+      "community": 1,
+      "norm_label": "@csstools/postcss-cascade-layers"
+    },
+    {
+      "label": "bangla-calendar",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L15",
+      "id": "iyyam_package_dependencies_bangla_calendar",
+      "community": 1,
+      "norm_label": "bangla-calendar"
+    },
+    {
+      "label": "lucide-react",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L16",
+      "id": "iyyam_package_dependencies_lucide_react",
+      "community": 1,
+      "norm_label": "lucide-react"
+    },
+    {
+      "label": "next",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L17",
+      "id": "iyyam_package_dependencies_next",
+      "community": 1,
+      "norm_label": "next"
+    },
+    {
+      "label": "postcss-preset-env",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L18",
+      "id": "iyyam_package_dependencies_postcss_preset_env",
+      "community": 1,
+      "norm_label": "postcss-preset-env"
+    },
+    {
+      "label": "react",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L19",
+      "id": "iyyam_package_dependencies_react",
+      "community": 1,
+      "norm_label": "react"
+    },
+    {
+      "label": "react-dom",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L20",
+      "id": "iyyam_package_dependencies_react_dom",
+      "community": 1,
+      "norm_label": "react-dom"
+    },
+    {
+      "label": "devDependencies",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L22",
+      "id": "iyyam_package_devdependencies",
+      "community": 7,
+      "norm_label": "devdependencies"
+    },
+    {
+      "label": "@babel/core",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L23",
+      "id": "iyyam_package_devdependencies_babel_core",
+      "community": 7,
+      "norm_label": "@babel/core"
+    },
+    {
+      "label": "@babel/preset-env",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L24",
+      "id": "iyyam_package_devdependencies_babel_preset_env",
+      "community": 7,
+      "norm_label": "@babel/preset-env"
+    },
+    {
+      "label": "@tailwindcss/postcss",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L25",
+      "id": "iyyam_package_devdependencies_tailwindcss_postcss",
+      "community": 7,
+      "norm_label": "@tailwindcss/postcss"
+    },
+    {
+      "label": "@types/node",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L26",
+      "id": "iyyam_package_devdependencies_types_node",
+      "community": 7,
+      "norm_label": "@types/node"
+    },
+    {
+      "label": "@types/react",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L27",
+      "id": "iyyam_package_devdependencies_types_react",
+      "community": 7,
+      "norm_label": "@types/react"
+    },
+    {
+      "label": "@types/react-dom",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L28",
+      "id": "iyyam_package_devdependencies_types_react_dom",
+      "community": 7,
+      "norm_label": "@types/react-dom"
+    },
+    {
+      "label": "core-js-bundle",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L29",
+      "id": "iyyam_package_devdependencies_core_js_bundle",
+      "community": 7,
+      "norm_label": "core-js-bundle"
+    },
+    {
+      "label": "tailwindcss",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L30",
+      "id": "iyyam_package_devdependencies_tailwindcss",
+      "community": 7,
+      "norm_label": "tailwindcss"
+    },
+    {
+      "label": "typescript",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L31",
+      "id": "iyyam_package_devdependencies_typescript",
+      "community": 7,
+      "norm_label": "typescript"
+    },
+    {
+      "label": "browserslist",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L33",
+      "id": "iyyam_package_browserslist",
+      "community": 1,
+      "norm_label": "browserslist"
+    },
+    {
+      "label": "tsconfig.json",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L1",
+      "id": "tsconfig_json",
+      "community": 2,
+      "norm_label": "tsconfig.json"
+    },
+    {
+      "label": "compilerOptions",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L2",
+      "id": "iyyam_tsconfig_compileroptions",
+      "community": 2,
+      "norm_label": "compileroptions"
+    },
+    {
+      "label": "target",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L3",
+      "id": "iyyam_tsconfig_compileroptions_target",
+      "community": 2,
+      "norm_label": "target"
+    },
+    {
+      "label": "lib",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L4",
+      "id": "iyyam_tsconfig_compileroptions_lib",
+      "community": 2,
+      "norm_label": "lib"
+    },
+    {
+      "label": "allowJs",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L9",
+      "id": "iyyam_tsconfig_compileroptions_allowjs",
+      "community": 2,
+      "norm_label": "allowjs"
+    },
+    {
+      "label": "skipLibCheck",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L10",
+      "id": "iyyam_tsconfig_compileroptions_skiplibcheck",
+      "community": 2,
+      "norm_label": "skiplibcheck"
+    },
+    {
+      "label": "strict",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L11",
+      "id": "iyyam_tsconfig_compileroptions_strict",
+      "community": 2,
+      "norm_label": "strict"
+    },
+    {
+      "label": "noEmit",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L12",
+      "id": "iyyam_tsconfig_compileroptions_noemit",
+      "community": 2,
+      "norm_label": "noemit"
+    },
+    {
+      "label": "esModuleInterop",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L13",
+      "id": "iyyam_tsconfig_compileroptions_esmoduleinterop",
+      "community": 2,
+      "norm_label": "esmoduleinterop"
+    },
+    {
+      "label": "module",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L14",
+      "id": "iyyam_tsconfig_compileroptions_module",
+      "community": 2,
+      "norm_label": "module"
+    },
+    {
+      "label": "moduleResolution",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L15",
+      "id": "iyyam_tsconfig_compileroptions_moduleresolution",
+      "community": 2,
+      "norm_label": "moduleresolution"
+    },
+    {
+      "label": "resolveJsonModule",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L16",
+      "id": "iyyam_tsconfig_compileroptions_resolvejsonmodule",
+      "community": 2,
+      "norm_label": "resolvejsonmodule"
+    },
+    {
+      "label": "isolatedModules",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L17",
+      "id": "iyyam_tsconfig_compileroptions_isolatedmodules",
+      "community": 2,
+      "norm_label": "isolatedmodules"
+    },
+    {
+      "label": "jsx",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L18",
+      "id": "iyyam_tsconfig_compileroptions_jsx",
+      "community": 2,
+      "norm_label": "jsx"
+    },
+    {
+      "label": "incremental",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L19",
+      "id": "iyyam_tsconfig_compileroptions_incremental",
+      "community": 2,
+      "norm_label": "incremental"
+    },
+    {
+      "label": "plugins",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L20",
+      "id": "iyyam_tsconfig_compileroptions_plugins",
+      "community": 2,
+      "norm_label": "plugins"
+    },
+    {
+      "label": "paths",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L25",
+      "id": "iyyam_tsconfig_compileroptions_paths",
+      "community": 2,
+      "norm_label": "paths"
+    },
+    {
+      "label": "@/*",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L26",
+      "id": "iyyam_tsconfig_paths",
+      "community": 2,
+      "norm_label": "@/*"
+    },
+    {
+      "label": "include",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L31",
+      "id": "iyyam_tsconfig_include",
+      "community": 2,
+      "norm_label": "include"
+    },
+    {
+      "label": "exclude",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L40",
+      "id": "iyyam_tsconfig_exclude",
+      "community": 2,
+      "norm_label": "exclude"
+    },
+    {
+      "label": "next.config.ts",
+      "file_type": "code",
+      "source_file": "next.config.ts",
+      "source_location": "L1",
+      "id": "next_config_ts",
+      "community": 16,
+      "norm_label": "next.config.ts"
+    },
+    {
+      "label": "nextConfig",
+      "file_type": "code",
+      "source_file": "next.config.ts",
+      "source_location": "L3",
+      "id": "iyyam_next_config_nextconfig",
+      "community": 16,
+      "norm_label": "nextconfig"
+    },
+    {
+      "label": "layout.tsx",
+      "file_type": "code",
+      "source_file": "app/layout.tsx",
+      "source_location": "L1",
+      "id": "app_layout_tsx",
+      "community": 13,
+      "norm_label": "layout.tsx"
+    },
+    {
+      "label": "metadata",
+      "file_type": "code",
+      "source_file": "app/layout.tsx",
+      "source_location": "L4",
+      "id": "app_layout_metadata",
+      "community": 13,
+      "norm_label": "metadata"
+    },
+    {
+      "label": "RootLayout()",
+      "file_type": "code",
+      "source_file": "app/layout.tsx",
+      "source_location": "L9",
+      "id": "app_layout_rootlayout",
+      "community": 13,
+      "norm_label": "rootlayout()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "app/page.tsx",
+      "source_location": "L1",
+      "id": "app_page_tsx",
+      "community": 11,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "Home()",
+      "file_type": "code",
+      "source_file": "app/page.tsx",
+      "source_location": "L4",
+      "id": "app_page_home",
+      "community": 11,
+      "norm_label": "home()"
+    },
+    {
+      "label": "LocationPicker.tsx",
+      "file_type": "code",
+      "source_file": "app/components/LocationPicker.tsx",
+      "source_location": "L1",
+      "id": "app_components_locationpicker_tsx",
+      "community": 3,
+      "norm_label": "locationpicker.tsx"
+    },
+    {
+      "label": "LocationPickerProps",
+      "file_type": "code",
+      "source_file": "app/components/LocationPicker.tsx",
+      "source_location": "L7",
+      "id": "components_locationpicker_locationpickerprops",
+      "community": 3,
+      "norm_label": "locationpickerprops"
+    },
+    {
+      "label": "sameCity()",
+      "file_type": "code",
+      "source_file": "app/components/LocationPicker.tsx",
+      "source_location": "L17",
+      "id": "components_locationpicker_samecity",
+      "community": 3,
+      "norm_label": "samecity()"
+    },
+    {
+      "label": "LocationPicker()",
+      "file_type": "code",
+      "source_file": "app/components/LocationPicker.tsx",
+      "source_location": "L22",
+      "id": "components_locationpicker_locationpicker",
+      "community": 3,
+      "norm_label": "locationpicker()"
+    },
+    {
+      "label": "Clock.tsx",
+      "file_type": "code",
+      "source_file": "app/components/Clock.tsx",
+      "source_location": "L1",
+      "id": "app_components_clock_tsx",
+      "community": 11,
+      "norm_label": "clock.tsx"
+    },
+    {
+      "label": "ClockProps",
+      "file_type": "code",
+      "source_file": "app/components/Clock.tsx",
+      "source_location": "L5",
+      "id": "components_clock_clockprops",
+      "community": 11,
+      "norm_label": "clockprops"
+    },
+    {
+      "label": "Clock()",
+      "file_type": "code",
+      "source_file": "app/components/Clock.tsx",
+      "source_location": "L11",
+      "id": "components_clock_clock",
+      "community": 11,
+      "norm_label": "clock()"
+    },
+    {
+      "label": "CalendarDisplay.tsx",
+      "file_type": "code",
+      "source_file": "app/components/CalendarDisplay.tsx",
+      "source_location": "L1",
+      "id": "app_components_calendardisplay_tsx",
+      "community": 3,
+      "norm_label": "calendardisplay.tsx"
+    },
+    {
+      "label": "banglaCalendar",
+      "file_type": "code",
+      "source_file": "app/components/CalendarDisplay.tsx",
+      "source_location": "L10",
+      "id": "components_calendardisplay_banglacalendar",
+      "community": 3,
+      "norm_label": "banglacalendar"
+    },
+    {
+      "label": "NONE_LOCATION",
+      "file_type": "code",
+      "source_file": "app/components/CalendarDisplay.tsx",
+      "source_location": "L12",
+      "id": "components_calendardisplay_none_location",
+      "community": 3,
+      "norm_label": "none_location"
+    },
+    {
+      "label": "locationLabel()",
+      "file_type": "code",
+      "source_file": "app/components/CalendarDisplay.tsx",
+      "source_location": "L15",
+      "id": "components_calendardisplay_locationlabel",
+      "community": 3,
+      "norm_label": "locationlabel()"
+    },
+    {
+      "label": "CalendarDisplay()",
+      "file_type": "code",
+      "source_file": "app/components/CalendarDisplay.tsx",
+      "source_location": "L24",
+      "id": "components_calendardisplay_calendardisplay",
+      "community": 3,
+      "norm_label": "calendardisplay()"
+    },
+    {
+      "label": "MonthlyCalendar.tsx",
+      "file_type": "code",
+      "source_file": "app/components/MonthlyCalendar.tsx",
+      "source_location": "L1",
+      "id": "app_components_monthlycalendar_tsx",
+      "community": 0,
+      "norm_label": "monthlycalendar.tsx"
+    },
+    {
+      "label": "banglaCalendar",
+      "file_type": "code",
+      "source_file": "app/components/MonthlyCalendar.tsx",
+      "source_location": "L6",
+      "id": "components_monthlycalendar_banglacalendar",
+      "community": 0,
+      "norm_label": "banglacalendar"
+    },
+    {
+      "label": "MonthlyCalendarProps",
+      "file_type": "code",
+      "source_file": "app/components/MonthlyCalendar.tsx",
+      "source_location": "L8",
+      "id": "components_monthlycalendar_monthlycalendarprops",
+      "community": 0,
+      "norm_label": "monthlycalendarprops"
+    },
+    {
+      "label": "CalendarType",
+      "file_type": "code",
+      "source_file": "app/components/MonthlyCalendar.tsx",
+      "source_location": "L13",
+      "id": "components_monthlycalendar_calendartype",
+      "community": 0,
+      "norm_label": "calendartype"
+    },
+    {
+      "label": "bnDigits",
+      "file_type": "code",
+      "source_file": "app/components/MonthlyCalendar.tsx",
+      "source_location": "L15",
+      "id": "components_monthlycalendar_bndigits",
+      "community": 0,
+      "norm_label": "bndigits"
+    },
+    {
+      "label": "WEEKDAYS",
+      "file_type": "code",
+      "source_file": "app/components/MonthlyCalendar.tsx",
+      "source_location": "L16",
+      "id": "components_monthlycalendar_weekdays",
+      "community": 0,
+      "norm_label": "weekdays"
+    },
+    {
+      "label": "MonthlyCalendar()",
+      "file_type": "code",
+      "source_file": "app/components/MonthlyCalendar.tsx",
+      "source_location": "L18",
+      "id": "components_monthlycalendar_monthlycalendar",
+      "community": 0,
+      "norm_label": "monthlycalendar()"
+    },
+    {
+      "label": "umalqura.ts",
+      "file_type": "code",
+      "source_file": "app/lib/umalqura.ts",
+      "source_location": "L1",
+      "id": "app_lib_umalqura_ts",
+      "community": 9,
+      "norm_label": "umalqura.ts"
+    },
+    {
+      "label": "MAPS",
+      "file_type": "code",
+      "source_file": "app/lib/umalqura.ts",
+      "source_location": "L15",
+      "id": "lib_umalqura_maps",
+      "community": 9,
+      "norm_label": "maps"
+    },
+    {
+      "label": "HIJRI_MONTHS",
+      "file_type": "code",
+      "source_file": "app/lib/umalqura.ts",
+      "source_location": "L22",
+      "id": "lib_umalqura_hijri_months",
+      "community": 9,
+      "norm_label": "hijri_months"
+    },
+    {
+      "label": "HijriDate",
+      "file_type": "code",
+      "source_file": "app/lib/umalqura.ts",
+      "source_location": "L27",
+      "id": "lib_umalqura_hijridate",
+      "community": 9,
+      "norm_label": "hijridate"
+    },
+    {
+      "label": "gregorianToJDN()",
+      "file_type": "code",
+      "source_file": "app/lib/umalqura.ts",
+      "source_location": "L33",
+      "id": "lib_umalqura_gregoriantojdn",
+      "community": 9,
+      "norm_label": "gregoriantojdn()"
+    },
+    {
+      "label": "popcount()",
+      "file_type": "code",
+      "source_file": "app/lib/umalqura.ts",
+      "source_location": "L41",
+      "id": "lib_umalqura_popcount",
+      "community": 9,
+      "norm_label": "popcount()"
+    },
+    {
+      "label": "gregorianToHijri()",
+      "file_type": "code",
+      "source_file": "app/lib/umalqura.ts",
+      "source_location": "L48",
+      "id": "lib_umalqura_gregoriantohijri",
+      "community": 9,
+      "norm_label": "gregoriantohijri()"
+    },
+    {
+      "label": "formatHijri()",
+      "file_type": "code",
+      "source_file": "app/lib/umalqura.ts",
+      "source_location": "L74",
+      "id": "lib_umalqura_formathijri",
+      "community": 9,
+      "norm_label": "formathijri()"
+    },
+    {
+      "label": "anchor",
+      "file_type": "code",
+      "source_file": "app/lib/umalqura.ts",
+      "source_location": "L82",
+      "id": "lib_umalqura_anchor",
+      "community": 9,
+      "norm_label": "anchor"
+    },
+    {
+      "label": "eid",
+      "file_type": "code",
+      "source_file": "app/lib/umalqura.ts",
+      "source_location": "L87",
+      "id": "lib_umalqura_eid",
+      "community": 9,
+      "norm_label": "eid"
+    },
+    {
+      "label": "locations.ts",
+      "file_type": "code",
+      "source_file": "app/lib/locations.ts",
+      "source_location": "L1",
+      "id": "app_lib_locations_ts",
+      "community": 3,
+      "norm_label": "locations.ts"
+    },
+    {
+      "label": "City",
+      "file_type": "code",
+      "source_file": "app/lib/locations.ts",
+      "source_location": "L7",
+      "id": "lib_locations_city",
+      "community": 3,
+      "norm_label": "city"
+    },
+    {
+      "label": "RAW",
+      "file_type": "code",
+      "source_file": "app/lib/locations.ts",
+      "source_location": "L10",
+      "id": "lib_locations_raw",
+      "community": 3,
+      "norm_label": "raw"
+    },
+    {
+      "label": "CITIES",
+      "file_type": "code",
+      "source_file": "app/lib/locations.ts",
+      "source_location": "L913",
+      "id": "lib_locations_cities",
+      "community": 3,
+      "norm_label": "cities"
+    },
+    {
+      "label": "toRad()",
+      "file_type": "code",
+      "source_file": "app/lib/locations.ts",
+      "source_location": "L917",
+      "id": "lib_locations_torad",
+      "community": 3,
+      "norm_label": "torad()"
+    },
+    {
+      "label": "angularDist()",
+      "file_type": "code",
+      "source_file": "app/lib/locations.ts",
+      "source_location": "L920",
+      "id": "lib_locations_angulardist",
+      "community": 3,
+      "norm_label": "angulardist()"
+    },
+    {
+      "label": "nearestCity()",
+      "file_type": "code",
+      "source_file": "app/lib/locations.ts",
+      "source_location": "L928",
+      "id": "lib_locations_nearestcity",
+      "community": 3,
+      "norm_label": "nearestcity()"
+    },
+    {
+      "label": "cityByTimezone()",
+      "file_type": "code",
+      "source_file": "app/lib/locations.ts",
+      "source_location": "L946",
+      "id": "lib_locations_citybytimezone",
+      "community": 3,
+      "norm_label": "citybytimezone()"
+    },
+    {
+      "label": "REGION_OFFSET",
+      "file_type": "code",
+      "source_file": "app/lib/locations.ts",
+      "source_location": "L957",
+      "id": "lib_locations_region_offset",
+      "community": 3,
+      "norm_label": "region_offset"
+    },
+    {
+      "label": "regionOffsetFor()",
+      "file_type": "code",
+      "source_file": "app/lib/locations.ts",
+      "source_location": "L959",
+      "id": "lib_locations_regionoffsetfor",
+      "community": 0,
+      "norm_label": "regionoffsetfor()"
+    },
+    {
+      "label": "hijri.ts",
+      "file_type": "code",
+      "source_file": "app/lib/hijri.ts",
+      "source_location": "L1",
+      "id": "app_lib_hijri_ts",
+      "community": 0,
+      "norm_label": "hijri.ts"
+    },
+    {
+      "label": "LocationSource",
+      "file_type": "code",
+      "source_file": "app/lib/hijri.ts",
+      "source_location": "L10",
+      "id": "lib_hijri_locationsource",
+      "community": 0,
+      "norm_label": "locationsource"
+    },
+    {
+      "label": "ResolvedLocation",
+      "file_type": "code",
+      "source_file": "app/lib/hijri.ts",
+      "source_location": "L12",
+      "id": "lib_hijri_resolvedlocation",
+      "community": 0,
+      "norm_label": "resolvedlocation"
+    },
+    {
+      "label": "HijriResult",
+      "file_type": "code",
+      "source_file": "app/lib/hijri.ts",
+      "source_location": "L21",
+      "id": "lib_hijri_hijriresult",
+      "community": 0,
+      "norm_label": "hijriresult"
+    },
+    {
+      "label": "resolveHijri()",
+      "file_type": "code",
+      "source_file": "app/lib/hijri.ts",
+      "source_location": "L29",
+      "id": "lib_hijri_resolvehijri",
+      "community": 0,
+      "norm_label": "resolvehijri()"
+    },
+    {
+      "label": "dhaka",
+      "file_type": "code",
+      "source_file": "app/lib/hijri.ts",
+      "source_location": "L66",
+      "id": "lib_hijri_dhaka",
+      "community": 0,
+      "norm_label": "dhaka"
+    },
+    {
+      "label": "before",
+      "file_type": "code",
+      "source_file": "app/lib/hijri.ts",
+      "source_location": "L69",
+      "id": "lib_hijri_before",
+      "community": 0,
+      "norm_label": "before"
+    },
+    {
+      "label": "after",
+      "file_type": "code",
+      "source_file": "app/lib/hijri.ts",
+      "source_location": "L71",
+      "id": "lib_hijri_after",
+      "community": 0,
+      "norm_label": "after"
+    },
+    {
+      "label": "sunset.ts",
+      "file_type": "code",
+      "source_file": "app/lib/sunset.ts",
+      "source_location": "L1",
+      "id": "app_lib_sunset_ts",
+      "community": 0,
+      "norm_label": "sunset.ts"
+    },
+    {
+      "label": "gregorianToJDN()",
+      "file_type": "code",
+      "source_file": "app/lib/sunset.ts",
+      "source_location": "L20",
+      "id": "lib_sunset_gregoriantojdn",
+      "community": 0,
+      "norm_label": "gregoriantojdn()"
+    },
+    {
+      "label": "sunsetUtcMs()",
+      "file_type": "code",
+      "source_file": "app/lib/sunset.ts",
+      "source_location": "L28",
+      "id": "lib_sunset_sunsetutcms",
+      "community": 0,
+      "norm_label": "sunsetutcms()"
+    },
+    {
+      "label": "ms",
+      "file_type": "code",
+      "source_file": "app/lib/sunset.ts",
+      "source_location": "L60",
+      "id": "lib_sunset_ms",
+      "community": 0,
+      "norm_label": "ms"
+    },
+    {
+      "label": "refUtcMs",
+      "file_type": "code",
+      "source_file": "app/lib/sunset.ts",
+      "source_location": "L61",
+      "id": "lib_sunset_refutcms",
+      "community": 0,
+      "norm_label": "refutcms"
+    },
+    {
+      "label": "dump_iyyam_ctx.sh",
+      "file_type": "code",
+      "source_file": ".agents/tools/dump_iyyam_ctx.sh",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "id": "agents_tools_dump_iyyam_ctx_sh",
+      "community": 18,
+      "norm_label": "dump_iyyam_ctx.sh"
+    },
+    {
+      "label": "dump_iyyam_ctx.sh script",
+      "file_type": "code",
+      "source_file": ".agents/tools/dump_iyyam_ctx.sh",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "id": "users_faozulrafi_projects_iyyam_agents_tools_dump_iyyam_ctx_sh__entry",
+      "community": 18,
+      "norm_label": "dump_iyyam_ctx.sh script"
+    },
+    {
+      "label": "run_strict_checks.sh",
+      "file_type": "code",
+      "source_file": ".agents/tools/run_strict_checks.sh",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "id": "agents_tools_run_strict_checks_sh",
+      "community": 19,
+      "norm_label": "run_strict_checks.sh"
+    },
+    {
+      "label": "run_strict_checks.sh script",
+      "file_type": "code",
+      "source_file": ".agents/tools/run_strict_checks.sh",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "id": "users_faozulrafi_projects_iyyam_agents_tools_run_strict_checks_sh__entry",
+      "community": 19,
+      "norm_label": "run_strict_checks.sh script"
+    },
+    {
+      "label": "transpile-legacy.js",
+      "file_type": "code",
+      "source_file": "scripts/transpile-legacy.js",
+      "source_location": "L1",
+      "id": "scripts_transpile_legacy_js",
+      "community": 6,
+      "norm_label": "transpile-legacy.js"
+    },
+    {
+      "label": "fs",
+      "file_type": "code",
+      "source_file": "scripts/transpile-legacy.js",
+      "source_location": "L9",
+      "id": "scripts_transpile_legacy_fs",
+      "community": 6,
+      "norm_label": "fs"
+    },
+    {
+      "label": "path",
+      "file_type": "code",
+      "source_file": "scripts/transpile-legacy.js",
+      "source_location": "L10",
+      "id": "scripts_transpile_legacy_path",
+      "community": 6,
+      "norm_label": "path"
+    },
+    {
+      "label": "babel",
+      "file_type": "code",
+      "source_file": "scripts/transpile-legacy.js",
+      "source_location": "L11",
+      "id": "scripts_transpile_legacy_babel",
+      "community": 6,
+      "norm_label": "babel"
+    },
+    {
+      "label": "EXTENSIONS",
+      "file_type": "code",
+      "source_file": "scripts/transpile-legacy.js",
+      "source_location": "L14",
+      "id": "scripts_transpile_legacy_extensions",
+      "community": 6,
+      "norm_label": "extensions"
+    },
+    {
+      "label": "collectFiles()",
+      "file_type": "code",
+      "source_file": "scripts/transpile-legacy.js",
+      "source_location": "L16",
+      "id": "scripts_transpile_legacy_collectfiles",
+      "community": 6,
+      "norm_label": "collectfiles()"
+    },
+    {
+      "label": "files",
+      "file_type": "code",
+      "source_file": "scripts/transpile-legacy.js",
+      "source_location": "L30",
+      "id": "scripts_transpile_legacy_files",
+      "community": 6,
+      "norm_label": "files"
+    },
+    {
+      "label": "result",
+      "file_type": "code",
+      "source_file": "scripts/transpile-legacy.js",
+      "source_location": "L33",
+      "id": "scripts_transpile_legacy_result",
+      "community": 6,
+      "norm_label": "result"
+    },
+    {
+      "label": "coreJsSrc",
+      "file_type": "code",
+      "source_file": "scripts/transpile-legacy.js",
+      "source_location": "L48",
+      "id": "scripts_transpile_legacy_corejssrc",
+      "community": 6,
+      "norm_label": "corejssrc"
+    },
+    {
+      "label": "coreJsDest",
+      "file_type": "code",
+      "source_file": "scripts/transpile-legacy.js",
+      "source_location": "L49",
+      "id": "scripts_transpile_legacy_corejsdest",
+      "community": 6,
+      "norm_label": "corejsdest"
+    },
+    {
+      "label": "patchHtml()",
+      "file_type": "code",
+      "source_file": "scripts/transpile-legacy.js",
+      "source_location": "L60",
+      "id": "scripts_transpile_legacy_patchhtml",
+      "community": 6,
+      "norm_label": "patchhtml()"
+    },
+    {
+      "label": "build-cities.js",
+      "file_type": "code",
+      "source_file": "scripts/build-cities.js",
+      "source_location": "L1",
+      "id": "scripts_build_cities_js",
+      "community": 5,
+      "norm_label": "build-cities.js"
+    },
+    {
+      "label": "fs",
+      "file_type": "code",
+      "source_file": "scripts/build-cities.js",
+      "source_location": "L11",
+      "id": "scripts_build_cities_fs",
+      "community": 5,
+      "norm_label": "fs"
+    },
+    {
+      "label": "os",
+      "file_type": "code",
+      "source_file": "scripts/build-cities.js",
+      "source_location": "L12",
+      "id": "scripts_build_cities_os",
+      "community": 5,
+      "norm_label": "os"
+    },
+    {
+      "label": "path",
+      "file_type": "code",
+      "source_file": "scripts/build-cities.js",
+      "source_location": "L13",
+      "id": "scripts_build_cities_path",
+      "community": 5,
+      "norm_label": "path"
+    },
+    {
+      "label": "{ execFileSync }",
+      "file_type": "code",
+      "source_file": "scripts/build-cities.js",
+      "source_location": "L14",
+      "id": "scripts_build_cities_execfilesync",
+      "community": 5,
+      "norm_label": "{ execfilesync }"
+    },
+    {
+      "label": "OUT",
+      "file_type": "code",
+      "source_file": "scripts/build-cities.js",
+      "source_location": "L17",
+      "id": "scripts_build_cities_out",
+      "community": 5,
+      "norm_label": "out"
+    },
+    {
+      "label": "COL",
+      "file_type": "code",
+      "source_file": "scripts/build-cities.js",
+      "source_location": "L23",
+      "id": "scripts_build_cities_col",
+      "community": 5,
+      "norm_label": "col"
+    },
+    {
+      "label": "download()",
+      "file_type": "code",
+      "source_file": "scripts/build-cities.js",
+      "source_location": "L25",
+      "id": "scripts_build_cities_download",
+      "community": 5,
+      "norm_label": "download()"
+    },
+    {
+      "label": "pickName()",
+      "file_type": "code",
+      "source_file": "scripts/build-cities.js",
+      "source_location": "L35",
+      "id": "scripts_build_cities_pickname",
+      "community": 5,
+      "norm_label": "pickname()"
+    },
+    {
+      "label": "round4()",
+      "file_type": "code",
+      "source_file": "scripts/build-cities.js",
+      "source_location": "L40",
+      "id": "scripts_build_cities_round4",
+      "community": 5,
+      "norm_label": "round4()"
+    },
+    {
+      "label": "parse()",
+      "file_type": "code",
+      "source_file": "scripts/build-cities.js",
+      "source_location": "L42",
+      "id": "scripts_build_cities_parse",
+      "community": 5,
+      "norm_label": "parse()"
+    },
+    {
+      "label": "emit()",
+      "file_type": "code",
+      "source_file": "scripts/build-cities.js",
+      "source_location": "L84",
+      "id": "scripts_build_cities_emit",
+      "community": 5,
+      "norm_label": "emit()"
+    },
+    {
+      "label": "verify()",
+      "file_type": "code",
+      "source_file": "scripts/build-cities.js",
+      "source_location": "L148",
+      "id": "scripts_build_cities_verify",
+      "community": 5,
+      "norm_label": "verify()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "scripts/build-cities.js",
+      "source_location": "L170",
+      "id": "scripts_build_cities_main",
+      "community": 5,
+      "norm_label": "main()"
+    },
+    {
+      "label": "verify-umalqura.js",
+      "file_type": "code",
+      "source_file": "scripts/verify-umalqura.js",
+      "source_location": "L1",
+      "id": "scripts_verify_umalqura_js",
+      "community": 4,
+      "norm_label": "verify-umalqura.js"
+    },
+    {
+      "label": "fs",
+      "file_type": "code",
+      "source_file": "scripts/verify-umalqura.js",
+      "source_location": "L6",
+      "id": "scripts_verify_umalqura_fs",
+      "community": 4,
+      "norm_label": "fs"
+    },
+    {
+      "label": "path",
+      "file_type": "code",
+      "source_file": "scripts/verify-umalqura.js",
+      "source_location": "L7",
+      "id": "scripts_verify_umalqura_path",
+      "community": 4,
+      "norm_label": "path"
+    },
+    {
+      "label": "src",
+      "file_type": "code",
+      "source_file": "scripts/verify-umalqura.js",
+      "source_location": "L9",
+      "id": "scripts_verify_umalqura_src",
+      "community": 4,
+      "norm_label": "src"
+    },
+    {
+      "label": "EPOCH_JDN",
+      "file_type": "code",
+      "source_file": "scripts/verify-umalqura.js",
+      "source_location": "L10",
+      "id": "scripts_verify_umalqura_epoch_jdn",
+      "community": 4,
+      "norm_label": "epoch_jdn"
+    },
+    {
+      "label": "HY_START",
+      "file_type": "code",
+      "source_file": "scripts/verify-umalqura.js",
+      "source_location": "L11",
+      "id": "scripts_verify_umalqura_hy_start",
+      "community": 4,
+      "norm_label": "hy_start"
+    },
+    {
+      "label": "MAPS",
+      "file_type": "code",
+      "source_file": "scripts/verify-umalqura.js",
+      "source_location": "L12",
+      "id": "scripts_verify_umalqura_maps",
+      "community": 4,
+      "norm_label": "maps"
+    },
+    {
+      "label": "gregorianToJDN()",
+      "file_type": "code",
+      "source_file": "scripts/verify-umalqura.js",
+      "source_location": "L15",
+      "id": "scripts_verify_umalqura_gregoriantojdn",
+      "community": 4,
+      "norm_label": "gregoriantojdn()"
+    },
+    {
+      "label": "popcount()",
+      "file_type": "code",
+      "source_file": "scripts/verify-umalqura.js",
+      "source_location": "L22",
+      "id": "scripts_verify_umalqura_popcount",
+      "community": 4,
+      "norm_label": "popcount()"
+    },
+    {
+      "label": "gregorianToHijri()",
+      "file_type": "code",
+      "source_file": "scripts/verify-umalqura.js",
+      "source_location": "L23",
+      "id": "scripts_verify_umalqura_gregoriantohijri",
+      "community": 4,
+      "norm_label": "gregoriantohijri()"
+    },
+    {
+      "label": "umalqura()",
+      "file_type": "code",
+      "source_file": "scripts/verify-umalqura.js",
+      "source_location": "L41",
+      "id": "scripts_verify_umalqura_umalqura",
+      "community": 4,
+      "norm_label": "umalqura()"
+    },
+    {
+      "label": "cur",
+      "file_type": "code",
+      "source_file": "scripts/verify-umalqura.js",
+      "source_location": "L52",
+      "id": "scripts_verify_umalqura_cur",
+      "community": 4,
+      "norm_label": "cur"
+    },
+    {
+      "label": "end",
+      "file_type": "code",
+      "source_file": "scripts/verify-umalqura.js",
+      "source_location": "L53",
+      "id": "scripts_verify_umalqura_end",
+      "community": 4,
+      "norm_label": "end"
+    },
+    {
+      "label": "y",
+      "file_type": "code",
+      "source_file": "scripts/verify-umalqura.js",
+      "source_location": "L55",
+      "id": "scripts_verify_umalqura_y",
+      "community": 4,
+      "norm_label": "y"
+    },
+    {
+      "label": "d",
+      "file_type": "code",
+      "source_file": "scripts/verify-umalqura.js",
+      "source_location": "L55",
+      "id": "scripts_verify_umalqura_d",
+      "community": 4,
+      "norm_label": "d"
+    },
+    {
+      "label": "exp",
+      "file_type": "code",
+      "source_file": "scripts/verify-umalqura.js",
+      "source_location": "L56",
+      "id": "scripts_verify_umalqura_exp",
+      "community": 4,
+      "norm_label": "exp"
+    },
+    {
+      "label": "got",
+      "file_type": "code",
+      "source_file": "scripts/verify-umalqura.js",
+      "source_location": "L59",
+      "id": "scripts_verify_umalqura_got",
+      "community": 4,
+      "norm_label": "got"
+    },
+    {
+      "label": "deploy.sh",
+      "file_type": "code",
+      "source_file": "scripts/deploy.sh",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "id": "scripts_deploy_sh",
+      "community": 20,
+      "norm_label": "deploy.sh"
+    },
+    {
+      "label": "deploy.sh script",
+      "file_type": "code",
+      "source_file": "scripts/deploy.sh",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "id": "users_faozulrafi_projects_iyyam_scripts_deploy_sh__entry",
+      "community": 20,
+      "norm_label": "deploy.sh script"
+    },
+    {
+      "label": "README.md",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "id": "readme_md",
+      "community": 8,
+      "norm_label": "readme.md"
+    },
+    {
+      "label": "World Clock & Calendar",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "id": "iyyam_readme_world_clock_calendar",
+      "community": 8,
+      "norm_label": "world clock & calendar"
+    },
+    {
+      "label": "Features",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L5",
+      "id": "iyyam_readme_features",
+      "community": 8,
+      "norm_label": "features"
+    },
+    {
+      "label": "Compatibility",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L12",
+      "id": "iyyam_readme_compatibility",
+      "community": 8,
+      "norm_label": "compatibility"
+    },
+    {
+      "label": "Getting Started",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L19",
+      "id": "iyyam_readme_getting_started",
+      "community": 8,
+      "norm_label": "getting started"
+    },
+    {
+      "label": "code:bash (npm install)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L23",
+      "id": "iyyam_readme_codeblock_1",
+      "community": 8,
+      "norm_label": "code:bash (npm install)"
+    },
+    {
+      "label": "Build",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L30",
+      "id": "iyyam_readme_build",
+      "community": 8,
+      "norm_label": "build"
+    },
+    {
+      "label": "code:bash (npm run build)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L32",
+      "id": "iyyam_readme_codeblock_2",
+      "community": 8,
+      "norm_label": "code:bash (npm run build)"
+    },
+    {
+      "label": "Deploy on Vercel",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L38",
+      "id": "iyyam_readme_deploy_on_vercel",
+      "community": 8,
+      "norm_label": "deploy on vercel"
+    },
+    {
+      "label": "Manual Hosting",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L51",
+      "id": "iyyam_readme_manual_hosting",
+      "community": 8,
+      "norm_label": "manual hosting"
+    },
+    {
+      "label": "GEMINI.md",
+      "file_type": "document",
+      "source_file": "GEMINI.md",
+      "source_location": "L1",
+      "id": "gemini_md",
+      "community": 21,
+      "norm_label": "gemini.md"
+    },
+    {
+      "label": "AGENTS.md",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L1",
+      "id": "agents_md",
+      "community": 10,
+      "norm_label": "agents.md"
+    },
+    {
+      "label": "Agent Directives",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L1",
+      "id": "iyyam_agents_agent_directives",
+      "community": 10,
+      "norm_label": "agent directives"
+    },
+    {
+      "label": "Verification \u2014 run before declaring any change done",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L15",
+      "id": "iyyam_agents_verification_run_before_declaring_any_change_done",
+      "community": 10,
+      "norm_label": "verification \u2014 run before declaring any change done"
+    },
+    {
+      "label": "Do not guess \u2014 verify before use",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L22",
+      "id": "iyyam_agents_do_not_guess_verify_before_use",
+      "community": 10,
+      "norm_label": "do not guess \u2014 verify before use"
+    },
+    {
+      "label": "Where truth lives",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L32",
+      "id": "iyyam_agents_where_truth_lives",
+      "community": 10,
+      "norm_label": "where truth lives"
+    },
+    {
+      "label": "AI layer (planned)",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L39",
+      "id": "iyyam_agents_ai_layer_planned",
+      "community": 10,
+      "norm_label": "ai layer (planned)"
+    },
+    {
+      "label": "lessons_learned.md",
+      "file_type": "document",
+      "source_file": "lessons_learned.md",
+      "source_location": "L1",
+      "id": "lessons_learned_md",
+      "community": 12,
+      "norm_label": "lessons_learned.md"
+    },
+    {
+      "label": "Lessons Learned",
+      "file_type": "document",
+      "source_file": "lessons_learned.md",
+      "source_location": "L1",
+      "id": "iyyam_lessons_learned_lessons_learned",
+      "community": 12,
+      "norm_label": "lessons learned"
+    },
+    {
+      "label": "2026-06-27 \u2014 Hijri date \"always wrong, even when location granted\"",
+      "file_type": "document",
+      "source_file": "lessons_learned.md",
+      "source_location": "L3",
+      "id": "iyyam_lessons_learned_2026_06_27_hijri_date_always_wrong_even_when_location_granted",
+      "community": 12,
+      "norm_label": "2026-06-27 \u2014 hijri date \"always wrong, even when location granted\""
+    },
+    {
+      "label": "2026-06-27 \u2014 npm deprecation warnings (inflight, glob@7)",
+      "file_type": "document",
+      "source_file": "lessons_learned.md",
+      "source_location": "L18",
+      "id": "iyyam_lessons_learned_2026_06_27_npm_deprecation_warnings_inflight_glob_7",
+      "community": 12,
+      "norm_label": "2026-06-27 \u2014 npm deprecation warnings (inflight, glob@7)"
+    },
+    {
+      "label": "2026-06-27 \u2014 Location-aware Hijri (region offset + Maghrib rollover + city picker)",
+      "file_type": "document",
+      "source_file": "lessons_learned.md",
+      "source_location": "L26",
+      "id": "iyyam_lessons_learned_2026_06_27_location_aware_hijri_region_offset_maghrib_rollover_city_picker",
+      "community": 12,
+      "norm_label": "2026-06-27 \u2014 location-aware hijri (region offset + maghrib rollover + city picker)"
+    },
+    {
+      "label": "CLAUDE.md",
+      "file_type": "document",
+      "source_file": "CLAUDE.md",
+      "source_location": "L1",
+      "id": "claude_md",
+      "community": 22,
+      "norm_label": "claude.md"
+    },
+    {
+      "label": "modify_legacy_nextjs.md",
+      "file_type": "document",
+      "source_file": ".agents/skills/modify_legacy_nextjs.md",
+      "source_location": "L1",
+      "id": "agents_skills_modify_legacy_nextjs_md",
+      "community": 17,
+      "norm_label": "modify_legacy_nextjs.md"
+    },
+    {
+      "label": "Modify Legacy Next.js Skill",
+      "file_type": "document",
+      "source_file": ".agents/skills/modify_legacy_nextjs.md",
+      "source_location": "L6",
+      "id": "skills_modify_legacy_nextjs_modify_legacy_next_js_skill",
+      "community": 17,
+      "norm_label": "modify legacy next.js skill"
+    },
+    {
+      "label": "modify_hijri_logic.md",
+      "file_type": "document",
+      "source_file": ".agents/skills/modify_hijri_logic.md",
+      "source_location": "L1",
+      "id": "agents_skills_modify_hijri_logic_md",
+      "community": 14,
+      "norm_label": "modify_hijri_logic.md"
+    },
+    {
+      "label": "Modify Hijri Logic Skill",
+      "file_type": "document",
+      "source_file": ".agents/skills/modify_hijri_logic.md",
+      "source_location": "L6",
+      "id": "skills_modify_hijri_logic_modify_hijri_logic_skill",
+      "community": 14,
+      "norm_label": "modify hijri logic skill"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "postcss.config.mjs",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "postcss_config_mjs",
+      "target": "iyyam_postcss_config_config",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "iyyam_package_name",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "iyyam_package_version",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "iyyam_package_private",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "iyyam_package_scripts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "iyyam_package_dependencies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "iyyam_package_devdependencies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "iyyam_package_browserslist",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "iyyam_package_scripts",
+      "target": "iyyam_package_scripts_dev",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "iyyam_package_scripts",
+      "target": "iyyam_package_scripts_build",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "iyyam_package_scripts",
+      "target": "iyyam_package_scripts_postbuild",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "iyyam_package_scripts",
+      "target": "iyyam_package_scripts_start",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "iyyam_package_scripts",
+      "target": "iyyam_package_scripts_typecheck",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "iyyam_package_scripts",
+      "target": "iyyam_package_scripts_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "iyyam_package_dependencies",
+      "target": "iyyam_package_dependencies_csstools_postcss_cascade_layers",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "iyyam_package_dependencies",
+      "target": "iyyam_package_dependencies_bangla_calendar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "iyyam_package_dependencies",
+      "target": "iyyam_package_dependencies_lucide_react",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "iyyam_package_dependencies",
+      "target": "iyyam_package_dependencies_next",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "iyyam_package_dependencies",
+      "target": "iyyam_package_dependencies_postcss_preset_env",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "iyyam_package_dependencies",
+      "target": "iyyam_package_dependencies_react",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "iyyam_package_dependencies",
+      "target": "iyyam_package_dependencies_react_dom",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "iyyam_package_devdependencies",
+      "target": "iyyam_package_devdependencies_babel_core",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "iyyam_package_devdependencies",
+      "target": "iyyam_package_devdependencies_babel_preset_env",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "iyyam_package_devdependencies",
+      "target": "iyyam_package_devdependencies_tailwindcss_postcss",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "iyyam_package_devdependencies",
+      "target": "iyyam_package_devdependencies_types_node",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "iyyam_package_devdependencies",
+      "target": "iyyam_package_devdependencies_types_react",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "iyyam_package_devdependencies",
+      "target": "iyyam_package_devdependencies_types_react_dom",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "iyyam_package_devdependencies",
+      "target": "iyyam_package_devdependencies_core_js_bundle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "iyyam_package_devdependencies",
+      "target": "iyyam_package_devdependencies_tailwindcss",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "iyyam_package_devdependencies",
+      "target": "iyyam_package_devdependencies_typescript",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "tsconfig_json",
+      "target": "iyyam_tsconfig_compileroptions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "tsconfig_json",
+      "target": "iyyam_tsconfig_include",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "tsconfig_json",
+      "target": "iyyam_tsconfig_exclude",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "iyyam_tsconfig_compileroptions",
+      "target": "iyyam_tsconfig_compileroptions_target",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "iyyam_tsconfig_compileroptions",
+      "target": "iyyam_tsconfig_compileroptions_lib",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "iyyam_tsconfig_compileroptions",
+      "target": "iyyam_tsconfig_compileroptions_allowjs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "iyyam_tsconfig_compileroptions",
+      "target": "iyyam_tsconfig_compileroptions_skiplibcheck",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "iyyam_tsconfig_compileroptions",
+      "target": "iyyam_tsconfig_compileroptions_strict",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "iyyam_tsconfig_compileroptions",
+      "target": "iyyam_tsconfig_compileroptions_noemit",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "iyyam_tsconfig_compileroptions",
+      "target": "iyyam_tsconfig_compileroptions_esmoduleinterop",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "iyyam_tsconfig_compileroptions",
+      "target": "iyyam_tsconfig_compileroptions_module",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "iyyam_tsconfig_compileroptions",
+      "target": "iyyam_tsconfig_compileroptions_moduleresolution",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "iyyam_tsconfig_compileroptions",
+      "target": "iyyam_tsconfig_compileroptions_resolvejsonmodule",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "iyyam_tsconfig_compileroptions",
+      "target": "iyyam_tsconfig_compileroptions_isolatedmodules",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "iyyam_tsconfig_compileroptions",
+      "target": "iyyam_tsconfig_compileroptions_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "iyyam_tsconfig_compileroptions",
+      "target": "iyyam_tsconfig_compileroptions_incremental",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "iyyam_tsconfig_compileroptions",
+      "target": "iyyam_tsconfig_compileroptions_plugins",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "iyyam_tsconfig_compileroptions",
+      "target": "iyyam_tsconfig_compileroptions_paths",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "iyyam_tsconfig_compileroptions_paths",
+      "target": "iyyam_tsconfig_paths",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "next.config.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "next_config_ts",
+      "target": "iyyam_next_config_nextconfig",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/layout.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "app_layout_tsx",
+      "target": "app_layout_metadata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/layout.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "app_layout_tsx",
+      "target": "app_layout_rootlayout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "app_page_tsx",
+      "target": "app_components_clock_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "app_page_tsx",
+      "target": "app_components_calendardisplay_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/page.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "app_page_tsx",
+      "target": "app_page_home",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/components/LocationPicker.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "app_components_locationpicker_tsx",
+      "target": "app_lib_locations_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/components/LocationPicker.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "app_components_locationpicker_tsx",
+      "target": "lib_locations_city",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/components/LocationPicker.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_components_locationpicker_tsx",
+      "target": "components_locationpicker_locationpickerprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/components/LocationPicker.tsx",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "app_components_locationpicker_tsx",
+      "target": "components_locationpicker_samecity",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/components/LocationPicker.tsx",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "app_components_locationpicker_tsx",
+      "target": "components_locationpicker_locationpicker",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/components/CalendarDisplay.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "app_components_calendardisplay_tsx",
+      "target": "app_components_locationpicker_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/components/Clock.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "app_components_clock_tsx",
+      "target": "components_clock_clockprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/components/Clock.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "app_components_clock_tsx",
+      "target": "components_clock_clock",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/components/CalendarDisplay.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "app_components_calendardisplay_tsx",
+      "target": "app_components_monthlycalendar_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/components/CalendarDisplay.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_components_calendardisplay_tsx",
+      "target": "app_lib_hijri_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/components/CalendarDisplay.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_components_calendardisplay_tsx",
+      "target": "lib_hijri_resolvehijri",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/components/CalendarDisplay.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_components_calendardisplay_tsx",
+      "target": "lib_hijri_resolvedlocation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/components/CalendarDisplay.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "app_components_calendardisplay_tsx",
+      "target": "app_lib_locations_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/components/CalendarDisplay.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "app_components_calendardisplay_tsx",
+      "target": "lib_locations_cities",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/components/CalendarDisplay.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "app_components_calendardisplay_tsx",
+      "target": "lib_locations_nearestcity",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/components/CalendarDisplay.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "app_components_calendardisplay_tsx",
+      "target": "lib_locations_citybytimezone",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/components/CalendarDisplay.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "app_components_calendardisplay_tsx",
+      "target": "lib_locations_city",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/components/CalendarDisplay.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "app_components_calendardisplay_tsx",
+      "target": "components_calendardisplay_banglacalendar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/components/CalendarDisplay.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "app_components_calendardisplay_tsx",
+      "target": "components_calendardisplay_none_location",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/components/CalendarDisplay.tsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "app_components_calendardisplay_tsx",
+      "target": "components_calendardisplay_locationlabel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/components/CalendarDisplay.tsx",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "app_components_calendardisplay_tsx",
+      "target": "components_calendardisplay_calendardisplay",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/components/CalendarDisplay.tsx",
+      "source_location": "L238",
+      "weight": 1.0,
+      "source": "components_calendardisplay_calendardisplay",
+      "target": "components_calendardisplay_locationlabel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/components/MonthlyCalendar.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "app_components_monthlycalendar_tsx",
+      "target": "app_lib_hijri_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/components/MonthlyCalendar.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "app_components_monthlycalendar_tsx",
+      "target": "lib_hijri_resolvehijri",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/components/MonthlyCalendar.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "app_components_monthlycalendar_tsx",
+      "target": "lib_hijri_resolvedlocation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/components/MonthlyCalendar.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "app_components_monthlycalendar_tsx",
+      "target": "components_monthlycalendar_banglacalendar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/components/MonthlyCalendar.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "app_components_monthlycalendar_tsx",
+      "target": "components_monthlycalendar_monthlycalendarprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/components/MonthlyCalendar.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "app_components_monthlycalendar_tsx",
+      "target": "components_monthlycalendar_calendartype",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/components/MonthlyCalendar.tsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "app_components_monthlycalendar_tsx",
+      "target": "components_monthlycalendar_bndigits",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/components/MonthlyCalendar.tsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "app_components_monthlycalendar_tsx",
+      "target": "components_monthlycalendar_weekdays",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/components/MonthlyCalendar.tsx",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "app_components_monthlycalendar_tsx",
+      "target": "components_monthlycalendar_monthlycalendar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/lib/umalqura.ts",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "app_lib_umalqura_ts",
+      "target": "lib_umalqura_maps",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/lib/umalqura.ts",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "app_lib_umalqura_ts",
+      "target": "lib_umalqura_hijri_months",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/lib/umalqura.ts",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "app_lib_umalqura_ts",
+      "target": "lib_umalqura_hijridate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/lib/umalqura.ts",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "app_lib_umalqura_ts",
+      "target": "lib_umalqura_gregoriantojdn",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/lib/umalqura.ts",
+      "source_location": "L41",
+      "weight": 1.0,
+      "source": "app_lib_umalqura_ts",
+      "target": "lib_umalqura_popcount",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/lib/umalqura.ts",
+      "source_location": "L48",
+      "weight": 1.0,
+      "source": "app_lib_umalqura_ts",
+      "target": "lib_umalqura_gregoriantohijri",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/lib/umalqura.ts",
+      "source_location": "L74",
+      "weight": 1.0,
+      "source": "app_lib_umalqura_ts",
+      "target": "lib_umalqura_formathijri",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/lib/umalqura.ts",
+      "source_location": "L82",
+      "weight": 1.0,
+      "source": "app_lib_umalqura_ts",
+      "target": "lib_umalqura_anchor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/lib/umalqura.ts",
+      "source_location": "L87",
+      "weight": 1.0,
+      "source": "app_lib_umalqura_ts",
+      "target": "lib_umalqura_eid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/lib/hijri.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "app_lib_hijri_ts",
+      "target": "app_lib_umalqura_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/lib/hijri.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "app_lib_hijri_ts",
+      "target": "lib_umalqura_hijri_months",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/lib/umalqura.ts",
+      "source_location": "L49",
+      "weight": 1.0,
+      "source": "lib_umalqura_gregoriantohijri",
+      "target": "lib_umalqura_gregoriantojdn",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/lib/umalqura.ts",
+      "source_location": "L55",
+      "weight": 1.0,
+      "source": "lib_umalqura_gregoriantohijri",
+      "target": "lib_umalqura_popcount",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/lib/umalqura.ts",
+      "source_location": "L75",
+      "weight": 1.0,
+      "source": "lib_umalqura_formathijri",
+      "target": "lib_umalqura_gregoriantohijri",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/lib/hijri.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "app_lib_hijri_ts",
+      "target": "lib_umalqura_gregoriantohijri",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/lib/locations.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_lib_locations_ts",
+      "target": "lib_locations_city",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/lib/locations.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "app_lib_locations_ts",
+      "target": "lib_locations_raw",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/lib/locations.ts",
+      "source_location": "L913",
+      "weight": 1.0,
+      "source": "app_lib_locations_ts",
+      "target": "lib_locations_cities",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/lib/locations.ts",
+      "source_location": "L917",
+      "weight": 1.0,
+      "source": "app_lib_locations_ts",
+      "target": "lib_locations_torad",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/lib/locations.ts",
+      "source_location": "L920",
+      "weight": 1.0,
+      "source": "app_lib_locations_ts",
+      "target": "lib_locations_angulardist",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/lib/locations.ts",
+      "source_location": "L928",
+      "weight": 1.0,
+      "source": "app_lib_locations_ts",
+      "target": "lib_locations_nearestcity",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/lib/locations.ts",
+      "source_location": "L946",
+      "weight": 1.0,
+      "source": "app_lib_locations_ts",
+      "target": "lib_locations_citybytimezone",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/lib/locations.ts",
+      "source_location": "L957",
+      "weight": 1.0,
+      "source": "app_lib_locations_ts",
+      "target": "lib_locations_region_offset",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/lib/locations.ts",
+      "source_location": "L959",
+      "weight": 1.0,
+      "source": "app_lib_locations_ts",
+      "target": "lib_locations_regionoffsetfor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/lib/hijri.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "app_lib_hijri_ts",
+      "target": "app_lib_locations_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/lib/locations.ts",
+      "source_location": "L921",
+      "weight": 1.0,
+      "source": "lib_locations_angulardist",
+      "target": "lib_locations_torad",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/lib/locations.ts",
+      "source_location": "L933",
+      "weight": 1.0,
+      "source": "lib_locations_nearestcity",
+      "target": "lib_locations_angulardist",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/lib/hijri.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "app_lib_hijri_ts",
+      "target": "lib_locations_regionoffsetfor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/lib/hijri.ts",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "lib_hijri_resolvehijri",
+      "target": "lib_locations_regionoffsetfor"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/lib/hijri.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_lib_hijri_ts",
+      "target": "app_lib_sunset_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/lib/hijri.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_lib_hijri_ts",
+      "target": "lib_sunset_sunsetutcms",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/lib/hijri.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "app_lib_hijri_ts",
+      "target": "lib_hijri_locationsource",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/lib/hijri.ts",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "app_lib_hijri_ts",
+      "target": "lib_hijri_resolvedlocation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/lib/hijri.ts",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "app_lib_hijri_ts",
+      "target": "lib_hijri_hijriresult",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/lib/hijri.ts",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "app_lib_hijri_ts",
+      "target": "lib_hijri_resolvehijri",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/lib/hijri.ts",
+      "source_location": "L66",
+      "weight": 1.0,
+      "source": "app_lib_hijri_ts",
+      "target": "lib_hijri_dhaka",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/lib/hijri.ts",
+      "source_location": "L69",
+      "weight": 1.0,
+      "source": "app_lib_hijri_ts",
+      "target": "lib_hijri_before",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/lib/hijri.ts",
+      "source_location": "L71",
+      "weight": 1.0,
+      "source": "app_lib_hijri_ts",
+      "target": "lib_hijri_after",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/lib/hijri.ts",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "lib_hijri_resolvehijri",
+      "target": "lib_sunset_sunsetutcms"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/lib/sunset.ts",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "app_lib_sunset_ts",
+      "target": "lib_sunset_gregoriantojdn",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/lib/sunset.ts",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "app_lib_sunset_ts",
+      "target": "lib_sunset_sunsetutcms",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/lib/sunset.ts",
+      "source_location": "L60",
+      "weight": 1.0,
+      "source": "app_lib_sunset_ts",
+      "target": "lib_sunset_ms",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/lib/sunset.ts",
+      "source_location": "L61",
+      "weight": 1.0,
+      "source": "app_lib_sunset_ts",
+      "target": "lib_sunset_refutcms",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/lib/sunset.ts",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "lib_sunset_sunsetutcms",
+      "target": "lib_sunset_gregoriantojdn",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/tools/dump_iyyam_ctx.sh",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "agents_tools_dump_iyyam_ctx_sh",
+      "target": "users_faozulrafi_projects_iyyam_agents_tools_dump_iyyam_ctx_sh__entry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/tools/run_strict_checks.sh",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "agents_tools_run_strict_checks_sh",
+      "target": "users_faozulrafi_projects_iyyam_agents_tools_run_strict_checks_sh__entry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/transpile-legacy.js",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "scripts_transpile_legacy_js",
+      "target": "scripts_transpile_legacy_fs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/transpile-legacy.js",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "scripts_transpile_legacy_js",
+      "target": "scripts_transpile_legacy_path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/transpile-legacy.js",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "scripts_transpile_legacy_js",
+      "target": "scripts_transpile_legacy_babel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/transpile-legacy.js",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "scripts_transpile_legacy_js",
+      "target": "scripts_transpile_legacy_extensions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/transpile-legacy.js",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "scripts_transpile_legacy_js",
+      "target": "scripts_transpile_legacy_collectfiles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/transpile-legacy.js",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "scripts_transpile_legacy_js",
+      "target": "scripts_transpile_legacy_files",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/transpile-legacy.js",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "scripts_transpile_legacy_js",
+      "target": "scripts_transpile_legacy_result",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/transpile-legacy.js",
+      "source_location": "L48",
+      "weight": 1.0,
+      "source": "scripts_transpile_legacy_js",
+      "target": "scripts_transpile_legacy_corejssrc",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/transpile-legacy.js",
+      "source_location": "L49",
+      "weight": 1.0,
+      "source": "scripts_transpile_legacy_js",
+      "target": "scripts_transpile_legacy_corejsdest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/transpile-legacy.js",
+      "source_location": "L60",
+      "weight": 1.0,
+      "source": "scripts_transpile_legacy_js",
+      "target": "scripts_transpile_legacy_patchhtml",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/build-cities.js",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "scripts_build_cities_js",
+      "target": "scripts_build_cities_fs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/build-cities.js",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "scripts_build_cities_js",
+      "target": "scripts_build_cities_os",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/build-cities.js",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "scripts_build_cities_js",
+      "target": "scripts_build_cities_path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/build-cities.js",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "scripts_build_cities_js",
+      "target": "scripts_build_cities_execfilesync",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/build-cities.js",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "scripts_build_cities_js",
+      "target": "scripts_build_cities_out",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/build-cities.js",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "scripts_build_cities_js",
+      "target": "scripts_build_cities_col",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/build-cities.js",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "scripts_build_cities_js",
+      "target": "scripts_build_cities_download",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/build-cities.js",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "scripts_build_cities_js",
+      "target": "scripts_build_cities_pickname",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/build-cities.js",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "scripts_build_cities_js",
+      "target": "scripts_build_cities_round4",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/build-cities.js",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "scripts_build_cities_js",
+      "target": "scripts_build_cities_parse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/build-cities.js",
+      "source_location": "L84",
+      "weight": 1.0,
+      "source": "scripts_build_cities_js",
+      "target": "scripts_build_cities_emit",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/build-cities.js",
+      "source_location": "L148",
+      "weight": 1.0,
+      "source": "scripts_build_cities_js",
+      "target": "scripts_build_cities_verify",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/build-cities.js",
+      "source_location": "L170",
+      "weight": 1.0,
+      "source": "scripts_build_cities_js",
+      "target": "scripts_build_cities_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/build-cities.js",
+      "source_location": "L171",
+      "weight": 1.0,
+      "source": "scripts_build_cities_main",
+      "target": "scripts_build_cities_download",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/build-cities.js",
+      "source_location": "L60",
+      "weight": 1.0,
+      "source": "scripts_build_cities_parse",
+      "target": "scripts_build_cities_pickname",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/build-cities.js",
+      "source_location": "L86",
+      "weight": 1.0,
+      "source": "scripts_build_cities_emit",
+      "target": "scripts_build_cities_round4",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/build-cities.js",
+      "source_location": "L172",
+      "weight": 1.0,
+      "source": "scripts_build_cities_main",
+      "target": "scripts_build_cities_parse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/build-cities.js",
+      "source_location": "L173",
+      "weight": 1.0,
+      "source": "scripts_build_cities_main",
+      "target": "scripts_build_cities_emit",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/build-cities.js",
+      "source_location": "L175",
+      "weight": 1.0,
+      "source": "scripts_build_cities_main",
+      "target": "scripts_build_cities_verify",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify-umalqura.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "scripts_verify_umalqura_js",
+      "target": "scripts_verify_umalqura_fs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify-umalqura.js",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "scripts_verify_umalqura_js",
+      "target": "scripts_verify_umalqura_path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify-umalqura.js",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "scripts_verify_umalqura_js",
+      "target": "scripts_verify_umalqura_src",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify-umalqura.js",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "scripts_verify_umalqura_js",
+      "target": "scripts_verify_umalqura_epoch_jdn",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify-umalqura.js",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "scripts_verify_umalqura_js",
+      "target": "scripts_verify_umalqura_hy_start",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify-umalqura.js",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "scripts_verify_umalqura_js",
+      "target": "scripts_verify_umalqura_maps",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify-umalqura.js",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "scripts_verify_umalqura_js",
+      "target": "scripts_verify_umalqura_gregoriantojdn",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify-umalqura.js",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "scripts_verify_umalqura_js",
+      "target": "scripts_verify_umalqura_popcount",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify-umalqura.js",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "scripts_verify_umalqura_js",
+      "target": "scripts_verify_umalqura_gregoriantohijri",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify-umalqura.js",
+      "source_location": "L41",
+      "weight": 1.0,
+      "source": "scripts_verify_umalqura_js",
+      "target": "scripts_verify_umalqura_umalqura",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify-umalqura.js",
+      "source_location": "L52",
+      "weight": 1.0,
+      "source": "scripts_verify_umalqura_js",
+      "target": "scripts_verify_umalqura_cur",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify-umalqura.js",
+      "source_location": "L53",
+      "weight": 1.0,
+      "source": "scripts_verify_umalqura_js",
+      "target": "scripts_verify_umalqura_end",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify-umalqura.js",
+      "source_location": "L55",
+      "weight": 1.0,
+      "source": "scripts_verify_umalqura_js",
+      "target": "scripts_verify_umalqura_y",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify-umalqura.js",
+      "source_location": "L55",
+      "weight": 1.0,
+      "source": "scripts_verify_umalqura_js",
+      "target": "scripts_verify_umalqura_d",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify-umalqura.js",
+      "source_location": "L56",
+      "weight": 1.0,
+      "source": "scripts_verify_umalqura_js",
+      "target": "scripts_verify_umalqura_exp",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify-umalqura.js",
+      "source_location": "L59",
+      "weight": 1.0,
+      "source": "scripts_verify_umalqura_js",
+      "target": "scripts_verify_umalqura_got",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify-umalqura.js",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "scripts_verify_umalqura_gregoriantohijri",
+      "target": "scripts_verify_umalqura_gregoriantojdn",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/verify-umalqura.js",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "scripts_verify_umalqura_gregoriantohijri",
+      "target": "scripts_verify_umalqura_popcount",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/deploy.sh",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "scripts_deploy_sh",
+      "target": "users_faozulrafi_projects_iyyam_scripts_deploy_sh__entry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "readme_md",
+      "target": "iyyam_readme_world_clock_calendar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "iyyam_readme_world_clock_calendar",
+      "target": "iyyam_readme_features",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "iyyam_readme_world_clock_calendar",
+      "target": "iyyam_readme_compatibility",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "iyyam_readme_world_clock_calendar",
+      "target": "iyyam_readme_getting_started",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "iyyam_readme_world_clock_calendar",
+      "target": "iyyam_readme_build",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "iyyam_readme_world_clock_calendar",
+      "target": "iyyam_readme_deploy_on_vercel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L51",
+      "weight": 1.0,
+      "source": "iyyam_readme_world_clock_calendar",
+      "target": "iyyam_readme_manual_hosting",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "iyyam_readme_getting_started",
+      "target": "iyyam_readme_codeblock_1",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "iyyam_readme_build",
+      "target": "iyyam_readme_codeblock_2",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "agents_md",
+      "target": "iyyam_agents_agent_directives",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "iyyam_agents_agent_directives",
+      "target": "iyyam_agents_verification_run_before_declaring_any_change_done",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "iyyam_agents_agent_directives",
+      "target": "iyyam_agents_do_not_guess_verify_before_use",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "iyyam_agents_agent_directives",
+      "target": "iyyam_agents_where_truth_lives",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "iyyam_agents_agent_directives",
+      "target": "iyyam_agents_ai_layer_planned",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lessons_learned.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "lessons_learned_md",
+      "target": "iyyam_lessons_learned_lessons_learned",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lessons_learned.md",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "iyyam_lessons_learned_lessons_learned",
+      "target": "iyyam_lessons_learned_2026_06_27_hijri_date_always_wrong_even_when_location_granted",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lessons_learned.md",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "iyyam_lessons_learned_lessons_learned",
+      "target": "iyyam_lessons_learned_2026_06_27_npm_deprecation_warnings_inflight_glob_7",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lessons_learned.md",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "iyyam_lessons_learned_lessons_learned",
+      "target": "iyyam_lessons_learned_2026_06_27_location_aware_hijri_region_offset_maghrib_rollover_city_picker",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/modify_legacy_nextjs.md",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "agents_skills_modify_legacy_nextjs_md",
+      "target": "skills_modify_legacy_nextjs_modify_legacy_next_js_skill",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/modify_hijri_logic.md",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "agents_skills_modify_hijri_logic_md",
+      "target": "skills_modify_hijri_logic_modify_hijri_logic_skill",
+      "confidence_score": 1.0
+    }
+  ],
+  "hyperedges": [],
+  "built_at_commit": "ab11e4ea57c4ac25d2bb1a3cbd3b5bde7f6f450b"
+}
