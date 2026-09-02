@@ -2,8 +2,8 @@
 
 ## Corpus Summary
 - **Files**: 58 files
-- **Symbols (Nodes)**: 670 nodes
-- **Relationships (Edges)**: 641 edges
+- **Symbols (Nodes)**: 676 nodes
+- **Relationships (Edges)**: 647 edges
 - **Verification Status**: 100% EXTRACTED from TypeScript/JavaScript AST
 - **Target Platform**: Desktop Clock / iOS 10.3.4 Safari legacy export (100% offline)
 
@@ -31,13 +31,13 @@
 
 ### 2. User Interface Components (`app/components/` & `app/page.tsx`)
 - [`app/page.tsx`](file:///Users/FaozulRafi/Projects/iyyam/app/page.tsx)
-  - Hero layout for iPad/desktop desk clock: Side-by-side display with **Current Waqt Countdown** on top-left and **Main Local Time & World Clocks** on top-right.
+  - Hero layout for iPad/desktop desk clock: Side-by-side display with **WaqtCountdownCard** on top-left and **Main Local Clock & World Clocks** on top-right, followed by full-width **TodayPrayerRibbon**.
 - [`app/components/PrayerDisplay.tsx`](file:///Users/FaozulRafi/Projects/iyyam/app/components/PrayerDisplay.tsx)
-  - Active Waqt hero card with live ticking seconds countdown, status badge, Iftar tracker, and horizontal prayer times timetable ribbon.
+  - Exports `WaqtCountdownCard` (live seconds countdown, active waqt header, Iftar pill, Asr juristic toggle) and `TodayPrayerRibbon` (full-width 6-column timetable ribbon with active waqt highlight).
 - [`app/components/Clock.tsx`](file:///Users/FaozulRafi/Projects/iyyam/app/components/Clock.tsx)
-  - Digital clock supporting main hero mode and secondary world clock modes (London, Sydney).
+  - Digital clock supporting main hero mode with location badge & date, plus compact secondary world clock modes (London, Sydney).
 - [`app/components/CalendarDisplay.tsx`](file:///Users/FaozulRafi/Projects/iyyam/app/components/CalendarDisplay.tsx)
-  - Three-tier date display for Gregorian, Hijri, and Bengali calendars with manual sighting adjustments.
+  - Three-card responsive layout for Gregorian, Hijri, and Bengali calendars with manual sighting adjustments.
 - [`app/components/MonthlyCalendar.tsx`](file:///Users/FaozulRafi/Projects/iyyam/app/components/MonthlyCalendar.tsx)
   - Unified multi-calendar monthly grid with interactive day details and triple calendar day labels.
 - [`app/components/LocationPicker.tsx`](file:///Users/FaozulRafi/Projects/iyyam/app/components/LocationPicker.tsx)
@@ -47,7 +47,7 @@
 
 ### 3. Build, Transpilation & Verification Pipeline (`scripts/`)
 - [`scripts/verify-prayer.js`](file:///Users/FaozulRafi/Projects/iyyam/scripts/verify-prayer.js)
-  - Regression and accuracy test suite verifying prayer calculations for global test cities (Dhaka, Makkah, London).
+  - Regression and accuracy test suite verifying prayer calculations for global test cities (Dhaka, Makkah, London, Tromso polar day).
 - [`scripts/verify-umalqura.js`](file:///Users/FaozulRafi/Projects/iyyam/scripts/verify-umalqura.js)
   - Mathematical integrity test verifying all 12,645 days in Umm al-Qura table against Intl.
 - [`scripts/transpile-legacy.js`](file:///Users/FaozulRafi/Projects/iyyam/scripts/transpile-legacy.js)
@@ -63,7 +63,7 @@
    ├──> useLocationState() (app/lib/useLocationState.ts)
    │        ├──> nearestCity(), cityByTimezone() (app/lib/locations.ts)
    │        └──> ResolvedLocation (app/lib/hijri.ts)
-   ├──> PrayerDisplay (app/components/PrayerDisplay.tsx)
+   ├──> WaqtCountdownCard, TodayPrayerRibbon (app/components/PrayerDisplay.tsx)
    │        └──> resolveCurrentWaqt(), calculateDayPrayers() (app/lib/prayer.ts)
    ├──> Clock (app/components/Clock.tsx)
    └──> CalendarDisplay (app/components/CalendarDisplay.tsx)
