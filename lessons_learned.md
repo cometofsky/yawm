@@ -71,3 +71,24 @@ left them floating.
 channels — it reported 1.02:1 for text that is plainly legible. Painting the colour to a 1x1
 canvas over black and white recovers real sRGB + alpha. Always include a known-failing control
 in the check; without it a broken contrast script reads as a clean pass.
+
+2026-09-02 · Hero tie-break, second pass (waqt vs local clock) · The iPad-responsiveness rewrite
+reset both hero cards to one shared treatment (`md:grid-cols-2`, `#121212`, `shadow-2xl`, matching
+accent bars, identical `text-4xl→6xl` numerals), so neither read as the entry point. Separated them
+on four channels: track width (5/3 of an 8-col grid), numeral scale (1.5x), surface elevation
+(`#121212`+shadow vs `#0c0c0c` flat) and luminance (`#fff` vs `white/70`, measured 255 vs 179 via
+canvas). Final direction per the user: local clock is PRIMARY while the waqt keeps the WIDER
+column — width deliberately runs counter to emphasis, because the countdown is 8 characters wide
+and the clock is 5. Comments in `page.tsx`/`Clock.tsx` say so, since it looks like a mistake.
+
+2026-09-02 · `font-mono` is a no-op in this app · `globals.css` maps `--font-mono` to
+`var(--font-geist-mono)`, which is never defined, and `body` sets Arial — so every `font-mono`
+numeral renders proportional. Harmless today only because the countdown is left-aligned, so the
+per-second digits sit at the end of the string and nothing shifts; a centred or right-aligned
+countdown would visibly jitter (~12px spread at 72px, measured on canvas).
+
+2026-09-02 · `gap-*` on flex is dropped on the iOS 10 target; `space-x-*` is not · Tailwind v4
+emits bare `gap:` with no fallback (flex `gap` needs Safari 14.1), but `space-x-3` emits physical
+`margin-left`/`margin-right`. Colour utilities are fine either way — v4 ships an `#ffffff1a` hex
+fallback ahead of the `color-mix()` line. Verified by grepping the built `out/_next/static/*.css`,
+which is the only place these questions can be answered.

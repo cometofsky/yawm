@@ -18,18 +18,22 @@ export default function Home() {
           </h1>
         </header>
 
-        {/* Top Hero Section: Side-by-Side Current Waqt (Left) and Local Clock (Right) */}
-        <section className="w-full grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 md:gap-5 items-stretch">
-          {/* Left Hero Card: Current Waqt & Countdown */}
-          <div className="w-full">
+        {/* Top Hero Section. The two cards are deliberately NOT co-equal, and width runs
+            COUNTER to the hierarchy on purpose: the waqt keeps 5 of 8 tracks (62.5%) because its
+            countdown is 8 monospace characters, but the local clock in the narrower 3 (37.5%) is
+            the primary. Scale, luminance and elevation carry that alone — do not "fix" the widths
+            to match the emphasis. */}
+        <section className="w-full grid grid-cols-1 md:grid-cols-8 gap-3 sm:gap-4 md:gap-5 items-stretch">
+          {/* Secondary: Current Waqt & Countdown — wider, but dimmer and smaller */}
+          <div className="w-full md:col-span-5">
             <WaqtCountdownCard
               location={locationState.location}
               isLoaded={locationState.isLoaded}
             />
           </div>
 
-          {/* Right Hero Card: Main Local Clock & Date */}
-          <div className="w-full">
+          {/* Primary: Local Clock & Date — narrower, but largest and fully white */}
+          <div className="w-full md:col-span-3">
             <Clock
               isMain={true}
               timeZone={locationState.location.tz || undefined}
@@ -46,8 +50,9 @@ export default function Home() {
           />
         </section>
 
-        {/* World Clocks Bar */}
-        <section className="flex flex-row justify-center items-center gap-3 sm:gap-4 w-full">
+        {/* World Clocks Bar — tertiary. Left-anchored to the same rail as the cards above;
+            centring left them floating once the local clock stopped being full-width. */}
+        <section className="flex flex-row justify-start items-center space-x-3 sm:space-x-4 w-full">
           <Clock timeZone="Europe/London" label="London" />
           <Clock timeZone="Australia/Sydney" label="Sydney" />
         </section>

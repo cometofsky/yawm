@@ -58,10 +58,19 @@ function formatTime12(timeMs: number, timeZone?: string | null): string {
   }
 }
 
+function waqtElapsed(status: WaqtStatus, nowMs: number): number {
+  const span = status.currentWaqtEndMs - status.currentWaqtStartMs;
+  if (!(span > 0)) return 0;
+  const fraction = (nowMs - status.currentWaqtStartMs) / span;
+  if (!(fraction > 0)) return 0;
+  return fraction > 1 ? 1 : fraction;
+}
+
 export function WaqtCountdownCard({ location, isLoaded }: PrayerDisplayProps) {
   const [asrMethod, setAsrMethod] = useState<AsrJuristicMethod>('standard');
   const [waqtStatus, setWaqtStatus] = useState<WaqtStatus | null>(null);
   const [remaining, setRemaining] = useState<string>('00:00:00');
+  const [elapsed, setElapsed] = useState<number>(0);
   const [epoch, setEpoch] = useState<number>(0);
 
   useEffect(() => {
@@ -91,6 +100,7 @@ export function WaqtCountdownCard({ location, isLoaded }: PrayerDisplayProps) {
     });
     setWaqtStatus(status);
     setRemaining(status ? status.remainingFormatted : '00:00:00');
+    setElapsed(status ? waqtElapsed(status, Date.now()) : 0);
   }, [location.lat, location.lon, location.tz, asrMethod, epoch]);
 
   useEffect(() => {
@@ -107,6 +117,7 @@ export function WaqtCountdownCard({ location, isLoaded }: PrayerDisplayProps) {
         return;
       }
       setRemaining(formatCountdown(endMs - now.getTime()));
+      setElapsed(waqtElapsed(waqtStatus, now.getTime()));
     };
 
     tick();
@@ -132,7 +143,7 @@ export function WaqtCountdownCard({ location, isLoaded }: PrayerDisplayProps) {
 
   if (!isLoaded) {
     return (
-      <div className="w-full h-48 bg-[#121212] border border-white/10 rounded-3xl animate-pulse flex items-center justify-center text-white/40">
+      <div className="w-full h-48 bg-[#0c0c0c] border border-white/10 rounded-3xl animate-pulse flex items-center justify-center text-white/40">
         Calculating Prayer Times...
       </div>
     );
@@ -140,7 +151,7 @@ export function WaqtCountdownCard({ location, isLoaded }: PrayerDisplayProps) {
 
   if (location.lat == null || location.lon == null) {
     return (
-      <div className="w-full h-full min-h-[190px] rounded-3xl bg-[#121212] border border-white/10 p-5 sm:p-6 flex flex-col items-start justify-center space-y-2">
+      <div className="w-full h-full min-h-[190px] rounded-3xl bg-[#0c0c0c] border border-white/10 p-5 sm:p-6 flex flex-col items-start justify-center space-y-2">
         <div className="flex items-center space-x-2 text-amber-400">
           <MapPinOff className="w-5 h-5" />
           <h2 className="text-base font-semibold">Location Required</h2>
@@ -154,7 +165,7 @@ export function WaqtCountdownCard({ location, isLoaded }: PrayerDisplayProps) {
 
   if (!waqtStatus) {
     return (
-      <div className="w-full h-48 bg-[#121212] border border-white/10 rounded-3xl animate-pulse flex items-center justify-center text-white/40">
+      <div className="w-full h-48 bg-[#0c0c0c] border border-white/10 rounded-3xl animate-pulse flex items-center justify-center text-white/40">
         Calculating Prayer Times...
       </div>
     );
@@ -164,9 +175,9 @@ export function WaqtCountdownCard({ location, isLoaded }: PrayerDisplayProps) {
   const iftarStr = formatTime(waqtStatus.iftarMs, location.tz);
 
   return (
-    <div className="relative group overflow-hidden rounded-3xl bg-[#121212] border border-white/10 p-5 sm:p-6 md:p-7 shadow-2xl h-full flex flex-col justify-between">
+    <div className="relative group overflow-hidden rounded-3xl bg-[#0c0c0c] border border-white/10 p-5 sm:p-6 md:p-7 h-full flex flex-col justify-between">
       {/* Top accent gradient */}
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-400 via-orange-500 to-rose-500 opacity-80"></div>
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-400 via-orange-500 to-rose-500 opacity-40"></div>
 
       <div>
         {/* Top line: Label on left, controls on right */}
@@ -219,17 +230,31 @@ export function WaqtCountdownCard({ location, isLoaded }: PrayerDisplayProps) {
           <div className="p-2 bg-amber-500/15 rounded-2xl">
             {getWaqtIcon(waqtStatus.currentWaqt)}
           </div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold uppercase tracking-tight text-amber-400">
+          <h2 className="text-2xl sm:text-3xl font-extrabold uppercase tracking-tight text-amber-300/80">
             {waqtStatus.currentWaqtLabel}
           </h2>
         </div>
       </div>
 
-      {/* Large Countdown Display */}
+      {/* Countdown. Secondary: ~1/1.6 the local clock's numeral and off pure white, even
+          though this card holds the wider column. Width alone must not read as importance. */}
       <div className="flex flex-col items-start mt-1">
-        <span className="text-4xl sm:text-5xl md:text-6xl font-bold font-mono text-white tracking-tight leading-none">
+        <span className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-bold font-mono text-white/70 tracking-tight leading-none">
           {remaining}
         </span>
+
+        {/* Elapsed share of the current waqt. Purely redundant with the countdown and the
+            "Ends at" line below, so it is hidden from assistive tech rather than announcing
+            a progressbar that changes once a second. */}
+        <div
+          aria-hidden="true"
+          className="w-full max-w-sm h-1 mt-4 rounded-full bg-white/10 overflow-hidden"
+        >
+          <div
+            className="h-full rounded-full bg-amber-300/60"
+            style={{ width: (elapsed * 100).toFixed(2) + '%' }}
+          ></div>
+        </div>
 
         {/* Subtitle Status */}
         <div className="flex items-center space-x-2 mt-2.5 text-xs sm:text-sm text-white/60">
@@ -275,7 +300,7 @@ export function TodayPrayerRibbon({ location, isLoaded }: PrayerDisplayProps) {
   }
 
   return (
-    <div className="w-full bg-[#121212] border border-white/10 rounded-2xl p-2 sm:p-3 shadow-xl overflow-hidden">
+    <div className="w-full bg-[#0c0c0c] border border-white/10 rounded-2xl p-2 sm:p-3 overflow-hidden">
       <div className="grid grid-cols-3 sm:grid-cols-6 gap-2 sm:gap-3">
         {waqtStatus.todayPrayers.map((item) => {
           const timeStr = formatTime(item.timeMs, location.tz);
@@ -287,7 +312,7 @@ export function TodayPrayerRibbon({ location, isLoaded }: PrayerDisplayProps) {
               aria-current={isCurrent ? 'true' : undefined}
               className={`flex flex-col items-center justify-center py-2.5 px-2 rounded-xl transition-all text-center ${
                 isCurrent
-                  ? 'bg-white text-black font-bold shadow-lg'
+                  ? 'bg-amber-300 text-black font-bold shadow-lg'
                   : 'bg-white/5 text-white/75 hover:bg-white/10'
               }`}
             >
@@ -305,7 +330,7 @@ export function TodayPrayerRibbon({ location, isLoaded }: PrayerDisplayProps) {
               </div>
               <span
                 className={`font-mono text-xs sm:text-sm md:text-base mt-0.5 font-bold ${
-                  isCurrent ? 'text-black font-black' : 'text-white'
+                  isCurrent ? 'text-black font-black' : 'text-white/80'
                 }`}
               >
                 {timeStr}
