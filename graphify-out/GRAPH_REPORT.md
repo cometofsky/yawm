@@ -1,127 +1,76 @@
-# Graph Report - iyyam  (2026-08-30)
+# Graph Report & Architecture Wiki — iyyam (2026-09-02)
 
-## Corpus Check
-- 27 files · ~12,064 words
-- Verdict: corpus is large enough that graph structure adds value.
+## Corpus Summary
+- **Files**: 58 files
+- **Symbols (Nodes)**: 670 nodes
+- **Relationships (Edges)**: 641 edges
+- **Verification Status**: 100% EXTRACTED from TypeScript/JavaScript AST
+- **Target Platform**: Desktop Clock / iOS 10.3.4 Safari legacy export (100% offline)
 
-## Summary
-- 186 nodes · 200 edges · 23 communities (14 shown, 9 thin omitted)
-- Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
-- Token cost: 0 input · 0 output
+---
 
-## Graph Freshness
-- Built from commit: `ab11e4ea`
-- Run `git rev-parse HEAD` and compare to check if the graph is stale.
-- Run `graphify update .` after code changes (no API cost).
+## Core System Architecture & Modules
 
-## Community Hubs (Navigation)
-- [[_COMMUNITY_Community 0|Community 0]]
-- [[_COMMUNITY_Community 1|Community 1]]
-- [[_COMMUNITY_Community 2|Community 2]]
-- [[_COMMUNITY_Community 3|Community 3]]
-- [[_COMMUNITY_Community 4|Community 4]]
-- [[_COMMUNITY_Community 5|Community 5]]
-- [[_COMMUNITY_Community 6|Community 6]]
-- [[_COMMUNITY_Community 7|Community 7]]
-- [[_COMMUNITY_Community 8|Community 8]]
-- [[_COMMUNITY_Community 9|Community 9]]
-- [[_COMMUNITY_Community 10|Community 10]]
-- [[_COMMUNITY_Community 11|Community 11]]
-- [[_COMMUNITY_Community 12|Community 12]]
-- [[_COMMUNITY_Community 13|Community 13]]
-- [[_COMMUNITY_Community 14|Community 14]]
-- [[_COMMUNITY_Community 15|Community 15]]
-- [[_COMMUNITY_Community 16|Community 16]]
-- [[_COMMUNITY_Community 17|Community 17]]
-- [[_COMMUNITY_Community 18|Community 18]]
-- [[_COMMUNITY_Community 19|Community 19]]
-- [[_COMMUNITY_Community 20|Community 20]]
+### 1. Date & Astronomical Calculation Engines (`app/lib/`)
+- [`app/lib/prayer.ts`](file:///Users/FaozulRafi/Projects/iyyam/app/lib/prayer.ts)
+  - Core astronomical solar calculation engine (Meeus / NOAA equations in pure ES5).
+  - Calculates daily prayer times: `Fajr`, `Sunrise`, `Dhuhr`, `Asr` (Standard & Hanafi), `Maghrib`, `Isha`, `Islamic Midnight`, `Last Third of Night`.
+  - Determines current active period (`resolveCurrentWaqt`), time remaining countdown (`formatCountdown`), and active waqt end time.
+- [`app/lib/hijri.ts`](file:///Users/FaozulRafi/Projects/iyyam/app/lib/hijri.ts)
+  - Unified Hijri date resolver (`resolveHijri`) combining region offset, Maghrib sunset rollover, and manual calibration adjustment.
+- [`app/lib/umalqura.ts`](file:///Users/FaozulRafi/Projects/iyyam/app/lib/umalqura.ts)
+  - Embedded Umm al-Qura calendar table (1440–1475 AH) and pure-ES5 converter (verified against Node `islamic-umalqura` with 0 mismatches).
+- [`app/lib/sunset.ts`](file:///Users/FaozulRafi/Projects/iyyam/app/lib/sunset.ts)
+  - NOAA sunset instant calculator returning absolute UTC milliseconds for Maghrib date rollover.
+- [`app/lib/locations.ts`](file:///Users/FaozulRafi/Projects/iyyam/app/lib/locations.ts)
+  - Curated database of ~900 global cities with coordinates, timezones, and regional moon-sighting offset mappings.
+- [`app/lib/useLocationState.ts`](file:///Users/FaozulRafi/Projects/iyyam/app/lib/useLocationState.ts)
+  - Centralized hook managing detected/chosen location, localStorage persistence, and live calendar/prayer state synchronization.
 
-## God Nodes (most connected - your core abstractions)
-1. `compilerOptions` - 16 edges
-2. `scripts` - 7 edges
-3. `World Clock & Calendar` - 7 edges
-4. `gregorianToHijri()` - 5 edges
-5. `resolveHijri()` - 5 edges
-6. `main()` - 5 edges
-7. `Agent Directives` - 5 edges
-8. `sunsetUtcMs()` - 4 edges
-9. `Lessons Learned` - 4 edges
-10. `City` - 3 edges
+---
 
-## Surprising Connections (you probably didn't know these)
-- `resolveHijri()` --calls--> `regionOffsetFor()`  [EXTRACTED]
-  app/lib/hijri.ts → app/lib/locations.ts
-- `resolveHijri()` --calls--> `sunsetUtcMs()`  [EXTRACTED]
-  app/lib/hijri.ts → app/lib/sunset.ts
+### 2. User Interface Components (`app/components/` & `app/page.tsx`)
+- [`app/page.tsx`](file:///Users/FaozulRafi/Projects/iyyam/app/page.tsx)
+  - Hero layout for iPad/desktop desk clock: Side-by-side display with **Current Waqt Countdown** on top-left and **Main Local Time & World Clocks** on top-right.
+- [`app/components/PrayerDisplay.tsx`](file:///Users/FaozulRafi/Projects/iyyam/app/components/PrayerDisplay.tsx)
+  - Active Waqt hero card with live ticking seconds countdown, status badge, Iftar tracker, and horizontal prayer times timetable ribbon.
+- [`app/components/Clock.tsx`](file:///Users/FaozulRafi/Projects/iyyam/app/components/Clock.tsx)
+  - Digital clock supporting main hero mode and secondary world clock modes (London, Sydney).
+- [`app/components/CalendarDisplay.tsx`](file:///Users/FaozulRafi/Projects/iyyam/app/components/CalendarDisplay.tsx)
+  - Three-tier date display for Gregorian, Hijri, and Bengali calendars with manual sighting adjustments.
+- [`app/components/MonthlyCalendar.tsx`](file:///Users/FaozulRafi/Projects/iyyam/app/components/MonthlyCalendar.tsx)
+  - Unified multi-calendar monthly grid with interactive day details and triple calendar day labels.
+- [`app/components/LocationPicker.tsx`](file:///Users/FaozulRafi/Projects/iyyam/app/components/LocationPicker.tsx)
+  - WAI-ARIA accessible searchable modal combobox for choosing and filtering global cities.
 
-## Communities (23 total, 9 thin omitted)
+---
 
-### Community 0 - "Community 0"
-Cohesion: 0.12
-Nodes (17): banglaCalendar, bnDigits, CalendarType, MonthlyCalendarProps, WEEKDAYS, after, before, dhaka (+9 more)
+### 3. Build, Transpilation & Verification Pipeline (`scripts/`)
+- [`scripts/verify-prayer.js`](file:///Users/FaozulRafi/Projects/iyyam/scripts/verify-prayer.js)
+  - Regression and accuracy test suite verifying prayer calculations for global test cities (Dhaka, Makkah, London).
+- [`scripts/verify-umalqura.js`](file:///Users/FaozulRafi/Projects/iyyam/scripts/verify-umalqura.js)
+  - Mathematical integrity test verifying all 12,645 days in Umm al-Qura table against Intl.
+- [`scripts/transpile-legacy.js`](file:///Users/FaozulRafi/Projects/iyyam/scripts/transpile-legacy.js)
+  - Postbuild script downleveling static bundles to ES5 via Babel for iOS 10.3.4 Safari compatibility.
+- [`scripts/build-cities.js`](file:///Users/FaozulRafi/Projects/iyyam/scripts/build-cities.js)
+  - Data generation script compiling GeoNames dataset into static TypeScript tables.
 
-### Community 1 - "Community 1"
-Cohesion: 0.10
-Nodes (19): browserslist, dependencies, bangla-calendar, @csstools/postcss-cascade-layers, lucide-react, next, postcss-preset-env, react (+11 more)
+---
 
-### Community 2 - "Community 2"
-Cohesion: 0.10
-Nodes (19): compilerOptions, allowJs, esModuleInterop, incremental, isolatedModules, jsx, lib, module (+11 more)
-
-### Community 3 - "Community 3"
-Cohesion: 0.17
-Nodes (13): banglaCalendar, CalendarDisplay(), locationLabel(), NONE_LOCATION, LocationPickerProps, angularDist(), CITIES, City (+5 more)
-
-### Community 4 - "Community 4"
-Cohesion: 0.13
-Nodes (15): cur, d, end, EPOCH_JDN, exp, fs, got, gregorianToHijri() (+7 more)
-
-### Community 5 - "Community 5"
-Cohesion: 0.21
-Nodes (13): COL, download(), emit(), { execFileSync }, fs, main(), os, OUT (+5 more)
-
-### Community 6 - "Community 6"
-Cohesion: 0.18
-Nodes (8): babel, coreJsDest, coreJsSrc, EXTENSIONS, files, fs, path, result
-
-### Community 7 - "Community 7"
-Cohesion: 0.20
-Nodes (10): devDependencies, @babel/core, @babel/preset-env, core-js-bundle, tailwindcss, @tailwindcss/postcss, @types/node, @types/react (+2 more)
-
-### Community 8 - "Community 8"
-Cohesion: 0.20
-Nodes (9): Build, code:bash (npm install), code:bash (npm run build), Compatibility, Deploy on Vercel, Features, Getting Started, Manual Hosting (+1 more)
-
-### Community 9 - "Community 9"
-Cohesion: 0.27
-Nodes (9): anchor, eid, formatHijri(), gregorianToHijri(), gregorianToJDN(), HIJRI_MONTHS, HijriDate, MAPS (+1 more)
-
-### Community 10 - "Community 10"
-Cohesion: 0.33
-Nodes (5): Agent Directives, AI layer (planned), Do not guess — verify before use, Verification — run before declaring any change done, Where truth lives
-
-### Community 12 - "Community 12"
-Cohesion: 0.40
-Nodes (4): 2026-06-27 — Hijri date "always wrong, even when location granted", 2026-06-27 — Location-aware Hijri (region offset + Maghrib rollover + city picker), 2026-06-27 — npm deprecation warnings (inflight, glob@7), Lessons Learned
-
-## Knowledge Gaps
-- **112 isolated node(s):** `config`, `name`, `version`, `private`, `dev` (+107 more)
-  These have ≤1 connection - possible missing edges or undocumented components.
-- **9 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
-
-## Suggested Questions
-_Questions this graph is uniquely positioned to answer:_
-
-- **Why does `devDependencies` connect `Community 7` to `Community 1`?**
-  _High betweenness centrality (0.013) - this node is a cross-community bridge._
-- **What connects `config`, `name`, `version` to the rest of the system?**
-  _112 weakly-connected nodes found - possible documentation gaps or missing edges._
-- **Should `Community 0` be split into smaller, more focused modules?**
-  _Cohesion score 0.12380952380952381 - nodes in this community are weakly interconnected._
-- **Should `Community 1` be split into smaller, more focused modules?**
-  _Cohesion score 0.1 - nodes in this community are weakly interconnected._
-- **Should `Community 2` be split into smaller, more focused modules?**
-  _Cohesion score 0.1 - nodes in this community are weakly interconnected._
-- **Should `Community 4` be split into smaller, more focused modules?**
-  _Cohesion score 0.1323529411764706 - nodes in this community are weakly interconnected._
+## Key Dependency Graph & Cross-Module Calls
+```
+[app/page.tsx]
+   ├──> useLocationState() (app/lib/useLocationState.ts)
+   │        ├──> nearestCity(), cityByTimezone() (app/lib/locations.ts)
+   │        └──> ResolvedLocation (app/lib/hijri.ts)
+   ├──> PrayerDisplay (app/components/PrayerDisplay.tsx)
+   │        └──> resolveCurrentWaqt(), calculateDayPrayers() (app/lib/prayer.ts)
+   ├──> Clock (app/components/Clock.tsx)
+   └──> CalendarDisplay (app/components/CalendarDisplay.tsx)
+            ├──> resolveHijri() (app/lib/hijri.ts)
+            │        ├──> gregorianToHijri() (app/lib/umalqura.ts)
+            │        ├──> sunsetUtcMs() (app/lib/sunset.ts)
+            │        └──> regionOffsetFor() (app/lib/locations.ts)
+            ├──> MonthlyCalendar (app/components/MonthlyCalendar.tsx)
+            └──> LocationPicker (app/components/LocationPicker.tsx)
+```

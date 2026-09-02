@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Globe } from 'lucide-react';
+import { Globe, MapPin } from 'lucide-react';
 
 interface ClockProps {
   timeZone?: string;
@@ -52,48 +52,12 @@ export default function Clock({ timeZone, label, sublabel, isMain = false }: Clo
   }, [label]);
 
   if (!time) {
-    // Same chrome as the resolved render below, so nothing jumps when the clock hydrates.
-    if (isMain) {
-      return (
-        <div className="relative overflow-hidden rounded-3xl bg-[#111] border border-white/10 p-5 sm:p-6 md:p-8 shadow-2xl h-full flex flex-col justify-between animate-pulse">
-          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 via-indigo-500 to-cyan-400 opacity-80"></div>
-
-          <div>
-            <div className="flex justify-between items-start mb-2 sm:mb-3">
-              <span className="text-white/60 uppercase tracking-widest text-xs sm:text-sm font-semibold">
-                Local Time
-              </span>
-              <span className="text-xs text-white/40 font-medium truncate max-w-[150px] sm:max-w-none">
-                {label || '\u00a0'}
-              </span>
-            </div>
-
-            <div className="flex items-center space-x-3 mb-1 sm:mb-2">
-              <div className="p-2 bg-blue-500/20 rounded-2xl">
-                <Globe className="w-5 h-5 sm:w-6 sm:h-6 text-blue-400" />
-              </div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-white/90 drop-shadow-sm truncate">
-                {label || '\u00a0'}
-              </h2>
-            </div>
-          </div>
-
-          <div className="flex flex-col items-start mt-2">
-            <div className="flex items-baseline space-x-3">
-              <span className="text-7xl sm:text-8xl md:text-9xl font-bold font-mono text-white/50 tracking-tight drop-shadow-md leading-none">
-                --:--
-              </span>
-            </div>
-            <div className="flex items-center space-x-2 mt-2 text-xs sm:text-sm text-white/60">
-              <span>{'\u00a0'}</span>
-            </div>
-          </div>
-        </div>
-      );
-    }
-
     return (
-      <div className="flex justify-center items-center h-24 sm:h-32 animate-pulse text-white/50 text-4xl font-light font-mono tracking-wider">
+      <div
+        className={`flex justify-center items-center ${
+          isMain ? 'h-48' : 'h-16'
+        } animate-pulse text-white/50 text-4xl font-light font-mono tracking-wider`}
+      >
         --:--
       </div>
     );
@@ -123,45 +87,53 @@ export default function Clock({ timeZone, label, sublabel, isMain = false }: Clo
         weekday: 'long',
         month: 'long',
         day: 'numeric',
+        year: 'numeric',
         timeZone: timeZone || undefined,
       }).format(time);
     } catch (e) {
-      enDate = time.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+      enDate = time.toLocaleDateString('en-US', {
+        weekday: 'long',
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric',
+      });
     }
 
     return (
-      <div className="relative group overflow-hidden rounded-3xl bg-[#111] border border-white/10 p-5 sm:p-6 md:p-8 shadow-2xl transition-all h-full flex flex-col justify-between">
-        {/* Accent top gradient */}
+      <div className="relative group overflow-hidden rounded-3xl bg-[#121212] border border-white/10 p-5 sm:p-6 md:p-7 shadow-2xl h-full flex flex-col justify-between">
+        {/* Top accent line */}
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 via-indigo-500 to-cyan-400 opacity-80"></div>
 
         <div>
-          <div className="flex justify-between items-start mb-2 sm:mb-3">
-            <span className="text-white/60 uppercase tracking-widest text-xs sm:text-sm font-semibold">
+          {/* Top line */}
+          <div className="flex justify-between items-center mb-3 sm:mb-4 gap-2">
+            <span className="text-white/60 uppercase tracking-widest text-xs font-semibold whitespace-nowrap">
               Local Time
             </span>
-            <span className="text-xs text-white/40 font-medium truncate max-w-[150px] sm:max-w-none">
-              {displayLabel}
-            </span>
+            <div className="flex items-center space-x-1.5 px-2.5 py-1 rounded-xl bg-white/5 border border-white/10 text-xs font-medium text-white/80 max-w-[200px] truncate">
+              <MapPin className="w-3 h-3 text-blue-400 shrink-0" />
+              <span className="truncate">{displayLabel}</span>
+            </div>
           </div>
 
-          <div className="flex items-center space-x-3 mb-1 sm:mb-2">
-            <div className="p-2 bg-blue-500/20 rounded-2xl">
-              <Globe className="w-5 h-5 sm:w-6 sm:h-6 text-blue-400" />
+          {/* Location Title */}
+          <div className="flex items-center space-x-3 mb-2">
+            <div className="p-2 bg-blue-500/15 rounded-2xl">
+              <Globe className="w-5 h-5 text-blue-400" />
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-white/90 drop-shadow-sm truncate">
+            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white/90 truncate">
               {displayLabel}
             </h2>
           </div>
         </div>
 
-        <div className="flex flex-col items-start mt-2">
-          <div className="flex items-baseline space-x-3">
-            <span className="text-7xl sm:text-8xl md:text-9xl font-bold font-mono text-white tracking-tight drop-shadow-md leading-none">
-              {formattedTime}
-            </span>
-          </div>
+        {/* Big Digital Clock */}
+        <div className="flex flex-col items-start mt-1">
+          <span className="text-4xl sm:text-5xl md:text-6xl font-bold font-mono text-white tracking-tight leading-none">
+            {formattedTime}
+          </span>
 
-          <div className="flex items-center space-x-2 mt-2 text-xs sm:text-sm text-white/60">
+          <div className="flex items-center space-x-2 mt-2.5 text-xs sm:text-sm text-white/60">
             <span>{sublabel || enDate}</span>
           </div>
         </div>
@@ -169,20 +141,15 @@ export default function Clock({ timeZone, label, sublabel, isMain = false }: Clo
     );
   }
 
+  // Secondary world clock pill
   return (
-    <div className="flex flex-col justify-center items-center">
-      <div className="relative group">
-        <div className="relative flex flex-col items-center bg-white/[0.02] px-4 py-2.5 sm:px-5 sm:py-3 rounded-2xl border border-white/[0.06]">
-          <span className="text-white/50 uppercase tracking-widest text-[10px] sm:text-xs font-medium mb-1">
-            {displayLabel}
-          </span>
-          <div className="flex items-end">
-            <span className="text-2xl sm:text-3xl md:text-4xl font-semibold text-white/80 font-mono tracking-tight leading-none">
-              {formattedTime}
-            </span>
-          </div>
-        </div>
-      </div>
+    <div className="flex flex-col items-center justify-center bg-[#121212] px-4 py-2.5 rounded-2xl border border-white/10 shadow-lg min-w-[110px]">
+      <span className="text-white/50 uppercase tracking-wider text-[10px] font-semibold">
+        {displayLabel}
+      </span>
+      <span className="text-xl sm:text-2xl font-bold text-white font-mono tracking-tight mt-0.5">
+        {formattedTime}
+      </span>
     </div>
   );
 }
