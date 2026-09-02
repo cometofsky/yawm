@@ -8,7 +8,7 @@
     "postbuild": "node scripts/transpile-legacy.js",
     "start": "next start",
     "typecheck": "tsc --noEmit",
-    "test": "node scripts/verify-umalqura.js"
+    "test": "node scripts/verify-umalqura.js && node scripts/verify-prayer.js"
   },
   "dependencies": {
     "@csstools/postcss-cascade-layers": "^6.0.0",

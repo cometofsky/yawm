@@ -1,40 +1,39 @@
 'use client';
 
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { CalendarDays, Globe, MapPin, Moon, Plus, Minus } from 'lucide-react';
 import MonthlyCalendar from './MonthlyCalendar';
 import LocationPicker from './LocationPicker';
 import { resolveHijri, ResolvedLocation } from '../lib/hijri';
-import { CITIES, nearestCity, cityByTimezone, City } from '../lib/locations';
+import { CITIES, City } from '../lib/locations';
+import { useLocationState, locationLabel } from '../lib/useLocationState';
 
 const banglaCalendar = require('bangla-calendar');
 
-const NONE_LOCATION: ResolvedLocation = { name: '', country: '', lat: null, lon: null, tz: null, source: 'none' };
-
-// Honest label per location source (see spec). All date math stays in resolveHijri.
-function locationLabel(loc: ResolvedLocation): string {
-  switch (loc.source) {
-    case 'gps': return loc.name + ' (GPS)';
-    case 'city': return loc.name + ', ' + loc.country;
-    case 'timezone': return loc.name + ' · approx';
-    default: return 'Umm al-Qura (Saudi)';
-  }
+interface CalendarDisplayProps {
+  // Required: an internal fallback would mount a SECOND location state machine, duplicating
+  // the geolocation request and the localStorage reads on every load.
+  locationState: ReturnType<typeof useLocationState>;
 }
 
-export default function CalendarDisplay() {
+export default function CalendarDisplay({ locationState }: CalendarDisplayProps) {
+  const {
+    location,
+    selectedCity,
+    recents,
+    pickerOpen,
+    setPickerOpen,
+    hijriOffset,
+    updateOffset,
+    handleSelectCity,
+    clearLocation,
+    isLoaded,
+  } = locationState;
+
   const [hijriDateStr, setHijriDateStr] = useState<string>('Calculating...');
   const [bengaliDate, setBengaliDate] = useState<string>('Calculating...');
   const [englishDate, setEnglishDate] = useState<string>('Calculating...');
   const [rolledOver, setRolledOver] = useState<boolean>(false);
-
-  const [location, setLocation] = useState<ResolvedLocation>(NONE_LOCATION);
-  const [selectedCity, setSelectedCity] = useState<City | null>(null);
-  const [recents, setRecents] = useState<City[]>([]);
-  const [pickerOpen, setPickerOpen] = useState<boolean>(false);
-  const manualSelectionRef = useRef<boolean>(false);
-
-  const [hijriOffset, setHijriOffset] = useState<number>(0);
-  const [isOffsetLoaded, setIsOffsetLoaded] = useState<boolean>(false);
   const [tick, setTick] = useState<number>(0);
 
   // Re-evaluate dates once a minute so an always-on display rolls over at midnight and Maghrib.
@@ -43,108 +42,26 @@ export default function CalendarDisplay() {
     return () => clearInterval(id);
   }, []);
 
-  // Load offset from localStorage on mount
-  useEffect(() => {
-    try {
-      const savedOffset = localStorage.getItem('hijriOffset');
-      if (savedOffset) {
-        const n = parseInt(savedOffset, 10);
-        if (!isNaN(n)) setHijriOffset(n); // ignore corrupt storage rather than brick the date
-      }
-    } catch (e) {
-      console.warn('localStorage unavailable');
-    }
-    setIsOffsetLoaded(true);
-  }, []);
-
-  const updateOffset = (newOffset: number) => {
-    setHijriOffset(newOffset);
-    try {
-      localStorage.setItem('hijriOffset', newOffset.toString());
-    } catch (e) {
-      // skip
-    }
-  };
-
-  // Resolve location automatically: timezone gives an instant base, GPS (non-blocking) upgrades it.
-  // Precedence: a manually selected city wins, so the GPS callback bails if one was chosen.
-  const resolveAuto = useCallback(() => {
-    let applied = false;
-    try {
-      const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-      if (tz) {
-        const c = cityByTimezone(tz);
-        setLocation(c
-          ? { name: c.name, country: c.country, lat: c.lat, lon: c.lon, tz: c.tz, source: 'timezone' }
-          : { name: tz, country: '', lat: null, lon: null, tz: tz, source: 'timezone' });
-        applied = true;
-      }
-    } catch (e) {
-      // Intl may be missing on Safari 10 — fall through to 'none'.
-    }
-    if (!applied) setLocation(NONE_LOCATION);
-
-    if ('geolocation' in navigator) {
-      navigator.geolocation.getCurrentPosition(
-        (pos) => {
-          if (manualSelectionRef.current) return; // a selected city outranks GPS
-          const lat = pos.coords.latitude;
-          const lon = pos.coords.longitude;
-          const c = nearestCity(lat, lon);
-          setLocation({
-            name: c ? c.name : lat.toFixed(2) + ',' + lon.toFixed(2),
-            country: c ? c.country : '',
-            lat: lat, lon: lon,
-            tz: c ? c.tz : null,
-            source: 'gps',
-          });
-        },
-        () => { /* keep timezone/none base */ },
-        { timeout: 10000, maximumAge: 600000 }
-      );
-    }
-  }, []);
-
-  // Load saved location / recents, then resolve. A saved city has top precedence.
-  useEffect(() => {
-    try {
-      const r = localStorage.getItem('iyyam.recentLocations');
-      if (r) { const parsed = JSON.parse(r); if (parsed && parsed.length) setRecents(parsed); }
-    } catch (e) { /* ignore */ }
-
-    let saved: City | null = null;
-    try {
-      const s = localStorage.getItem('iyyam.location');
-      if (s) {
-        const p = JSON.parse(s);
-        // Untrusted storage: only accept a well-formed city (lat/lon feed sunset math).
-        if (p && typeof p.lat === 'number' && typeof p.lon === 'number' && typeof p.name === 'string') saved = p;
-      }
-    } catch (e) { /* ignore */ }
-
-    if (saved) {
-      manualSelectionRef.current = true;
-      setSelectedCity(saved);
-      setLocation({ name: saved.name, country: saved.country, lat: saved.lat, lon: saved.lon, tz: saved.tz, source: 'city' });
-      return;
-    }
-    resolveAuto();
-  }, [resolveAuto]);
-
   // Headline dates — computed offline. Hijri goes through the shared resolver (with Maghrib rollover).
   useEffect(() => {
-    if (!isOffsetLoaded) return;
+    if (!isLoaded) return;
 
     const today = new Date();
 
-    // English
+    // English. Device-local on purpose: the Hijri and Bengali lines below both read
+    // device-local Date fields (hijri.ts is deliberately Intl-free for Safari 10), so
+    // formatting this one in location.tz would let the three lines disagree by a day.
     const enOptions: Intl.DateTimeFormatOptions = {
       weekday: 'long',
       year: 'numeric',
       month: 'long',
-      day: 'numeric'
+      day: 'numeric',
     };
-    setEnglishDate(today.toLocaleDateString('en-US', enOptions));
+    try {
+      setEnglishDate(today.toLocaleDateString('en-US', enOptions));
+    } catch (e) {
+      setEnglishDate(today.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }));
+    }
 
     // Bengali
     try {
@@ -158,38 +75,14 @@ export default function CalendarDisplay() {
     const result = resolveHijri({ now: today, location: location, manualOffset: hijriOffset, applyRollover: true });
     setHijriDateStr(result.text);
     setRolledOver(result.rolledOver);
-  }, [hijriOffset, isOffsetLoaded, location, tick]);
-
-  // Persist a picked city + push to recents (max 5). A manual choice outranks auto-detection.
-  const handleSelectCity = (c: City) => {
-    manualSelectionRef.current = true;
-    setSelectedCity(c);
-    setLocation({ name: c.name, country: c.country, lat: c.lat, lon: c.lon, tz: c.tz, source: 'city' });
-    setPickerOpen(false);
-    try { localStorage.setItem('iyyam.location', JSON.stringify(c)); } catch (e) { /* ignore */ }
-    setRecents((prev) => {
-      const filtered = prev.filter((p) => !(p.name === c.name && p.country === c.country && p.lat === c.lat && p.lon === c.lon));
-      const next = [c].concat(filtered).slice(0, 5);
-      try { localStorage.setItem('iyyam.recentLocations', JSON.stringify(next)); } catch (e) { /* ignore */ }
-      return next;
-    });
-  };
-
-  // Clear back to automatic (timezone/GPS) detection.
-  const clearLocation = () => {
-    manualSelectionRef.current = false;
-    setSelectedCity(null);
-    try { localStorage.removeItem('iyyam.location'); } catch (e) { /* ignore */ }
-    resolveAuto();
-  };
+  }, [hijriOffset, isLoaded, location, tick]);
 
   return (
     <div className="w-full max-w-[1400px] mx-auto grid grid-cols-1 gap-4 md:gap-6 mt-2 md:mt-4 px-2 sm:px-4 md:px-6 lg:px-8">
-      
       {/* --- MOBILE/TABLET COMPACT VIEW --- */}
       <div className="md:hidden flex flex-col space-y-3 bg-[#111] border border-white/10 rounded-3xl p-5 shadow-lg relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 via-emerald-400 to-orange-400 opacity-70"></div>
-        
+
         {/* Gregorian Row */}
         <div className="flex items-center space-x-3">
           <div className="p-2 bg-blue-500/20 rounded-xl text-blue-400 shrink-0">
@@ -225,7 +118,7 @@ export default function CalendarDisplay() {
           </div>
           <p className="text-lg font-medium text-white/90 truncate">{bengaliDate}</p>
         </div>
-        
+
         <div className="flex flex-col space-y-1 pt-2 border-t border-white/5 mt-1">
           <div className="flex items-center space-x-2 text-[10px] text-white/40">
             <button
@@ -271,7 +164,7 @@ export default function CalendarDisplay() {
               </div>
               <h2 className="text-lg md:text-xl font-semibold text-white/90 tracking-wide uppercase">Hijri</h2>
             </div>
-            
+
             <div className="flex items-center bg-white/10 rounded-lg p-1 border border-white/10 shrink-0 ml-2" title="Local sighting adjustment">
               <button
                 onClick={() => updateOffset(hijriOffset - 1)}
@@ -292,7 +185,7 @@ export default function CalendarDisplay() {
               </button>
             </div>
           </div>
-          
+
           <p className="text-xl sm:text-2xl md:text-3xl font-medium text-white/80 leading-snug mb-3 md:mb-4 break-words">
             {hijriDateStr}
             {rolledOver && <span className="ml-2 text-xs md:text-sm font-normal text-emerald-400/70 whitespace-nowrap">· after Maghrib</span>}
@@ -349,7 +242,6 @@ export default function CalendarDisplay() {
           </div>
         </div>
       )}
-
     </div>
   );
 }

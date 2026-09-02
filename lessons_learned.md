@@ -36,3 +36,38 @@ Takeaways:
 - Region offset (which authority) and Maghrib rollover are independent axes pointing opposite directions — don't conflate "show 10" with "after sunset".
 - GeoNames `cities15000` includes sub-city thanas; "nearest point" labels a neighbourhood, not the metro — population-snap fixes it.
 - Separately found (NOT yet fixed — pre-existing, out of scope): Safari-10 boot is fragile — Next chunks reference `globalThis`/`Promise.allSettled`/`.flat` before a remote (offline-failing) core-js loads. Needs self-hosted core-js ordered ahead of the chunks.
+
+## 2026-09-02 — Muslim prayer times (Waqt) engine & split desktop-clock layout
+
+Added offline Meeus/NOAA prayer times calculator (`app/lib/prayer.ts`), Waqt active period resolution, live countdown (`app/components/PrayerDisplay.tsx`), and balanced iPad desktop-clock hero layout (`app/page.tsx` with Waqt on left, Local Clock & World Clocks on right). Verified pure ES5 downleveling for iOS 10.3.4 Safari and test suite (`scripts/verify-prayer.js`).
+
+2026-09-02 · Prayer-time engine review fixes · `getHourAngleMs(...) || 0` turned "sun never
+reaches this altitude" into a zero hour angle, so every location above ~48.5° got Fajr = Isha =
+solar noon for weeks each summer (London 21 Jun: both 13:03). Replaced with a nearest-latitude
+(aqrab al-bilad, 45°) retry; a green fixture set dated 2 Sep hid it, so `verify-prayer.js` now
+carries a June-London and a polar Tromsø case and is wired into `npm test`.
+
+2026-09-02 · A default is not a fallback when the output is authoritative · `resolveCurrentWaqt`
+silently substituted Makkah's coordinates when lat/lon were null and rendered the result under
+the user's own timezone label. `cityByTimezone` is an exact IANA match, so any unlisted zone hit
+this. Now returns null and the UI shows an explicit "no coordinates" state instead.
+
+2026-09-02 · Verify a perf fix by measuring the work, not the output · The prayer card looked
+identical before and after moving the solar math off the 1 Hz tick. Patching `Math.acos` (called
+only by the hour-angle functions) in the live page gave the real number: 24/sec before, 0/sec
+after while the countdown still advanced, and exactly 24 once when crossing a waqt boundary.
+
+2026-09-02 · Hero hierarchy rebalance · Both hero cards shared one surface (`bg-[#111]`, same
+padding, `shadow-2xl`, same accent bar, same `text-5xl→7xl` numerals), so there was no hierarchy
+to adjust, only two co-equal cards. Fixed on four reinforcing channels at once — track width
+(6/6 → 5/7), scale (clock to `text-9xl`, waqt countdown down to `text-5xl`), elevation (waqt card
+off `#111` onto `bg-white/[0.02]`, no shadow, hairline accent) and chroma (`amber-400` →
+`amber-200/80`). Shrinking one card exposed two latent inversions: the tertiary world clocks then
+outranked the secondary waqt card, and their `justify-center` (invisible while they were wide)
+left them floating.
+
+2026-09-02 · Measuring contrast in Tailwind v4 needs a canvas, not a regex · v4 emits
+`oklab()`/`color-mix()`, so parsing `getComputedStyle().color` with `/[\d.]+/g` pulls the wrong
+channels — it reported 1.02:1 for text that is plainly legible. Painting the colour to a 1x1
+canvas over black and white recovers real sRGB + alpha. Always include a known-failing control
+in the check; without it a broken contrast script reads as a clean pass.
