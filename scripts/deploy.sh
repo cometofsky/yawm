@@ -12,6 +12,24 @@ git remote set-url origin https://github.com/cometofsky/yawm.git
 git pull origin main
 
 echo "2/3 Installing dependencies..."
+
+# If npm is not in PATH (e.g. running under sudo), attempt to load nvm or common node paths
+if ! command -v npm >/dev/null 2>&1; then
+  if [ -s "$HOME/.nvm/nvm.sh" ]; then
+    export NVM_DIR="$HOME/.nvm"
+    # shellcheck source=/dev/null
+    . "$NVM_DIR/nvm.sh"
+  elif [ -n "$SUDO_USER" ] && [ -s "/home/$SUDO_USER/.nvm/nvm.sh" ]; then
+    export NVM_DIR="/home/$SUDO_USER/.nvm"
+    # shellcheck source=/dev/null
+    . "$NVM_DIR/nvm.sh"
+  fi
+fi
+
+if ! command -v npm >/dev/null 2>&1; then
+  export PATH="/usr/local/bin:/usr/bin:$PATH"
+fi
+
 npm ci
 
 echo "3/3 Building static HTML export..."
