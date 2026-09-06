@@ -92,3 +92,12 @@ emits bare `gap:` with no fallback (flex `gap` needs Safari 14.1), but `space-x-
 `margin-left`/`margin-right`. Colour utilities are fine either way — v4 ships an `#ffffff1a` hex
 fallback ahead of the `color-mix()` line. Verified by grepping the built `out/_next/static/*.css`,
 which is the only place these questions can be answered.
+
+## 2026-09-06 — Dynamic layout customization & adaptive space redistribution
+
+Added client-side customization options (`useSettings` with localStorage persistence) accessed via a subtle header cogwheel button:
+- Clock section: toggling off world clocks leaves only the primary local clock.
+- Prayer times: toggling off prayer times automatically re-allocates the hero section so the local clock expands into a commanding full-width centered desk clock (`text-9xl`); when enabled, users can choose between current/next waqt countdown only or full 5-prayer timetable ribbon.
+- Calendar section: cards dynamically recalculate grid tracks (`grid-cols-3` -> `grid-cols-2` -> `grid-cols-1`) based on active calendars (Gregorian, Hijri, Bengali), plus optional monthly calendar grid. All downlevels cleanly to ES5 for iOS 10.3.4 Safari.
+
+

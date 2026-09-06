@@ -8,9 +8,16 @@ interface ClockProps {
   label?: string;
   sublabel?: string;
   isMain?: boolean;
+  isFullHero?: boolean;
 }
 
-export default function Clock({ timeZone, label, sublabel, isMain = false }: ClockProps) {
+export default function Clock({
+  timeZone,
+  label,
+  sublabel,
+  isMain = false,
+  isFullHero = false,
+}: ClockProps) {
   const [time, setTime] = useState<Date | null>(null);
   const [localLabel, setLocalLabel] = useState<string>('');
 
@@ -103,22 +110,42 @@ export default function Clock({ timeZone, label, sublabel, isMain = false }: Clo
     // hierarchy here, so scale and luminance carry it outright: this card owns the lit surface
     // (#121212 + shadow), pure white, and the page's largest numeral (~1.5-1.7x the waqt
     // countdown). The location name is stated once here, not three times.
+    // PRIMARY hero. If isFullHero is true (e.g. prayer times toggled off), the card expands
+    // into a grand centerpiece desk-clock with larger typography and centered alignment.
     return (
-      <div className="relative overflow-hidden rounded-3xl bg-[#121212] border border-white/10 p-5 sm:p-6 shadow-2xl h-full flex flex-col items-start justify-center">
-        {/* Label, time and date are one tight group centred in the card. This card is stretched
-            to the taller waqt card's height, so `justify-between` would hollow out its middle. */}
-        <div className="flex items-center space-x-2 text-white/70 max-w-full mb-3">
-          <MapPin className="w-3.5 h-3.5 shrink-0" />
+      <div
+        className={`relative overflow-hidden rounded-3xl bg-[#121212] border border-white/10 shadow-2xl h-full flex flex-col justify-center ${
+          isFullHero
+            ? 'p-6 sm:p-10 md:p-12 items-center text-center'
+            : 'p-5 sm:p-6 items-start'
+        }`}
+      >
+        <div
+          className={`flex items-center space-x-2 text-white/70 max-w-full mb-3 ${
+            isFullHero ? 'justify-center' : ''
+          }`}
+        >
+          <MapPin className="w-3.5 h-3.5 shrink-0 text-amber-400/80" />
           <span className="uppercase tracking-widest text-[11px] sm:text-xs font-semibold truncate">
             {displayLabel}
           </span>
         </div>
 
-        <span className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl font-bold font-mono text-white tracking-tight leading-none">
+        <span
+          className={`font-bold font-mono text-white tracking-tight leading-none ${
+            isFullHero
+              ? 'text-6xl sm:text-8xl md:text-9xl my-2'
+              : 'text-5xl sm:text-6xl md:text-7xl lg:text-7xl'
+          }`}
+        >
           {formattedTime}
         </span>
 
-        <span className="mt-2.5 text-xs sm:text-sm text-white/60">
+        <span
+          className={`text-white/60 ${
+            isFullHero ? 'mt-3 text-sm sm:text-base' : 'mt-2.5 text-xs sm:text-sm'
+          }`}
+        >
           {sublabel || enDate}
         </span>
       </div>

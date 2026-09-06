@@ -3,8 +3,8 @@ set -e
 
 echo "Starting lightweight deployment process for Iyyam Clock..."
 
-# Ensure we are in the correct directory
-cd "$(dirname "$0")" || exit 1
+# Ensure we are in the correct directory (project root)
+cd "$(dirname "$0")/.." || exit 1
 
 echo "1/3 Pulling latest changes from Git..."
 # Ensure we use HTTPS to avoid SSH permission issues on the server
