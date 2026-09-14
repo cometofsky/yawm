@@ -36,3 +36,6 @@ next-env.d.ts
 # IDE
 .idea
 .vscode
+
+# graphify skill output (regenerable knowledge graph — do not commit)
+graphify-out/
