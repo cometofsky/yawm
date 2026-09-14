@@ -55,4 +55,21 @@ No AI/LLM code in this repo today. This is a forward design; follow the global 4
 - **Harness** — the provider seam must NOT live in `app/` (the shipped bundle is offline-only and ES5-transpiled for Safari 10 — no runtime LLM calls there). Put it either in `scripts/` as a build-time generator (mirroring `build-cities.js` — precompute answers/enrichments into static data) or in a separate small service the modern clients call; the static export stays untouched. Wrap the provider so it never raises into the date flow: on any failure fall back to the deterministic table, and validate LLM output with a `verify-umalqura.js`-style check before it can ship.
 - **Loop** — single-shot is sufficient for date Q&A and location resolution (no tools/agents needed against a fixed table). The moon-sighting offset suggestion is religiously high-stakes and MUST stay human-in-the-loop: the AI only proposes an offset with its evidence; the manual ± knob remains the final authority, exactly as the current design intends (a wrong auto-applied Hijri date is the bug this app was built to fix).
 
+## Knowledge graph (graphify)
+
+A whole-repo knowledge graph lives at `graphify-out/` — gitignored, local-only and regenerable
+(`graphify update .` rebuilds it from the AST in seconds, no model call). It is built by the
+Graphify Labs CLI (`graphify`, pipx package `graphifyy`); the matching agent skill is `/graphify`.
+Never set or ask for an API key for it: code is extracted structurally, and the optional semantic
+pass runs in the host session on its own login.
+<!-- claim: cmd=`grep -c 'graphify-out' .gitignore` expect=`1` -->
+
+- For a codebase question, run `graphify query "<question>"` first when `graphify-out/graph.json`
+  exists; `graphify path "<A>" "<B>"` for a relationship, `graphify explain "<concept>"` for one
+  concept. Each returns a scoped subgraph, far smaller than `GRAPH_REPORT.md` or raw grep output.
+- Read `graphify-out/GRAPH_REPORT.md` only for a broad architecture review.
+- After editing code, run `graphify update .` so the graph stays current.
+- If `graphify-out/` is missing, `graphify update .` builds the code graph; the `/graphify` skill
+  adds docs and images on top.
+
 <!-- repowiki: audited-at e36c136a9263e7a48af9632397ce7e1f968f1aa2 on 2026-09-02 -->
