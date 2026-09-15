@@ -72,4 +72,14 @@ pass runs in the host session on its own login.
 - If `graphify-out/` is missing, `graphify update .` builds the code graph; the `/graphify` skill
   adds docs and images on top.
 
+## Project context
+Recorded product, business and technical decisions for this repo. **Read before any change:**
+`CONTEXT.md` (glossary) → `docs/adr/INDEX.md` → every ADR whose `area` matches what you touch →
+the matching sections of `docs/product.md` / `docs/business.md`.
+- A product or business choice the request leaves open and no document covers → **ask, don't
+  assume**; then draft a `status: proposed` ADR. Only a human sets `accepted`.
+- A request that conflicts with an accepted ADR → name the ADR first. Superseded ADRs are history.
+- Precedence: the user's current message > accepted ADR > product/business docs > anything else.
+- `docs/business.md` stays repo-safe: no prices, contract terms, client names or revenue.
+
 <!-- repowiki: audited-at e36c136a9263e7a48af9632397ce7e1f968f1aa2 on 2026-09-02 -->
