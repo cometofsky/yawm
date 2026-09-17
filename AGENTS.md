@@ -2,6 +2,17 @@
 
 **Scope** These instructions apply to the entire repository unless a deeper `AGENTS.md` overrides them.
 
+## Project context — read BEFORE investigating or changing anything
+Recorded product, business and technical decisions for this repo: `CONTEXT.md` (glossary) →
+`docs/adr/INDEX.md` → every ADR whose `area` matches what you touch → the matching sections of
+`docs/product.md` / `docs/business.md`.
+- A product or business choice the request leaves open and no document covers → **ask, don't
+  assume**; then draft a `status: proposed` ADR. Only a human sets `accepted`.
+- A standing product rule the user states goes into `docs/product.md` in the same change.
+- A request that conflicts with an accepted ADR → name the ADR first. Superseded ADRs are history.
+- Precedence: the user's current message > accepted ADR > product/business docs > anything else.
+- `docs/business.md` stays repo-safe: no prices, contract terms, client names or revenue.
+
 **Context:**
 
 - **Stack:**
@@ -21,8 +32,42 @@
 - Typecheck: `npm run typecheck` (`tsc --noEmit` <!-- claim: cmd=`grep '"typecheck":' package.json` expect=`"typecheck": "tsc --noEmit",` -->)
 - Tests: `npm test` (runs `scripts/verify-umalqura.js` then `scripts/verify-prayer.js` <!-- claim: cmd=`grep '"test":' package.json` expect=`"test": "node scripts/verify-umalqura.js && node scripts/verify-prayer.js"` --> — the first verifies the embedded Umm al-Qura table against Intl's islamic-umalqura calendar; the second checks prayer times against known city fixtures, prayer ordering under the high-latitude rule (London midsummer, Tromso polar day), and the civil day resolving in the selected city's zone rather than the device's. Either exits non-zero on any mismatch.)
 - Lint: none configured (deliberate — build + typecheck + the domain check is the gate)
-- Build: `npm run build` (runs `next build` + the legacy-transpile postbuild; confirm it completes without postbuild errors)
+- Build: `npm run build` (runs `next build` + the legacy-transpile postbuild; confirm it completes without postbuild errors).
+  **Start this one unsandboxed.** Turbopack's PostCSS worker binds a local port, so a sandboxed
+  shell fails it with `Operation not permitted` before any code is compiled — a guaranteed wasted
+  run, seen twice on 2026-09-02.
+- Pick the lowest step that could go RED for your defect: a type-level or copy edit is typecheck
+  only; anything touching `app/lib/` runs `npm test`; only a change to the build/transpile path or
+  a claim about the shipped bundle needs `npm run build`.
+- **None of the above can see a rendered page**, which is where this app's bugs live. `npm run dev`
+  for the React surface; serve `out/` after a build to check the ES5/iOS-10 output. Say in one line
+  what you saw, or mark the change UNVERIFIED.
+
 A change is DONE only when the relevant commands pass and their output is shown. If a command can't be run, say so and mark the change UNVERIFIED.
+
+## Running system
+Deploy is **manual and the user's call** — a human runs `scripts/deploy.sh` on the host. There is no
+CI. Pushing to `main` deploys nothing; never deploy unasked.
+- **`main` is the deploy source.** `deploy.sh` does `git pull origin main` over HTTPS (it rewrites
+  `origin` to `https://github.com/cometofsky/yawm.git` on every run), then `npm ci` and
+  `npm run build`. Nothing is reloaded or restarted: nginx serves `out/` straight off disk, so the
+  build *is* the deploy.
+  <!-- claim: cmd=`grep -c 'git pull origin main' scripts/deploy.sh` expect=`1` -->
+- **Commits go straight to `main`** — no other branch has ever existed here and there are no merge
+  commits. Don't open a branch for a one-repo change; commit on `main` and push only when asked.
+- **`iyyam.rafi.ninja.conf` is a template, not the live file.** It has `root ~/apps/yawm/web/out;`
+  and **nginx does not expand `~`** — as written it would resolve relative to the nginx prefix and
+  serve nothing. The live vhost therefore carries a different, absolute root. Do not copy this file
+  onto the host unedited, and do not read the checkout path off it.
+  <!-- claim: cmd=`grep -c 'root ~/apps/yawm/web/out' iyyam.rafi.ninja.conf` expect=`1` -->
+- **Static assets are served `immutable, max-age=15552000`** (6 months). Safe for `_next/static`,
+  whose filenames are content-hashed — but any top-level asset you add under a stable name is
+  pinned in every visitor's browser for half a year. Version the filename instead.
+  <!-- claim: cmd=`grep -c 'immutable' iyyam.rafi.ninja.conf` expect=`1` -->
+- Server names `iyyam.rafi.ninja` / `yawm.rafi.ninja`; the route to load after a deploy is
+  `https://iyyam.rafi.ninja/`.
+- **Not measured:** the host, the runtime uid that serves `out/`, and who else is on that box. Ask
+  or measure before any host-level action — don't infer them from this file.
 
 ## Do not guess — verify before use
 Read the real source before relying on any of these; do not invent shapes or re-add removed paths.
@@ -41,19 +86,9 @@ Read the real source before relying on any of these; do not invent shapes or re-
 - **Build/data generation:** `scripts/build-cities.js` (regenerates `locations.ts` from GeoNames), `scripts/verify-umalqura.js` and `scripts/verify-prayer.js` (the domain tests), `scripts/transpile-legacy.js` (ES5 postbuild), `scripts/deploy.sh`. Config: `next.config.ts` (static export + `transpilePackages`), `postcss.config.mjs` (Tailwind v4), `browserslist` in `package.json`.
 - **Deploy target:** nginx vhost `iyyam.rafi.ninja.conf` serving `out/`. `lessons_learned.md` at repo root records prior gotchas — read it before touching the date path or legacy pipeline.
 
-## AI layer (planned)
-No AI/LLM code in this repo today. This is a forward design; follow the global 4-pillar standard (`~/.agents/ai-engineering.md`) when implementing — do not restate it here.
-
-**Candidate use-cases:**
-- **Natural-language calendar Q&A** — "when is the next Eid / first of Ramadan / Laylat al-Qadr this year?" answered from the verified Umm al-Qura table. Value: turns a passive clock into a queryable Islamic-calendar helper without shipping a fragile client-side parser.
-- **Moon-sighting offset assistant** — read regional moon-sighting announcements (free text / news) and *propose* the correct per-region manual ± day-offset, instead of the user guessing the knob. Value: makes today's manual correction informed rather than blind — while the knob stays the human authority.
-- **Free-text location resolution** — "the town near Sylhet" / "wherever my in-laws are" mapped to a concrete `City` row (name/country/tz/lat/lon). Value: friendlier than scrolling the curated `CITIES` list, and disambiguates ambiguous input.
-
-**Pillar plan (when built):**
-- **Prompt** — bind every output to a schema the existing code already speaks: date Q&A → `{ hijri: {y,m,d}, gregorian: ISO, event: <enum of known events>, confidence }`; offset suggestion → an integer in a fixed range (e.g. −2..+2) plus a region enum; location resolution → an existing `City` shape or an explicit "no match". Untrusted input enters at the user query and at any scraped moon-sighting text — validate/clamp before use, never interpolate into anything.
-- **Context** — ground strictly on this app's own small, static data: the `umalqura.ts` table + `HIJRI_MONTHS`, the `CITIES` rows and `regionOffsetFor` map, and `sunset.ts` math. This corpus is tiny and rarely changes, so cache the grounding blob / system prompt rather than building any RAG or vector store — token budget is a non-issue and freshness comes from rebuilds, not retrieval.
-- **Harness** — the provider seam must NOT live in `app/` (the shipped bundle is offline-only and ES5-transpiled for Safari 10 — no runtime LLM calls there). Put it either in `scripts/` as a build-time generator (mirroring `build-cities.js` — precompute answers/enrichments into static data) or in a separate small service the modern clients call; the static export stays untouched. Wrap the provider so it never raises into the date flow: on any failure fall back to the deterministic table, and validate LLM output with a `verify-umalqura.js`-style check before it can ship.
-- **Loop** — single-shot is sufficient for date Q&A and location resolution (no tools/agents needed against a fixed table). The moon-sighting offset suggestion is religiously high-stakes and MUST stay human-in-the-loop: the AI only proposes an offset with its evidence; the manual ± knob remains the final authority, exactly as the current design intends (a wrong auto-applied Hijri date is the bug this app was built to fix).
+## AI layer
+None built. If one is ever added, the forward design (use-cases + 4-pillar plan) is
+`docs/ai-layer-plan.md`; the standard it must follow is `~/.agents/ai-engineering.md`.
 
 ## Knowledge graph (graphify)
 
@@ -71,15 +106,5 @@ pass runs in the host session on its own login.
 - After editing code, run `graphify update .` so the graph stays current.
 - If `graphify-out/` is missing, `graphify update .` builds the code graph; the `/graphify` skill
   adds docs and images on top.
-
-## Project context
-Recorded product, business and technical decisions for this repo. **Read before any change:**
-`CONTEXT.md` (glossary) → `docs/adr/INDEX.md` → every ADR whose `area` matches what you touch →
-the matching sections of `docs/product.md` / `docs/business.md`.
-- A product or business choice the request leaves open and no document covers → **ask, don't
-  assume**; then draft a `status: proposed` ADR. Only a human sets `accepted`.
-- A request that conflicts with an accepted ADR → name the ADR first. Superseded ADRs are history.
-- Precedence: the user's current message > accepted ADR > product/business docs > anything else.
-- `docs/business.md` stays repo-safe: no prices, contract terms, client names or revenue.
 
 <!-- repowiki: audited-at e36c136a9263e7a48af9632397ce7e1f968f1aa2 on 2026-09-02 -->
