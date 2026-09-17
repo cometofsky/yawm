@@ -100,4 +100,13 @@ Added client-side customization options (`useSettings` with localStorage persist
 - Prayer times: toggling off prayer times automatically re-allocates the hero section so the local clock expands into a commanding full-width centered desk clock (`text-9xl`); when enabled, users can choose between current/next waqt countdown only or full 5-prayer timetable ribbon.
 - Calendar section: cards dynamically recalculate grid tracks (`grid-cols-3` -> `grid-cols-2` -> `grid-cols-1`) based on active calendars (Gregorian, Hijri, Bengali), plus optional monthly calendar grid. All downlevels cleanly to ES5 for iOS 10.3.4 Safari.
 
+2026-09-18 · The hero hierarchy lived only in Tailwind classes, so it kept getting re-litigated ·
+The user asked for "local clock primary, waqt secondary" three times across two sessions and a
+concurrent agent inverted it once. Recorded as ADR-0001 + a `docs/product.md` rule; the classes
+are now the implementation of a written decision rather than the decision itself.
+
+2026-09-18 · `npm run build` fails under a sandboxed shell for a reason that is not the code ·
+Turbopack's PostCSS worker binds a local port, so the run dies with `Operation not permitted`
+before compiling anything. Two sessions each burned a build on this. Start it unsandboxed.
+
 
