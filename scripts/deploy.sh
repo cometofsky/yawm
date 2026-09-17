@@ -7,9 +7,11 @@ echo "Starting lightweight deployment process for Iyyam Clock..."
 cd "$(dirname "$0")/.." || exit 1
 
 echo "1/3 Pulling latest changes from Git..."
-# Ensure we use HTTPS to avoid SSH permission issues on the server
-git remote set-url origin https://github.com/cometofsky/yawm.git
-git pull origin main
+# The host's configured remote is respected — this script never rewrites it.
+# If this box needs HTTPS instead of SSH, set it once, by hand:
+#   git remote set-url origin https://github.com/cometofsky/yawm.git
+echo "    remote: $(git remote get-url origin)"
+git pull --ff-only origin main
 
 echo "2/3 Installing dependencies..."
 
@@ -36,6 +38,8 @@ echo "3/3 Building static HTML export..."
 rm -rf .next
 npm run build
 
+OUT_DIR="$(pwd)/out"
 echo "Deployment completed successfully!"
-echo "The static files are now located in the /out directory."
-echo "Nginx will serve them automatically using zero additional RAM."
+echo "Nginx serves the static export straight off disk, using zero additional RAM."
+echo "The vhost's \`root\` must be exactly this absolute path (nginx does NOT expand ~):"
+echo "    root $OUT_DIR;"
