@@ -110,3 +110,7 @@ Turbopack's PostCSS worker binds a local port, so the run dies with `Operation n
 before compiling anything. Two sessions each burned a build on this. Start it unsandboxed.
 
 
+
+2026-09-18 · `deploy.sh` silently rewrote `origin` to HTTPS on every run, overriding the host's
+own config (the checkout's real remote is SSH) · Removed the `git remote set-url`; the script now
+prints the remote it will pull from and uses `git pull --ff-only`.

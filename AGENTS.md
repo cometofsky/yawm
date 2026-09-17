@@ -48,18 +48,22 @@ A change is DONE only when the relevant commands pass and their output is shown.
 ## Running system
 Deploy is **manual and the user's call** — a human runs `scripts/deploy.sh` on the host. There is no
 CI. Pushing to `main` deploys nothing; never deploy unasked.
-- **`main` is the deploy source.** `deploy.sh` does `git pull origin main` over HTTPS (it rewrites
-  `origin` to `https://github.com/cometofsky/yawm.git` on every run), then `npm ci` and
-  `npm run build`. Nothing is reloaded or restarted: nginx serves `out/` straight off disk, so the
-  build *is* the deploy.
-  <!-- claim: cmd=`grep -c 'git pull origin main' scripts/deploy.sh` expect=`1` -->
+- **`main` is the deploy source.** `deploy.sh` does `git pull --ff-only origin main`, then `npm ci`
+  and `npm run build`. It uses whatever `origin` the host is configured with — it prints the remote
+  and never rewrites it (the only `git remote set-url` left is a comment naming the manual command
+  for a box that needs HTTPS). Nothing is reloaded or restarted: nginx serves `out/` straight off
+  disk, so the build *is* the deploy.
+  <!-- claim: cmd=`grep -c 'git pull --ff-only origin main' scripts/deploy.sh` expect=`1` -->
+  <!-- claim: cmd=`grep -c '^git remote set-url' scripts/deploy.sh` expect=`0` -->
 - **Commits go straight to `main`** — no other branch has ever existed here and there are no merge
   commits. Don't open a branch for a one-repo change; commit on `main` and push only when asked.
-- **`iyyam.rafi.ninja.conf` is a template, not the live file.** It has `root ~/apps/yawm/web/out;`
-  and **nginx does not expand `~`** — as written it would resolve relative to the nginx prefix and
-  serve nothing. The live vhost therefore carries a different, absolute root. Do not copy this file
+- **`iyyam.rafi.ninja.conf` is a TEMPLATE, not the live file** — it says so at the top, and its
+  `root` is the placeholder `/ABSOLUTE/PATH/TO/yawm/web/out`. **nginx does not expand `~`**, and
+  `deploy.sh` builds in place, so the real docroot is whichever checkout the host deploys from:
+  the last thing `deploy.sh` prints is the exact `root ...;` line to paste. Do not copy this file
   onto the host unedited, and do not read the checkout path off it.
-  <!-- claim: cmd=`grep -c 'root ~/apps/yawm/web/out' iyyam.rafi.ninja.conf` expect=`1` -->
+  <!-- claim: cmd=`grep -c 'root /ABSOLUTE/PATH/TO/yawm/web/out' iyyam.rafi.ninja.conf` expect=`1` -->
+  <!-- claim: cmd=`grep -c 'root ~' iyyam.rafi.ninja.conf` expect=`0` -->
 - **Static assets are served `immutable, max-age=15552000`** (6 months). Safe for `_next/static`,
   whose filenames are content-hashed — but any top-level asset you add under a stable name is
   pinned in every visitor's browser for half a year. Version the filename instead.
