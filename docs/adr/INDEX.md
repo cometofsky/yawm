@@ -27,3 +27,4 @@ only when they earn their place.
 
 | ADR | Title | Type | Area | Status |
 |---|---|---|---|---|
+| [0001](0001-clock-primary-waqt-secondary.md) | The local clock is primary; the waqt card is secondary but wider | product | ui, layout, hero | proposed |
