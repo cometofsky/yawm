@@ -1,4 +1,33 @@
-# AI layer — forward design (nothing built)
+# Architecture — iyyam
+
+Technical contracts: what the system is made of and the rules its code must keep. Structure
+follows arc42 (trimmed); diagrams use the C4 model (Context → Containers → Components) as Mermaid
+or text so they diff in review. Current truth only — a significant or hard-to-reverse choice gets
+an ADR in `docs/adr/` and is linked here, e.g. `(→ ADR-0002)`. Label anything designed but not yet
+built as **planned**; never describe a design as a running system.
+
+## Context and scope
+<!-- C4 level 1: users, this system, and every external system it talks to. What is out of scope. -->
+
+## Solution strategy
+<!-- The few decisions that shape everything else (stack, data store, deployment model), each → ADR. -->
+
+## Building blocks
+<!-- C4 level 2: containers/modules, what each owns, and the boundaries between them. -->
+
+## Runtime behaviour
+<!-- The important flows end to end: request paths, background jobs, failure and retry handling. -->
+
+## Data
+<!-- Stores, ownership, tenancy, retention, migrations. Money, time zones and PII rules. -->
+
+## Deployment and operations
+<!-- Where it runs, how it is deployed and rolled back, backups, monitoring, secrets. -->
+
+## Cross-cutting concepts
+<!-- Security and authorisation, error handling, logging, AI/LLM boundaries, accessibility, i18n. -->
+
+### AI layer — forward design (nothing built) <a id="ai-layer"></a>
 
 No AI/LLM code exists in this repo today. This page is the design to pick up *if* one is ever
 built; it is not a rule, which is why it does not sit in `AGENTS.md` loading into every session.
@@ -15,3 +44,9 @@ restate it here.
 - **Context** — ground strictly on this app's own small, static data: the `umalqura.ts` table + `HIJRI_MONTHS`, the `CITIES` rows and `regionOffsetFor` map, and `sunset.ts` math. This corpus is tiny and rarely changes, so cache the grounding blob / system prompt rather than building any RAG or vector store — token budget is a non-issue and freshness comes from rebuilds, not retrieval.
 - **Harness** — the provider seam must NOT live in `app/` (the shipped bundle is offline-only and ES5-transpiled for Safari 10 — no runtime LLM calls there). Put it either in `scripts/` as a build-time generator (mirroring `build-cities.js` — precompute answers/enrichments into static data) or in a separate small service the modern clients call; the static export stays untouched. Wrap the provider so it never raises into the date flow: on any failure fall back to the deterministic table, and validate LLM output with a `verify-umalqura.js`-style check before it can ship.
 - **Loop** — single-shot is sufficient for date Q&A and location resolution (no tools/agents needed against a fixed table). The moon-sighting offset suggestion is religiously high-stakes and MUST stay human-in-the-loop: the AI only proposes an offset with its evidence; the manual ± knob remains the final authority, exactly as the current design intends (a wrong auto-applied Hijri date is the bug this app was built to fix).
+
+## Quality goals and risks
+<!-- The quality attributes that win trade-offs (in order), known risks and technical debt. -->
+
+## Deliberately deferred
+<!-- What we chose not to build yet, and the signal that would change that. -->

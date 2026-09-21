@@ -114,3 +114,4 @@ before compiling anything. Two sessions each burned a build on this. Start it un
 2026-09-18 · `deploy.sh` silently rewrote `origin` to HTTPS on every run, overriding the host's
 own config (the checkout's real remote is SSH) · Removed the `git remote set-url`; the script now
 prints the remote it will pull from and uses `git pull --ff-only`.
+2026-09-21 · docs/ai-layer-plan.md merged into docs/architecture.md (Cross-cutting → AI layer) + a scheduling note in docs/development-plan.md, file deleted, AGENTS.md `## AI layer` repointed; the 11 bullets kept below the managed block are all repo-specific (stack, iOS 10 constraints), none removed · `node scripts/check-docs.mjs` PASS; check-preserved shows only the expected AGENTS.md pointer/Project-context losses
