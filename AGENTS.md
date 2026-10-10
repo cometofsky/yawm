@@ -61,6 +61,7 @@ doc edit; it must pass before reporting done.
 ### Repo-specific docs
 | Doc | Read when |
 | :--- | :--- |
+| `DESIGN.md` | Changing anything a user sees — the visual system (tokens, themes, components); `app/globals.css` + the Tailwind classes in `app/page.tsx` and `app/components/*.tsx` are the source of truth, this file describes it |
 | `docs/agents/codebase-map.md` | Changing the stack, static-export config, transpile/postbuild path or generated city data; locating where code lives; using graphify |
 | `docs/agents/verification.md` | Choosing which check to run, or before running `npm run build` |
 | `docs/agents/running-system.md` | Deploying, editing `scripts/deploy.sh` or `iyyam.rafi.ninja.conf`, adding a static asset, or any host-level action |
