@@ -181,7 +181,7 @@ export function WaqtCountdownCard({ location, isLoaded }: PrayerDisplayProps) {
 
       <div>
         {/* Top line: Label on left, controls on right */}
-        <div className="flex justify-between items-center mb-3 sm:mb-4 gap-2">
+        <div className="flex justify-between items-center mb-3 sm:mb-4 space-x-2">
           <span className="text-white/60 uppercase tracking-widest text-xs font-semibold whitespace-nowrap">
             {waqtStatus.isPrayerTime ? 'Current Waqt' : 'Current Period'}
           </span>

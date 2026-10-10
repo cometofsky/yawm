@@ -91,7 +91,7 @@ export default function SettingsModal({
                   role="switch"
                   aria-checked={settings.showWorldClocks}
                   onClick={() => updateSetting('showWorldClocks', !settings.showWorldClocks)}
-                  className={`relative inline-flex h-6 w-11 shrink-0 items-center rounded-full transition-colors focus:outline-none ${
+                  className={`relative inline-flex h-6 w-11 shrink-0 items-center rounded-full transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 ${
                     settings.showWorldClocks ? 'bg-blue-500' : 'bg-white/20'
                   }`}
                 >
@@ -125,7 +125,7 @@ export default function SettingsModal({
                   role="switch"
                   aria-checked={settings.showPrayerTimes}
                   onClick={() => updateSetting('showPrayerTimes', !settings.showPrayerTimes)}
-                  className={`relative inline-flex h-6 w-11 shrink-0 items-center rounded-full transition-colors focus:outline-none ${
+                  className={`relative inline-flex h-6 w-11 shrink-0 items-center rounded-full transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 ${
                     settings.showPrayerTimes ? 'bg-amber-400' : 'bg-white/20'
                   }`}
                 >
@@ -195,7 +195,7 @@ export default function SettingsModal({
                   role="switch"
                   aria-checked={settings.showGregorian}
                   onClick={() => updateSetting('showGregorian', !settings.showGregorian)}
-                  className={`relative inline-flex h-6 w-11 shrink-0 items-center rounded-full transition-colors focus:outline-none ${
+                  className={`relative inline-flex h-6 w-11 shrink-0 items-center rounded-full transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 ${
                     settings.showGregorian ? 'bg-blue-500' : 'bg-white/20'
                   }`}
                 >
@@ -218,7 +218,7 @@ export default function SettingsModal({
                   role="switch"
                   aria-checked={settings.showHijri}
                   onClick={() => updateSetting('showHijri', !settings.showHijri)}
-                  className={`relative inline-flex h-6 w-11 shrink-0 items-center rounded-full transition-colors focus:outline-none ${
+                  className={`relative inline-flex h-6 w-11 shrink-0 items-center rounded-full transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 ${
                     settings.showHijri ? 'bg-emerald-500' : 'bg-white/20'
                   }`}
                 >
@@ -241,7 +241,7 @@ export default function SettingsModal({
                   role="switch"
                   aria-checked={settings.showBengali}
                   onClick={() => updateSetting('showBengali', !settings.showBengali)}
-                  className={`relative inline-flex h-6 w-11 shrink-0 items-center rounded-full transition-colors focus:outline-none ${
+                  className={`relative inline-flex h-6 w-11 shrink-0 items-center rounded-full transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 ${
                     settings.showBengali ? 'bg-orange-500' : 'bg-white/20'
                   }`}
                 >
@@ -264,7 +264,7 @@ export default function SettingsModal({
                   role="switch"
                   aria-checked={settings.showMonthlyCalendar}
                   onClick={() => updateSetting('showMonthlyCalendar', !settings.showMonthlyCalendar)}
-                  className={`relative inline-flex h-6 w-11 shrink-0 items-center rounded-full transition-colors focus:outline-none ${
+                  className={`relative inline-flex h-6 w-11 shrink-0 items-center rounded-full transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 ${
                     settings.showMonthlyCalendar ? 'bg-indigo-500' : 'bg-white/20'
                   }`}
                 >

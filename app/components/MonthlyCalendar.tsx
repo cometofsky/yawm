@@ -83,10 +83,12 @@ export default function MonthlyCalendar({ location, manualOffset }: MonthlyCalen
       const glowEffect = hoveredType !== 'none' ? 'hover:bg-white/10' : 'hover:bg-white/10 hover:border-white/30';
 
       cells.push(
-        <div 
-          key={`day-${d}`} 
+        <button
+          type="button"
+          key={`day-${d}`}
           onClick={() => setSelectedDate(currentCellDate)}
-          className={`relative h-16 sm:h-20 md:h-24 lg:h-28 xl:h-32 flex items-center justify-center rounded-xl border transition-all duration-300 cursor-pointer shadow-sm group overflow-hidden
+          aria-label={currentCellDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
+          className={`relative w-full h-16 sm:h-20 md:h-24 lg:h-28 xl:h-32 flex items-center justify-center rounded-xl border transition-all duration-300 cursor-pointer shadow-sm group overflow-hidden
             ${isToday && hoveredType === 'none'
               ? 'bg-blue-500/10 border-blue-400/50 shadow-[0_0_15px_rgba(59,130,246,0.3)]' 
               : 'bg-white/5 border-white/5'} ${glowEffect}`}
@@ -105,7 +107,7 @@ export default function MonthlyCalendar({ location, manualOffset }: MonthlyCalen
           <span className={`text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold transition-opacity duration-300 ${gregOpacity} ${isToday ? 'text-blue-400 drop-shadow-[0_0_8px_rgba(59,130,246,0.8)]' : 'text-white/90'} ${hoveredType === 'gregorian' ? 'drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] scale-110' : ''}`}>
             {d}
           </span>
-        </div>
+        </button>
       );
     }
     return cells;
@@ -124,30 +126,50 @@ export default function MonthlyCalendar({ location, manualOffset }: MonthlyCalen
           
           {/* Interactive Legend */}
           <div className="flex flex-wrap justify-center bg-black/40 px-2 py-2 rounded-2xl border border-white/5 space-x-2">
-            <div 
+            {/* Buttons so keyboard focus drives the same highlight as hover; the inner span carries
+                the flex layout because iOS 10 Safari cannot make a <button> a flex container. */}
+            <button
+              type="button"
+              aria-label="Highlight Gregorian days"
               onMouseEnter={() => setHoveredType('gregorian')}
               onMouseLeave={() => setHoveredType('none')}
-              className="flex items-center space-x-2 text-sm text-blue-400 px-4 py-2 rounded-xl cursor-pointer hover:bg-blue-500/20 transition-colors"
+              onFocus={() => setHoveredType('gregorian')}
+              onBlur={() => setHoveredType('none')}
+              className="text-sm text-blue-400 px-4 py-2 rounded-xl cursor-pointer hover:bg-blue-500/20 transition-colors"
             >
-              <Globe className="w-4 h-4" />
-              <span className="font-medium hidden md:inline">Gregorian</span>
-            </div>
-            <div 
+              <span className="flex items-center space-x-2">
+                <Globe className="w-4 h-4" />
+                <span className="font-medium hidden md:inline">Gregorian</span>
+              </span>
+            </button>
+            <button
+              type="button"
+              aria-label="Highlight Hijri days"
               onMouseEnter={() => setHoveredType('hijri')}
               onMouseLeave={() => setHoveredType('none')}
-              className="flex items-center space-x-2 text-sm text-emerald-400 px-4 py-2 rounded-xl cursor-pointer hover:bg-emerald-500/20 transition-colors"
+              onFocus={() => setHoveredType('hijri')}
+              onBlur={() => setHoveredType('none')}
+              className="text-sm text-emerald-400 px-4 py-2 rounded-xl cursor-pointer hover:bg-emerald-500/20 transition-colors"
             >
-              <Moon className="w-4 h-4" />
-              <span className="font-medium hidden md:inline">Hijri</span>
-            </div>
-            <div 
+              <span className="flex items-center space-x-2">
+                <Moon className="w-4 h-4" />
+                <span className="font-medium hidden md:inline">Hijri</span>
+              </span>
+            </button>
+            <button
+              type="button"
+              aria-label="Highlight Bengali days"
               onMouseEnter={() => setHoveredType('bengali')}
               onMouseLeave={() => setHoveredType('none')}
-              className="flex items-center space-x-2 text-sm text-orange-400 px-4 py-2 rounded-xl cursor-pointer hover:bg-orange-500/20 transition-colors"
+              onFocus={() => setHoveredType('bengali')}
+              onBlur={() => setHoveredType('none')}
+              className="text-sm text-orange-400 px-4 py-2 rounded-xl cursor-pointer hover:bg-orange-500/20 transition-colors"
             >
-              <CalendarDays className="w-4 h-4" />
-              <span className="font-medium hidden md:inline">Bengali</span>
-            </div>
+              <span className="flex items-center space-x-2">
+                <CalendarDays className="w-4 h-4" />
+                <span className="font-medium hidden md:inline">Bengali</span>
+              </span>
+            </button>
           </div>
         </div>
 

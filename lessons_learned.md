@@ -115,3 +115,6 @@ before compiling anything. Two sessions each burned a build on this. Start it un
 own config (the checkout's real remote is SSH) · Removed the `git remote set-url`; the script now
 prints the remote it will pull from and uses `git pull --ff-only`.
 2026-09-21 · docs/ai-layer-plan.md merged into docs/architecture.md (Cross-cutting → AI layer) + a scheduling note in docs/development-plan.md, file deleted, AGENTS.md `## AI layer` repointed; the 11 bullets kept below the managed block are all repo-specific (stack, iOS 10 constraints), none removed · `node scripts/check-docs.mjs` PASS; check-preserved shows only the expected AGENTS.md pointer/Project-context losses
+2026-10-10 · DESIGN.md scan defects fixed · `--font-mono` now the system monospace stack (supersedes the 2026-09-02 no-op note);
+`animate-in fade-in` implemented as plain keyframes in `globals.css` + a `prefers-reduced-motion` rule; switch focus rings, keyboard
+month grid/legend (`<button>` with an inner flex `<span>` — iOS 10 can't flex a button), stepper `aria-label`s, 3 flex `gap-*` → `space-x-*`.

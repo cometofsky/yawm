@@ -156,6 +156,7 @@ export default function CalendarDisplay({
                       onClick={() => updateOffset(hijriOffset - 1)}
                       className="p-1 hover:bg-white/20 rounded-md transition-colors text-white/60 hover:text-white"
                       title="−1 day"
+                      aria-label="Shift Hijri date back one day"
                     >
                       <Minus className="w-3.5 h-3.5" />
                     </button>
@@ -167,6 +168,7 @@ export default function CalendarDisplay({
                       onClick={() => updateOffset(hijriOffset + 1)}
                       className="p-1 hover:bg-white/20 rounded-md transition-colors text-white/60 hover:text-white"
                       title="+1 day"
+                      aria-label="Shift Hijri date forward one day"
                     >
                       <Plus className="w-3.5 h-3.5" />
                     </button>

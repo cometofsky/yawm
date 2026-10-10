@@ -12,13 +12,13 @@ colors:
   surface-sheet: "#0a0a0a"
 typography:
   display:
-    fontFamily: "Arial, Helvetica, sans-serif"
+    fontFamily: "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace"
     fontSize: "4.5rem"
     fontWeight: 700
     lineHeight: 1
     letterSpacing: "-0.025em"
   headline:
-    fontFamily: "Arial, Helvetica, sans-serif"
+    fontFamily: "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace"
     fontSize: "3rem"
     fontWeight: 700
     lineHeight: 1
@@ -102,7 +102,7 @@ components:
      tailwind.config and no shared primitive file, so the components ARE the system. This file
      describes them; when the two disagree, the code wins and this file is the bug. There is one
      theme (dark). The anchors below fail when this file drifts. -->
-<!-- claim: cmd=`grep -cF -e '--background: #050505' -e '--foreground: #ededed' -e '--font-mono: var(--font-geist-mono)' -e 'font-family: Arial, Helvetica, sans-serif' app/globals.css` expect=`4` -->
+<!-- claim: cmd=`grep -cF -e '--background: #050505' -e '--foreground: #ededed' -e '--font-mono: ui-monospace, SFMono-Regular, Menlo' -e 'font-family: Arial, Helvetica, sans-serif' app/globals.css` expect=`4` -->
 <!-- claim: cmd=`grep -cF -e 'bg-[#121212] border border-white/10 shadow-2xl' -e 'bg-[#0c0c0c] px-4 py-2.5 rounded-2xl' app/components/Clock.tsx` expect=`2` -->
 <!-- claim: cmd=`grep -cF -e 'rounded-3xl bg-[#0c0c0c] border border-white/10 p-5 sm:p-6 md:p-7' -e 'font-bold font-mono text-white/70' app/components/PrayerDisplay.tsx` expect=`2` -->
 <!-- claim: cmd=`grep -cF -e 'md:grid-cols-8' -e 'md:col-span-5' -e 'md:col-span-3' app/page.tsx` expect=`3` -->
@@ -135,11 +135,15 @@ primary, the waqt card is secondary, and the waqt card still gets the **wider** 
   pills and inner wells, `rounded-xl` (12px) on buttons and cells.
 - Dense small type around very large numerals: `text-xs` (32 uses) and `text-sm` (20) carry
   the UI; the clock goes to `text-9xl`.
-- Arial everywhere. `font-mono` is used 7 times and renders Arial (see Typography).
+- Arial everywhere except the numerals: `font-mono` (7 uses) is the system monospace stack
+  (see Typography).
 - Built for iOS 10.3.4 Safari: `postcss.config.mjs` targets `ios_saf >= 10` and flattens
-  `oklab()`; flex `gap` is avoided in favour of `space-x-*` / `space-y-*` (30 / 16 uses).
-- Motion is colour fades only: `transition-colors` (27), `duration-200` (7) / `-300` (4), and
-  `animate-pulse` on loading placeholders. No `prefers-reduced-motion` handling exists.
+  `oklab()`; flex `gap` is avoided in favour of `space-x-*` / `space-y-*` (33 / 16 uses).
+- Motion is colour fades only: `transition-colors` (27), `duration-200` (7) / `-300` (4),
+  `animate-pulse` on loading placeholders, and a 200ms opacity fade-in on the three modal
+  overlays (`animate-in fade-in`, plain CSS keyframes in `app/globals.css`). A
+  `prefers-reduced-motion: reduce` rule in `app/globals.css` cuts every animation and
+  transition to 0.01ms.
 
 ## 2. Colors
 
@@ -199,15 +203,18 @@ made the secondary card read louder.
 
 ## 3. Typography
 
-**Display Font:** Arial (Helvetica, sans-serif fallback), set on `body` in `app/globals.css`
-**Body Font:** the same
-**Label/Mono Font:** none in practice. `@theme` maps `--font-mono` to `var(--font-geist-mono)`
-and `--font-sans` to `var(--font-geist-sans)`, but no Geist font is loaded (`app/layout.tsx`
-imports none), so every `font-mono` numeral renders proportional Arial (`lessons_learned.md`,
-2026-09-02).
+**Text Font:** Arial (Helvetica, sans-serif fallback), set on `body` in `app/globals.css` — all
+headings, labels and body copy
+**Numeral Font:** the Mono Font below — the Display and Headline numerals
+**Mono Font:** the system monospace stack (`ui-monospace, SFMono-Regular, Menlo, …,
+monospace`), set as `--font-mono` in `@theme` in `app/globals.css`. No font file is loaded (the
+app is offline-only); Menlo / Courier ship with iOS 10. Used by every ticking or tabular numeral:
+the local clock, world clocks, waqt countdown, ribbon times, Iftar time and the Hijri offset
+value. (`--font-sans` still points at an undefined `var(--font-geist-sans)`; `body` sets Arial,
+so it has no visible effect.)
 
-**Character:** a plain system sans used at two extremes: tight, bold, very large numerals and
-small uppercase labels with wide tracking.
+**Character:** plain system faces used at two extremes: tight, bold, very large monospace
+numerals and small uppercase sans labels with wide tracking.
 
 ### Hierarchy
 - **Display** (700, `text-5xl` → `sm:text-6xl` → `md:text-7xl`, i.e. 3rem → 4.5rem, line
@@ -229,10 +236,10 @@ small uppercase labels with wide tracking.
   card headings ("Gregorian", "Hijri"), weekday headers and section titles in settings.
 
 ### Named Rules
-**The Proportional-Digits Rule.** Digits are not fixed-width here, despite `font-mono`. A
-ticking string stays left-aligned so the changing seconds sit at its end. A centred or
-right-aligned countdown would visibly jitter (about 12px spread at 72px, measured on canvas,
-`lessons_learned.md`).
+**The Fixed-Width-Digits Rule.** Every ticking numeral carries `font-mono`, which now resolves
+to a real monospace face, so its digits do not shift width as they change. Don't drop
+`font-mono` from a ticking string: in proportional Arial a centred or right-aligned countdown
+visibly jitters (about 12px spread at 72px, measured on canvas, `lessons_learned.md`).
 
 ## 4. Elevation
 
@@ -250,7 +257,7 @@ no shadow.
 - **Current prayer** (`shadow-lg`): the solid amber cell in the prayer ribbon (1 use).
 - **Day cell** (`shadow-sm`): every month-grid cell (1 class, applied per cell).
 - **Glows** (coloured, grid only): today's cell `shadow-[0_0_15px_rgba(59,130,246,0.3)]`; on
-  legend hover, `drop-shadow-[0_0_8px_…]` in blue, emerald, orange or white on the matching
+  legend hover or keyboard focus, `drop-shadow-[0_0_8px_…]` in blue, emerald, orange or white on the matching
   day numbers.
 - Recessed surfaces (`#0c0c0c`) carry no shadow, by design.
 
@@ -278,9 +285,10 @@ the same pattern is repeated rather than shared (the switch is copied six times 
 - **Segmented toggles:** a `rounded-xl` track (`bg-black/40`–`/50`, `border-white/10`, `p-0.5`
   or `p-1`) holding `rounded-lg` segments. Active Asr segment `bg-white/20 text-white` with
   `aria-pressed`; active display-mode segment `bg-amber-400 text-black`.
-- **Focus:** only the settings cog has a visible replacement
-  (`focus-visible:ring-2 focus-visible:ring-white/20`). The six switches set
-  `focus:outline-none` with no replacement, so their keyboard focus is invisible (known gap).
+- **Focus:** elements that set `focus:outline-none` replace it with a ring: the settings cog
+  `focus-visible:ring-2 focus-visible:ring-white/20`, the six switches
+  `focus-visible:ring-2 focus-visible:ring-white/80` (about 11:1 against the settings well,
+  computed). Other buttons keep the browser's default outline.
 
 ### Chips / Pills
 - **Iftar pill:** `rounded-xl bg-white/5 border border-white/10 px-2.5 py-1`, an amber
@@ -289,8 +297,8 @@ the same pattern is repeated rather than shared (the switch is copied six times 
   `bg-white/20`, on in the section's hue (blue, amber, emerald, orange, indigo); a 16px knob
   slides `translate-x-1` → `translate-x-6`.
 - **Hijri offset stepper:** `bg-white/10 rounded-lg p-0.5 border-white/10` with `−` / `+`
-  icon buttons (`p-1`, 14px icon) around a `text-xs` value. It carries `title` text but no
-  `aria-label`. `docs/product.md` forbids removing or hiding this control.
+  icon buttons (`p-1`, 14px icon) around a `text-xs` value. Each button has a `title` and an
+  `aria-label` ("Shift Hijri date back / forward one day"). `docs/product.md` forbids removing or hiding this control.
 
 ### Cards / Containers
 - **Corner Style:** `rounded-3xl` (24px) on every card and modal (13 uses).
@@ -327,9 +335,10 @@ prayer times are off, the clock alone fills the hero, centred at up to `text-9xl
 ### Monthly Calendar
 A 7-column grid of `rounded-xl` cells (`h-16` → `xl:h-32`), each showing three numbers: the
 Gregorian day centred, the Hijri day top-right (emerald, bold) and the Bengali day bottom-left
-(orange). Hovering a legend entry dims the other two systems to `opacity-20`. Cells are
-clickable `<div>`s and the legend responds to mouse hover only, so neither is keyboard
-operable (known gap). Clicking a cell opens the `#0a0a0a` "Detailed View" modal, one tinted
+(orange). Hovering or keyboard-focusing a legend entry dims the other two systems to `opacity-20`.
+Cells and legend entries are `<button>`s (each cell's `aria-label` is its full Gregorian date;
+the legend buttons wrap their content in an inner flex `<span>`, because iOS 10 Safari cannot
+make a `<button>` a flex container). Clicking or pressing a cell opens the `#0a0a0a` "Detailed View" modal, one tinted
 row per calendar (`bg-<hue>-500/10 border-<hue>-500/20 rounded-2xl`).
 
 ## 6. Do's and Don'ts
@@ -344,8 +353,8 @@ row per calendar (`bg-<hue>-500/10 border-<hue>-500/20 rounded-2xl`).
 - **Do** check every layout on the target, a 2014-era iPad on iOS 10.3.4 Safari. A layout that
   only works on a modern browser is not done (`docs/product.md`).
 - **Do** use `space-x-*` / `space-y-*` between flex children. Tailwind v4 emits bare `gap:` with
-  no fallback, and flex `gap` is dropped on iOS 10 (`lessons_learned.md`). Three flex rows still
-  use `gap-*`: `PrayerDisplay.tsx:184`, `LocationPicker.tsx:133` and `LocationPicker.tsx:204`.
+  no fallback, and flex `gap` is dropped on iOS 10 (`lessons_learned.md`). No flex row uses
+  `gap-*`; the remaining `gap-*` classes are on grids.
 - **Do** answer CSS-support questions against the built `out/_next/static/**/*.css`, which is
   the only place they can be answered (`lessons_learned.md`).
 - **Do** measure contrast by painting the colour to a canvas, with a known-failing control.
@@ -358,13 +367,14 @@ row per calendar (`bg-<hue>-500/10 border-<hue>-500/20 rounded-2xl`).
 - **Don't** equalise or invert the two hero cards, and don't tune only one channel. They were
   identical once and the user had to ask for hierarchy three times (ADR-0001).
 - **Don't** give a recessed `#0c0c0c` surface a shadow, or move the waqt card onto `#121212`.
-- **Don't** rely on `font-mono` for fixed-width digits: it renders Arial. Don't centre or
-  right-align a ticking countdown.
+- **Don't** drop `font-mono` from a ticking numeral, or point `--font-mono` back at a font that
+  is not available offline: the digits would fall back to proportional Arial and jitter.
 - **Don't** create a `tailwind.config`. Tailwind v4 is configured CSS-first in `app/globals.css`
   (`docs/agents/do-not-guess.md`).
 - **Don't** load a web font, icon font or any other asset from the network. The app must be fully
   offline after load (`docs/product.md`); this is also why no Geist font is loaded.
-- **Don't** use `animate-in` / `fade-in` expecting an animation. No animation plugin is
-  installed, and the built CSS contains neither class; the three modals simply appear.
+- **Don't** expect other `tailwindcss-animate` classes to work. No animation plugin is installed;
+  `animate-in fade-in` works only because `app/globals.css` defines that exact pair (200ms
+  opacity fade, cut by the reduced-motion rule).
 - **Don't** remove, hide or auto-apply the Hijri manual ± offset control. It is the user's final
   authority over the computed date (`docs/product.md`).

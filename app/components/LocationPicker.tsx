@@ -130,7 +130,7 @@ export default function LocationPicker({ cities, value, recents, onSelect, onClo
 
       {/* Search input (combobox) */}
       <div className="px-4 pt-4 pb-2">
-        <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-2xl px-3 focus-within:border-emerald-400/60 transition-colors duration-200">
+        <div className="flex items-center space-x-2 bg-white/5 border border-white/10 rounded-2xl px-3 focus-within:border-emerald-400/60 transition-colors duration-200">
           <Search className="w-5 h-5 text-white/40 shrink-0" />
           <input
             ref={inputRef}
@@ -201,7 +201,7 @@ export default function LocationPicker({ cities, value, recents, onSelect, onClo
                 onClick={() => onSelect(c)}
                 onMouseEnter={() => setActiveIndex(i)}
                 className={
-                  'flex items-center gap-3 px-3 py-3 min-h-[48px] rounded-xl cursor-pointer transition-colors duration-200 ' +
+                  'flex items-center space-x-3 px-3 py-3 min-h-[48px] rounded-xl cursor-pointer transition-colors duration-200 ' +
                   (active ? 'bg-emerald-500/20 text-white' : 'text-white/80 hover:bg-white/5')
                 }
               >
