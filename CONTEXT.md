@@ -29,4 +29,4 @@ is the deterministic source for every Hijri conversion here.
 
 **Desk-clock layout**:
 The single hero row: the waqt card and the local clock side by side, read from across a room.
-Their relative prominence is a product rule — see `docs/product.md`.
+Their relative prominence is a product rule — see `PRODUCT.md`.

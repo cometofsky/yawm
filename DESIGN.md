@@ -114,7 +114,7 @@ components:
 from across a room"). One static screen on a 2014-era iPad propped on a shelf: big white
 numerals on near-black rounded cards, everything else small and dimmed. The user glances and
 reads, in order, the local time, then the current waqt and its countdown, then the Hijri date
-(`docs/product.md`).
+(`PRODUCT.md`).
 
 The page is always dark. There is no light theme, no `dark:` variant and no
 `prefers-color-scheme` branch (0 `dark:` uses). Depth comes from three near-black surface steps
@@ -298,7 +298,7 @@ the same pattern is repeated rather than shared (the switch is copied six times 
   slides `translate-x-1` → `translate-x-6`.
 - **Hijri offset stepper:** `bg-white/10 rounded-lg p-0.5 border-white/10` with `−` / `+`
   icon buttons (`p-1`, 14px icon) around a `text-xs` value. Each button has a `title` and an
-  `aria-label` ("Shift Hijri date back / forward one day"). `docs/product.md` forbids removing or hiding this control.
+  `aria-label` ("Shift Hijri date back / forward one day"). `PRODUCT.md` forbids removing or hiding this control.
 
 ### Cards / Containers
 - **Corner Style:** `rounded-3xl` (24px) on every card and modal (13 uses).
@@ -345,13 +345,13 @@ row per calendar (`bg-<hue>-500/10 border-<hue>-500/20 rounded-2xl`).
 
 ### Do:
 - **Do** keep the local clock primary and the waqt card secondary on all four channels at once:
-  numeral scale, luminance, surface elevation and accent chroma (ADR-0001, `docs/product.md`).
+  numeral scale, luminance, surface elevation and accent chroma (ADR-0001, `PRODUCT.md`).
 - **Do** keep the waqt card in the wider column (`md:col-span-5` against `md:col-span-3`). Width
   runs counter to emphasis on purpose, because the countdown is the longer string.
 - **Do** size the clock in portrait to the largest step that fits its column, not to a copy of
-  the landscape value ("in portrait mode, make the local time more bigger", `docs/product.md`).
+  the landscape value ("in portrait mode, make the local time more bigger", `PRODUCT.md`).
 - **Do** check every layout on the target, a 2014-era iPad on iOS 10.3.4 Safari. A layout that
-  only works on a modern browser is not done (`docs/product.md`).
+  only works on a modern browser is not done (`PRODUCT.md`).
 - **Do** use `space-x-*` / `space-y-*` between flex children. Tailwind v4 emits bare `gap:` with
   no fallback, and flex `gap` is dropped on iOS 10 (`lessons_learned.md`). No flex row uses
   `gap-*`; the remaining `gap-*` classes are on grids.
@@ -372,9 +372,9 @@ row per calendar (`bg-<hue>-500/10 border-<hue>-500/20 rounded-2xl`).
 - **Don't** create a `tailwind.config`. Tailwind v4 is configured CSS-first in `app/globals.css`
   (`docs/agents/do-not-guess.md`).
 - **Don't** load a web font, icon font or any other asset from the network. The app must be fully
-  offline after load (`docs/product.md`); this is also why no Geist font is loaded.
+  offline after load (`PRODUCT.md`); this is also why no Geist font is loaded.
 - **Don't** expect other `tailwindcss-animate` classes to work. No animation plugin is installed;
   `animate-in fade-in` works only because `app/globals.css` defines that exact pair (200ms
   opacity fade, cut by the reduced-motion rule).
 - **Don't** remove, hide or auto-apply the Hijri manual ± offset control. It is the user's final
-  authority over the computed date (`docs/product.md`).
+  authority over the computed date (`PRODUCT.md`).
