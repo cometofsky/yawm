@@ -1,0 +1,73 @@
+{
+  "title": "Three new directions for iyyam",
+  "question": "Choose the visual world you want developed. These are illustrative first-screen sketches; the live app is unchanged.",
+  "options": [
+    {
+      "id": "daylight",
+      "label": "Daylight",
+      "thesis": "A porcelain desk clock with crisp ink-blue numerals and softly raised controls.",
+      "lineage": "Porcelain domestic objects and clear printed calendars",
+      "palette": [
+        "#edf2f6",
+        "#16334b",
+        "#ffffff",
+        "#377b78"
+      ],
+      "materials": [
+        "cool porcelain",
+        "shallow relief"
+      ],
+      "viewport": "Local time anchors a porcelain inset; a wider quiet waqt field sits beside it, with dates and calendars below.",
+      "risk": "A light surface needs careful dimming for nighttime use.",
+      "html": ".impeccable/mocks/decision/daylight.html",
+      "htmlFrame": "1440x900"
+    },
+    {
+      "id": "nocturne",
+      "label": "Nocturne",
+      "thesis": "A low-light clock with pearl digits, aubergine depth and amber prayer boundaries.",
+      "lineage": "Evening interiors, dyed textiles and bedside lighting",
+      "palette": [
+        "#221c29",
+        "#f2e9e0",
+        "#bb9a71",
+        "#38303f"
+      ],
+      "materials": [
+        "matte plum",
+        "warm pearl"
+      ],
+      "viewport": "A centered luminous clock leads the upper field; a wider horizontal waqt band and compressed date rail sit below.",
+      "risk": "Quiet secondary text must still be readable across the room.",
+      "html": ".impeccable/mocks/decision/nocturne.html",
+      "htmlFrame": "1440x900"
+    },
+    {
+      "id": "meridian",
+      "label": "Meridian",
+      "thesis": "A mineral-teal daily clock with the prayer day made legible as one continuous timeline.",
+      "lineage": "Shared daily rhythms and disciplined civic wayfinding",
+      "palette": [
+        "#123f43",
+        "#f0f5ec",
+        "#a5c9bf",
+        "#e2b77c"
+      ],
+      "materials": [
+        "mineral color",
+        "enamel-like controls"
+      ],
+      "viewport": "The largest local digits face a wider waqt field; a continuous prayer timeline joins the day before the three-calendar area.",
+      "risk": "The timeline must remain supporting information, without competing with the clock.",
+      "html": ".impeccable/mocks/decision/meridian.html",
+      "htmlFrame": "1440x900"
+    }
+  ],
+  "steer": true,
+  "canon": false,
+  "reroll": false,
+  "buildPath": {
+    "value": "code",
+    "toggle": false
+  }
+}

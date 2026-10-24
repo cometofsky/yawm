@@ -1,7 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Calendar as CalendarIcon, Globe, Moon, CalendarDays, X } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import DisplayDialog from './DisplayDialog';
 import { resolveHijri, ResolvedLocation } from '../lib/hijri';
 const banglaCalendar = require('bangla-calendar');
 
@@ -12,7 +13,6 @@ interface MonthlyCalendarProps {
 
 type CalendarType = 'none' | 'gregorian' | 'hijri' | 'bengali';
 
-const bnDigits = ['০','১','২','৩','৪','৫','৬','৭','৮','৯'];
 const WEEKDAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
 export default function MonthlyCalendar({ location, manualOffset }: MonthlyCalendarProps) {
@@ -26,7 +26,7 @@ export default function MonthlyCalendar({ location, manualOffset }: MonthlyCalen
   }, []);
 
   if (!isMounted) {
-    return <div className="w-full mx-auto mb-6 relative h-96 bg-white/5 rounded-3xl animate-pulse"></div>;
+    return <div className="ui-empty" role="status">Loading calendar…</div>;
   }
 
   const year = focusDate.getFullYear();
@@ -40,6 +40,7 @@ export default function MonthlyCalendar({ location, manualOffset }: MonthlyCalen
 
   const navMonth = (dir: number) => {
     const newFocus = new Date(focusDate);
+    newFocus.setDate(1);
     newFocus.setMonth(newFocus.getMonth() + dir);
     setFocusDate(newFocus);
   };
@@ -57,193 +58,30 @@ export default function MonthlyCalendar({ location, manualOffset }: MonthlyCalen
       const full = banglaCalendar.getDate(gregorianDate);
       return { day, full };
     } catch (e) {
-      return { day: '১', full: 'Unavailable' };
+      return { day: '—', full: 'Unavailable' };
     }
   };
 
-  const renderCells = () => {
-    const cells = [];
-    
-    for (let i = 0; i < startWeekday; i++) {
-      cells.push(<div key={`empty-${i}`} className="h-16 sm:h-20 md:h-24 lg:h-28 xl:h-32"></div>);
-    }
-    
-    for (let d = 1; d <= daysInMonth; d++) {
-      const currentCellDate = new Date(year, month, d);
-      const isToday = new Date().toDateString() === currentCellDate.toDateString();
-      
-      const hijri = getHijriDetails(currentCellDate);
-      const bengali = getBengaliDetails(currentCellDate);
-
-      // Determine Opacities based on Hover State
-      const gregOpacity = hoveredType === 'none' || hoveredType === 'gregorian' ? 'opacity-100' : 'opacity-20';
-      const hijriOpacity = hoveredType === 'none' || hoveredType === 'hijri' ? 'opacity-100' : 'opacity-20';
-      const bengaliOpacity = hoveredType === 'none' || hoveredType === 'bengali' ? 'opacity-100' : 'opacity-20';
-      
-      const glowEffect = hoveredType !== 'none' ? 'hover:bg-white/10' : 'hover:bg-white/10 hover:border-white/30';
-
-      cells.push(
-        <button
-          type="button"
-          key={`day-${d}`}
-          onClick={() => setSelectedDate(currentCellDate)}
-          aria-label={currentCellDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
-          className={`relative w-full h-16 sm:h-20 md:h-24 lg:h-28 xl:h-32 flex items-center justify-center rounded-xl border transition-all duration-300 cursor-pointer shadow-sm group overflow-hidden
-            ${isToday && hoveredType === 'none'
-              ? 'bg-blue-500/10 border-blue-400/50 shadow-[0_0_15px_rgba(59,130,246,0.3)]' 
-              : 'bg-white/5 border-white/5'} ${glowEffect}`}
-        >
-          {/* Bengali Day */}
-          <span className={`absolute bottom-1 left-1.5 sm:bottom-1.5 sm:left-2 md:bottom-2 md:left-2 text-[10px] sm:text-xs md:text-sm lg:text-base font-medium text-orange-400 transition-opacity duration-300 ${bengaliOpacity} ${hoveredType === 'bengali' ? 'drop-shadow-[0_0_8px_rgba(249,115,22,0.8)]' : ''}`}>
-            {bengali.day}
-          </span>
-          
-          {/* Hijri Day */}
-          <span className={`absolute top-1 right-1.5 sm:top-1.5 sm:right-2 md:top-2 md:right-2 text-[10px] sm:text-xs md:text-sm lg:text-base font-bold text-emerald-400 transition-opacity duration-300 ${hijriOpacity} ${hoveredType === 'hijri' ? 'drop-shadow-[0_0_8px_rgba(16,185,129,0.8)]' : ''}`}>
-            {hijri.day}
-          </span>
-
-          {/* Gregorian Day */}
-          <span className={`text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold transition-opacity duration-300 ${gregOpacity} ${isToday ? 'text-blue-400 drop-shadow-[0_0_8px_rgba(59,130,246,0.8)]' : 'text-white/90'} ${hoveredType === 'gregorian' ? 'drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] scale-110' : ''}`}>
-            {d}
-          </span>
-        </button>
-      );
-    }
-    return cells;
-  };
+  const cells = [];
+  for (let i = 0; i < startWeekday; i++) cells.push(<div key={'empty-' + i} className="calendar-blank" aria-hidden="true" />);
+  for (let d = 1; d <= daysInMonth; d++) {
+    const date = new Date(year, month, d);
+    const today = new Date().toDateString() === date.toDateString();
+    const hijri = getHijriDetails(date);
+    const bengali = getBengaliDetails(date);
+    const dim = (kind: CalendarType) => hoveredType !== 'none' && hoveredType !== kind ? ' is-dimmed' : '';
+    cells.push(<button type="button" key={d} className={'calendar-day' + (today ? ' is-today' : '')} onClick={() => setSelectedDate(date)} aria-current={today ? 'date' : undefined} aria-label={date.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) + ', Hijri ' + hijri.full + ', Bengali ' + bengali.full}><span className={'day-hijri' + dim('hijri')}>{hijri.day}</span><span className={'day-gregorian' + dim('gregorian')}>{d}</span><span lang="bn" className={'day-bengali' + dim('bengali')}>{bengali.day}</span></button>);
+  }
 
   return (
-    <div className="w-full mx-auto mb-6 relative">
-      <div className="rounded-3xl bg-[#111] border border-white/10 p-4 sm:p-6 md:p-8 shadow-2xl transition-all duration-500">
-        
-        {/* Header & Legend */}
-        <div className="flex flex-col md:flex-row items-center justify-between mb-6 md:mb-8 space-y-4 md:space-y-0 md:space-x-6">
-          <div className="flex items-center space-x-3 text-white/80">
-            <CalendarIcon className="w-6 h-6 text-blue-400" />
-            <h2 className="text-2xl font-bold tracking-tight">Unified Calendar</h2>
-          </div>
-          
-          {/* Interactive Legend */}
-          <div className="flex flex-wrap justify-center bg-black/40 px-2 py-2 rounded-2xl border border-white/5 space-x-2">
-            {/* Buttons so keyboard focus drives the same highlight as hover; the inner span carries
-                the flex layout because iOS 10 Safari cannot make a <button> a flex container. */}
-            <button
-              type="button"
-              aria-label="Highlight Gregorian days"
-              onMouseEnter={() => setHoveredType('gregorian')}
-              onMouseLeave={() => setHoveredType('none')}
-              onFocus={() => setHoveredType('gregorian')}
-              onBlur={() => setHoveredType('none')}
-              className="text-sm text-blue-400 px-4 py-2 rounded-xl cursor-pointer hover:bg-blue-500/20 transition-colors"
-            >
-              <span className="flex items-center space-x-2">
-                <Globe className="w-4 h-4" />
-                <span className="font-medium hidden md:inline">Gregorian</span>
-              </span>
-            </button>
-            <button
-              type="button"
-              aria-label="Highlight Hijri days"
-              onMouseEnter={() => setHoveredType('hijri')}
-              onMouseLeave={() => setHoveredType('none')}
-              onFocus={() => setHoveredType('hijri')}
-              onBlur={() => setHoveredType('none')}
-              className="text-sm text-emerald-400 px-4 py-2 rounded-xl cursor-pointer hover:bg-emerald-500/20 transition-colors"
-            >
-              <span className="flex items-center space-x-2">
-                <Moon className="w-4 h-4" />
-                <span className="font-medium hidden md:inline">Hijri</span>
-              </span>
-            </button>
-            <button
-              type="button"
-              aria-label="Highlight Bengali days"
-              onMouseEnter={() => setHoveredType('bengali')}
-              onMouseLeave={() => setHoveredType('none')}
-              onFocus={() => setHoveredType('bengali')}
-              onBlur={() => setHoveredType('none')}
-              className="text-sm text-orange-400 px-4 py-2 rounded-xl cursor-pointer hover:bg-orange-500/20 transition-colors"
-            >
-              <span className="flex items-center space-x-2">
-                <CalendarDays className="w-4 h-4" />
-                <span className="font-medium hidden md:inline">Bengali</span>
-              </span>
-            </button>
-          </div>
-        </div>
-
-        {/* Navigation & Month Title */}
-        <div className="flex items-center justify-between mb-8">
-          <button onClick={() => navMonth(-1)} className="p-3 bg-white/5 hover:bg-white/10 rounded-xl transition-colors border border-white/10 text-white/70 hover:text-white active:scale-95">
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-          <h3 className="text-xl md:text-3xl font-bold text-white/90">
-            {monthName}
-          </h3>
-          <button onClick={() => navMonth(1)} className="p-3 bg-white/5 hover:bg-white/10 rounded-xl transition-colors border border-white/10 text-white/70 hover:text-white active:scale-95">
-            <ChevronRight className="w-5 h-5" />
-          </button>
-        </div>
-
-        {/* Grid */}
-        <div className="grid grid-cols-7 gap-2 md:gap-4 mb-2">
-          {WEEKDAYS.map(wd => (
-            <div key={wd} className="text-center font-semibold text-white/40 text-[10px] sm:text-xs md:text-sm lg:text-base uppercase tracking-wider mb-1 md:mb-2">
-              {wd}
-            </div>
-          ))}
-        </div>
-        
-        <div className="grid grid-cols-7 gap-2 md:gap-4">
-          {renderCells()}
-        </div>
-      </div>
-
-      {/* Expanded Day Modal */}
-      {selectedDate && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 animate-in fade-in duration-200" onClick={() => setSelectedDate(null)}>
-          <div 
-            className="w-full max-w-md bg-[#0a0a0a] rounded-3xl border border-white/10 p-6 md:p-8 shadow-2xl transform transition-all max-h-[90vh] overflow-y-auto"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex justify-between items-start mb-6">
-              <h3 className="text-2xl font-bold text-white/90">Detailed View</h3>
-              <button onClick={() => setSelectedDate(null)} className="p-2 bg-white/5 rounded-full hover:bg-white/10 transition-colors text-white/60">
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            <div className="space-y-4 md:space-y-6">
-              <div className="flex items-center space-x-3 md:space-x-4 p-3 md:p-4 rounded-2xl bg-blue-500/10 border border-blue-500/20">
-                <Globe className="w-6 h-6 md:w-8 md:h-8 text-blue-400 shrink-0" />
-                <div>
-                  <p className="text-[10px] md:text-xs text-blue-400/80 font-semibold uppercase tracking-wider mb-1">Gregorian</p>
-                  <p className="text-base md:text-lg text-white/90 font-medium">{selectedDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</p>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-3 md:space-x-4 p-3 md:p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/20">
-                <Moon className="w-6 h-6 md:w-8 md:h-8 text-emerald-400 shrink-0" />
-                <div>
-                  <p className="text-[10px] md:text-xs text-emerald-400/80 font-semibold uppercase tracking-wider mb-1">Hijri</p>
-                  <p className="text-base md:text-lg text-white/90 font-medium">{getHijriDetails(selectedDate).full}</p>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-3 md:space-x-4 p-3 md:p-4 rounded-2xl bg-orange-500/10 border border-orange-500/20">
-                <CalendarDays className="w-6 h-6 md:w-8 md:h-8 text-orange-400 shrink-0" />
-                <div>
-                  <p className="text-[10px] md:text-xs text-orange-400/80 font-semibold uppercase tracking-wider mb-1">Bengali</p>
-                  <p className="text-base md:text-lg text-white/90 font-medium">{getBengaliDetails(selectedDate).full}</p>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      )}
-
-    </div>
+    <section className="month-calendar" aria-label="Monthly calendar">
+      <div className="month-heading"><h2 aria-live="polite">{monthName}</h2><div className="month-nav"><button type="button" className="ui-icon-button" onClick={() => navMonth(-1)} aria-label="Previous month"><ChevronLeft aria-hidden="true" size={18}/></button><button type="button" className="ui-icon-button" onClick={() => navMonth(1)} aria-label="Next month"><ChevronRight aria-hidden="true" size={18}/></button></div></div>
+      <div className="calendar-legend" role="group" aria-label="Highlight a calendar">{(['gregorian', 'hijri', 'bengali'] as CalendarType[]).map(kind => <button key={kind} type="button" className={hoveredType === kind ? 'is-selected' : ''} aria-label={'Highlight ' + kind + ' days'} aria-pressed={hoveredType === kind} onMouseEnter={() => setHoveredType(kind)} onMouseLeave={() => setHoveredType('none')} onFocus={() => setHoveredType(kind)} onBlur={() => setHoveredType('none')} onClick={() => setHoveredType(hoveredType === kind ? 'none' : kind)}>{kind.charAt(0).toUpperCase() + kind.slice(1)}</button>)}</div>
+      <div className="calendar-scroll"><div className="calendar-grid">{WEEKDAYS.map(day => <div key={day} className="calendar-weekday">{day}</div>)}{cells}</div></div>
+      <p className="calendar-note">Choose a day for all three dates. Hijri dates are predictions with your sighting adjustment.</p>
+      <DisplayDialog isOpen={selectedDate !== null} onClose={() => setSelectedDate(null)} title="Day details">
+        <div className="ui-dialog-body">{selectedDate && <><div className="day-detail-row"><h3>Gregorian</h3><p>{selectedDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</p></div><div className="day-detail-row"><h3>Hijri · predicted</h3><p>{getHijriDetails(selectedDate).full}</p></div><div className="day-detail-row"><h3>Bengali</h3><p lang="bn">{getBengaliDetails(selectedDate).full}</p></div></>}</div>
+      </DisplayDialog>
+    </section>
   );
 }

@@ -1,0 +1,984 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-24T07:47:13.074344+00:00",
+  "title": "Design System: iyyam",
+  "extensions": {
+    "colorMeta": {
+      "nocturne-bg": {
+        "displayName": "Nocturne Bg",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0242 307.31)",
+          "oklch(26% 0.0242 307.31)",
+          "oklch(38% 0.0242 307.31)",
+          "oklch(49% 0.0242 307.31)",
+          "oklch(61% 0.0242 307.31)",
+          "oklch(72% 0.0242 307.31)",
+          "oklch(84% 0.0242 307.31)",
+          "oklch(95% 0.0242 307.31)"
+        ]
+      },
+      "nocturne-surface": {
+        "displayName": "Nocturne Surface",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0270 315.35)",
+          "oklch(26% 0.0270 315.35)",
+          "oklch(38% 0.0270 315.35)",
+          "oklch(49% 0.0270 315.35)",
+          "oklch(61% 0.0270 315.35)",
+          "oklch(72% 0.0270 315.35)",
+          "oklch(84% 0.0270 315.35)",
+          "oklch(95% 0.0270 315.35)"
+        ]
+      },
+      "nocturne-surface-raised": {
+        "displayName": "Nocturne Surface Raised",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0325 317.59)",
+          "oklch(26% 0.0325 317.59)",
+          "oklch(38% 0.0325 317.59)",
+          "oklch(49% 0.0325 317.59)",
+          "oklch(61% 0.0325 317.59)",
+          "oklch(72% 0.0325 317.59)",
+          "oklch(84% 0.0325 317.59)",
+          "oklch(95% 0.0325 317.59)"
+        ]
+      },
+      "nocturne-text": {
+        "displayName": "Nocturne Text",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0122 4.75)",
+          "oklch(26% 0.0122 4.75)",
+          "oklch(38% 0.0122 4.75)",
+          "oklch(49% 0.0122 4.75)",
+          "oklch(61% 0.0122 4.75)",
+          "oklch(72% 0.0122 4.75)",
+          "oklch(84% 0.0122 4.75)",
+          "oklch(95% 0.0122 4.75)"
+        ]
+      },
+      "nocturne-muted": {
+        "displayName": "Nocturne Muted",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0307 331.02)",
+          "oklch(26% 0.0307 331.02)",
+          "oklch(38% 0.0307 331.02)",
+          "oklch(49% 0.0307 331.02)",
+          "oklch(61% 0.0307 331.02)",
+          "oklch(72% 0.0307 331.02)",
+          "oklch(84% 0.0307 331.02)",
+          "oklch(95% 0.0307 331.02)"
+        ]
+      },
+      "nocturne-accent": {
+        "displayName": "Nocturne Accent",
+        "role": "primary",
+        "tonalRamp": [
+          "oklch(15% 0.0618 72.47)",
+          "oklch(26% 0.0618 72.47)",
+          "oklch(38% 0.0618 72.47)",
+          "oklch(49% 0.0618 72.47)",
+          "oklch(61% 0.0618 72.47)",
+          "oklch(72% 0.0618 72.47)",
+          "oklch(84% 0.0618 72.47)",
+          "oklch(95% 0.0618 72.47)"
+        ]
+      },
+      "nocturne-line": {
+        "displayName": "Nocturne Line",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0417 324.71)",
+          "oklch(26% 0.0417 324.71)",
+          "oklch(38% 0.0417 324.71)",
+          "oklch(49% 0.0417 324.71)",
+          "oklch(61% 0.0417 324.71)",
+          "oklch(72% 0.0417 324.71)",
+          "oklch(84% 0.0417 324.71)",
+          "oklch(95% 0.0417 324.71)"
+        ]
+      },
+      "nocturne-selected-text": {
+        "displayName": "Nocturne Selected Text",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0276 315.30)",
+          "oklch(26% 0.0276 315.30)",
+          "oklch(38% 0.0276 315.30)",
+          "oklch(49% 0.0276 315.30)",
+          "oklch(61% 0.0276 315.30)",
+          "oklch(72% 0.0276 315.30)",
+          "oklch(84% 0.0276 315.30)",
+          "oklch(95% 0.0276 315.30)"
+        ]
+      },
+      "nocturne-calendar-gregorian": {
+        "displayName": "Nocturne Calendar Gregorian",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0231 327.95)",
+          "oklch(26% 0.0231 327.95)",
+          "oklch(38% 0.0231 327.95)",
+          "oklch(49% 0.0231 327.95)",
+          "oklch(61% 0.0231 327.95)",
+          "oklch(72% 0.0231 327.95)",
+          "oklch(84% 0.0231 327.95)",
+          "oklch(95% 0.0231 327.95)"
+        ]
+      },
+      "nocturne-calendar-hijri": {
+        "displayName": "Nocturne Calendar Hijri",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0424 129.68)",
+          "oklch(26% 0.0424 129.68)",
+          "oklch(38% 0.0424 129.68)",
+          "oklch(49% 0.0424 129.68)",
+          "oklch(61% 0.0424 129.68)",
+          "oklch(72% 0.0424 129.68)",
+          "oklch(84% 0.0424 129.68)",
+          "oklch(95% 0.0424 129.68)"
+        ]
+      },
+      "nocturne-calendar-bengali": {
+        "displayName": "Nocturne Calendar Bengali",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0663 53.78)",
+          "oklch(26% 0.0663 53.78)",
+          "oklch(38% 0.0663 53.78)",
+          "oklch(49% 0.0663 53.78)",
+          "oklch(61% 0.0663 53.78)",
+          "oklch(72% 0.0663 53.78)",
+          "oklch(84% 0.0663 53.78)",
+          "oklch(95% 0.0663 53.78)"
+        ]
+      },
+      "slate-bg": {
+        "displayName": "Slate Bg",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0223 246.00)",
+          "oklch(26% 0.0223 246.00)",
+          "oklch(38% 0.0223 246.00)",
+          "oklch(49% 0.0223 246.00)",
+          "oklch(61% 0.0223 246.00)",
+          "oklch(72% 0.0223 246.00)",
+          "oklch(84% 0.0223 246.00)",
+          "oklch(95% 0.0223 246.00)"
+        ]
+      },
+      "slate-surface": {
+        "displayName": "Slate Surface",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0297 243.09)",
+          "oklch(26% 0.0297 243.09)",
+          "oklch(38% 0.0297 243.09)",
+          "oklch(49% 0.0297 243.09)",
+          "oklch(61% 0.0297 243.09)",
+          "oklch(72% 0.0297 243.09)",
+          "oklch(84% 0.0297 243.09)",
+          "oklch(95% 0.0297 243.09)"
+        ]
+      },
+      "slate-surface-raised": {
+        "displayName": "Slate Surface Raised",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0369 244.47)",
+          "oklch(26% 0.0369 244.47)",
+          "oklch(38% 0.0369 244.47)",
+          "oklch(49% 0.0369 244.47)",
+          "oklch(61% 0.0369 244.47)",
+          "oklch(72% 0.0369 244.47)",
+          "oklch(84% 0.0369 244.47)",
+          "oklch(95% 0.0369 244.47)"
+        ]
+      },
+      "slate-text": {
+        "displayName": "Slate Text",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0093 242.84)",
+          "oklch(26% 0.0093 242.84)",
+          "oklch(38% 0.0093 242.84)",
+          "oklch(49% 0.0093 242.84)",
+          "oklch(61% 0.0093 242.84)",
+          "oklch(72% 0.0093 242.84)",
+          "oklch(84% 0.0093 242.84)",
+          "oklch(95% 0.0093 242.84)"
+        ]
+      },
+      "slate-muted": {
+        "displayName": "Slate Muted",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0276 237.65)",
+          "oklch(26% 0.0276 237.65)",
+          "oklch(38% 0.0276 237.65)",
+          "oklch(49% 0.0276 237.65)",
+          "oklch(61% 0.0276 237.65)",
+          "oklch(72% 0.0276 237.65)",
+          "oklch(84% 0.0276 237.65)",
+          "oklch(95% 0.0276 237.65)"
+        ]
+      },
+      "slate-accent": {
+        "displayName": "Slate Accent",
+        "role": "primary",
+        "tonalRamp": [
+          "oklch(15% 0.0280 253.25)",
+          "oklch(26% 0.0280 253.25)",
+          "oklch(38% 0.0280 253.25)",
+          "oklch(49% 0.0280 253.25)",
+          "oklch(61% 0.0280 253.25)",
+          "oklch(72% 0.0280 253.25)",
+          "oklch(84% 0.0280 253.25)",
+          "oklch(95% 0.0280 253.25)"
+        ]
+      },
+      "slate-line": {
+        "displayName": "Slate Line",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0448 240.77)",
+          "oklch(26% 0.0448 240.77)",
+          "oklch(38% 0.0448 240.77)",
+          "oklch(49% 0.0448 240.77)",
+          "oklch(61% 0.0448 240.77)",
+          "oklch(72% 0.0448 240.77)",
+          "oklch(84% 0.0448 240.77)",
+          "oklch(95% 0.0448 240.77)"
+        ]
+      },
+      "slate-selected-text": {
+        "displayName": "Slate Selected Text",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0283 242.78)",
+          "oklch(26% 0.0283 242.78)",
+          "oklch(38% 0.0283 242.78)",
+          "oklch(49% 0.0283 242.78)",
+          "oklch(61% 0.0283 242.78)",
+          "oklch(72% 0.0283 242.78)",
+          "oklch(84% 0.0283 242.78)",
+          "oklch(95% 0.0283 242.78)"
+        ]
+      },
+      "slate-calendar-gregorian": {
+        "displayName": "Slate Calendar Gregorian",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0138 247.97)",
+          "oklch(26% 0.0138 247.97)",
+          "oklch(38% 0.0138 247.97)",
+          "oklch(49% 0.0138 247.97)",
+          "oklch(61% 0.0138 247.97)",
+          "oklch(72% 0.0138 247.97)",
+          "oklch(84% 0.0138 247.97)",
+          "oklch(95% 0.0138 247.97)"
+        ]
+      },
+      "slate-calendar-hijri": {
+        "displayName": "Slate Calendar Hijri",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0328 172.00)",
+          "oklch(26% 0.0328 172.00)",
+          "oklch(38% 0.0328 172.00)",
+          "oklch(49% 0.0328 172.00)",
+          "oklch(61% 0.0328 172.00)",
+          "oklch(72% 0.0328 172.00)",
+          "oklch(84% 0.0328 172.00)",
+          "oklch(95% 0.0328 172.00)"
+        ]
+      },
+      "slate-calendar-bengali": {
+        "displayName": "Slate Calendar Bengali",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0490 65.06)",
+          "oklch(26% 0.0490 65.06)",
+          "oklch(38% 0.0490 65.06)",
+          "oklch(49% 0.0490 65.06)",
+          "oklch(61% 0.0490 65.06)",
+          "oklch(72% 0.0490 65.06)",
+          "oklch(84% 0.0490 65.06)",
+          "oklch(95% 0.0490 65.06)"
+        ]
+      },
+      "forest-bg": {
+        "displayName": "Forest Bg",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0264 171.23)",
+          "oklch(26% 0.0264 171.23)",
+          "oklch(38% 0.0264 171.23)",
+          "oklch(49% 0.0264 171.23)",
+          "oklch(61% 0.0264 171.23)",
+          "oklch(72% 0.0264 171.23)",
+          "oklch(84% 0.0264 171.23)",
+          "oklch(95% 0.0264 171.23)"
+        ]
+      },
+      "forest-surface": {
+        "displayName": "Forest Surface",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0334 167.61)",
+          "oklch(26% 0.0334 167.61)",
+          "oklch(38% 0.0334 167.61)",
+          "oklch(49% 0.0334 167.61)",
+          "oklch(61% 0.0334 167.61)",
+          "oklch(72% 0.0334 167.61)",
+          "oklch(84% 0.0334 167.61)",
+          "oklch(95% 0.0334 167.61)"
+        ]
+      },
+      "forest-surface-raised": {
+        "displayName": "Forest Surface Raised",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0390 164.79)",
+          "oklch(26% 0.0390 164.79)",
+          "oklch(38% 0.0390 164.79)",
+          "oklch(49% 0.0390 164.79)",
+          "oklch(61% 0.0390 164.79)",
+          "oklch(72% 0.0390 164.79)",
+          "oklch(84% 0.0390 164.79)",
+          "oklch(95% 0.0390 164.79)"
+        ]
+      },
+      "forest-text": {
+        "displayName": "Forest Text",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0159 130.42)",
+          "oklch(26% 0.0159 130.42)",
+          "oklch(38% 0.0159 130.42)",
+          "oklch(49% 0.0159 130.42)",
+          "oklch(61% 0.0159 130.42)",
+          "oklch(72% 0.0159 130.42)",
+          "oklch(84% 0.0159 130.42)",
+          "oklch(95% 0.0159 130.42)"
+        ]
+      },
+      "forest-muted": {
+        "displayName": "Forest Muted",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0307 154.59)",
+          "oklch(26% 0.0307 154.59)",
+          "oklch(38% 0.0307 154.59)",
+          "oklch(49% 0.0307 154.59)",
+          "oklch(61% 0.0307 154.59)",
+          "oklch(72% 0.0307 154.59)",
+          "oklch(84% 0.0307 154.59)",
+          "oklch(95% 0.0307 154.59)"
+        ]
+      },
+      "forest-accent": {
+        "displayName": "Forest Accent",
+        "role": "primary",
+        "tonalRamp": [
+          "oklch(15% 0.0633 106.66)",
+          "oklch(26% 0.0633 106.66)",
+          "oklch(38% 0.0633 106.66)",
+          "oklch(49% 0.0633 106.66)",
+          "oklch(61% 0.0633 106.66)",
+          "oklch(72% 0.0633 106.66)",
+          "oklch(84% 0.0633 106.66)",
+          "oklch(95% 0.0633 106.66)"
+        ]
+      },
+      "forest-line": {
+        "displayName": "Forest Line",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0442 157.20)",
+          "oklch(26% 0.0442 157.20)",
+          "oklch(38% 0.0442 157.20)",
+          "oklch(49% 0.0442 157.20)",
+          "oklch(61% 0.0442 157.20)",
+          "oklch(72% 0.0442 157.20)",
+          "oklch(84% 0.0442 157.20)",
+          "oklch(95% 0.0442 157.20)"
+        ]
+      },
+      "forest-selected-text": {
+        "displayName": "Forest Selected Text",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0341 157.11)",
+          "oklch(26% 0.0341 157.11)",
+          "oklch(38% 0.0341 157.11)",
+          "oklch(49% 0.0341 157.11)",
+          "oklch(61% 0.0341 157.11)",
+          "oklch(72% 0.0341 157.11)",
+          "oklch(84% 0.0341 157.11)",
+          "oklch(95% 0.0341 157.11)"
+        ]
+      },
+      "forest-calendar-gregorian": {
+        "displayName": "Forest Calendar Gregorian",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0258 118.90)",
+          "oklch(26% 0.0258 118.90)",
+          "oklch(38% 0.0258 118.90)",
+          "oklch(49% 0.0258 118.90)",
+          "oklch(61% 0.0258 118.90)",
+          "oklch(72% 0.0258 118.90)",
+          "oklch(84% 0.0258 118.90)",
+          "oklch(95% 0.0258 118.90)"
+        ]
+      },
+      "forest-calendar-hijri": {
+        "displayName": "Forest Calendar Hijri",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0560 136.99)",
+          "oklch(26% 0.0560 136.99)",
+          "oklch(38% 0.0560 136.99)",
+          "oklch(49% 0.0560 136.99)",
+          "oklch(61% 0.0560 136.99)",
+          "oklch(72% 0.0560 136.99)",
+          "oklch(84% 0.0560 136.99)",
+          "oklch(95% 0.0560 136.99)"
+        ]
+      },
+      "forest-calendar-bengali": {
+        "displayName": "Forest Calendar Bengali",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0567 59.01)",
+          "oklch(26% 0.0567 59.01)",
+          "oklch(38% 0.0567 59.01)",
+          "oklch(49% 0.0567 59.01)",
+          "oklch(61% 0.0567 59.01)",
+          "oklch(72% 0.0567 59.01)",
+          "oklch(84% 0.0567 59.01)",
+          "oklch(95% 0.0567 59.01)"
+        ]
+      },
+      "warm-bg": {
+        "displayName": "Warm Bg",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0163 58.86)",
+          "oklch(26% 0.0163 58.86)",
+          "oklch(38% 0.0163 58.86)",
+          "oklch(49% 0.0163 58.86)",
+          "oklch(61% 0.0163 58.86)",
+          "oklch(72% 0.0163 58.86)",
+          "oklch(84% 0.0163 58.86)",
+          "oklch(95% 0.0163 58.86)"
+        ]
+      },
+      "warm-surface": {
+        "displayName": "Warm Surface",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0202 60.60)",
+          "oklch(26% 0.0202 60.60)",
+          "oklch(38% 0.0202 60.60)",
+          "oklch(49% 0.0202 60.60)",
+          "oklch(61% 0.0202 60.60)",
+          "oklch(72% 0.0202 60.60)",
+          "oklch(84% 0.0202 60.60)",
+          "oklch(95% 0.0202 60.60)"
+        ]
+      },
+      "warm-surface-raised": {
+        "displayName": "Warm Surface Raised",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0258 62.12)",
+          "oklch(26% 0.0258 62.12)",
+          "oklch(38% 0.0258 62.12)",
+          "oklch(49% 0.0258 62.12)",
+          "oklch(61% 0.0258 62.12)",
+          "oklch(72% 0.0258 62.12)",
+          "oklch(84% 0.0258 62.12)",
+          "oklch(95% 0.0258 62.12)"
+        ]
+      },
+      "warm-text": {
+        "displayName": "Warm Text",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0254 78.92)",
+          "oklch(26% 0.0254 78.92)",
+          "oklch(38% 0.0254 78.92)",
+          "oklch(49% 0.0254 78.92)",
+          "oklch(61% 0.0254 78.92)",
+          "oklch(72% 0.0254 78.92)",
+          "oklch(84% 0.0254 78.92)",
+          "oklch(95% 0.0254 78.92)"
+        ]
+      },
+      "warm-muted": {
+        "displayName": "Warm Muted",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0342 70.25)",
+          "oklch(26% 0.0342 70.25)",
+          "oklch(38% 0.0342 70.25)",
+          "oklch(49% 0.0342 70.25)",
+          "oklch(61% 0.0342 70.25)",
+          "oklch(72% 0.0342 70.25)",
+          "oklch(84% 0.0342 70.25)",
+          "oklch(95% 0.0342 70.25)"
+        ]
+      },
+      "warm-accent": {
+        "displayName": "Warm Accent",
+        "role": "primary",
+        "tonalRamp": [
+          "oklch(15% 0.0649 66.75)",
+          "oklch(26% 0.0649 66.75)",
+          "oklch(38% 0.0649 66.75)",
+          "oklch(49% 0.0649 66.75)",
+          "oklch(61% 0.0649 66.75)",
+          "oklch(72% 0.0649 66.75)",
+          "oklch(84% 0.0649 66.75)",
+          "oklch(95% 0.0649 66.75)"
+        ]
+      },
+      "warm-line": {
+        "displayName": "Warm Line",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0444 62.75)",
+          "oklch(26% 0.0444 62.75)",
+          "oklch(38% 0.0444 62.75)",
+          "oklch(49% 0.0444 62.75)",
+          "oklch(61% 0.0444 62.75)",
+          "oklch(72% 0.0444 62.75)",
+          "oklch(84% 0.0444 62.75)",
+          "oklch(95% 0.0444 62.75)"
+        ]
+      },
+      "warm-selected-text": {
+        "displayName": "Warm Selected Text",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0266 58.89)",
+          "oklch(26% 0.0266 58.89)",
+          "oklch(38% 0.0266 58.89)",
+          "oklch(49% 0.0266 58.89)",
+          "oklch(61% 0.0266 58.89)",
+          "oklch(72% 0.0266 58.89)",
+          "oklch(84% 0.0266 58.89)",
+          "oklch(95% 0.0266 58.89)"
+        ]
+      },
+      "warm-calendar-gregorian": {
+        "displayName": "Warm Calendar Gregorian",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0313 75.21)",
+          "oklch(26% 0.0313 75.21)",
+          "oklch(38% 0.0313 75.21)",
+          "oklch(49% 0.0313 75.21)",
+          "oklch(61% 0.0313 75.21)",
+          "oklch(72% 0.0313 75.21)",
+          "oklch(84% 0.0313 75.21)",
+          "oklch(95% 0.0313 75.21)"
+        ]
+      },
+      "warm-calendar-hijri": {
+        "displayName": "Warm Calendar Hijri",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0476 117.86)",
+          "oklch(26% 0.0476 117.86)",
+          "oklch(38% 0.0476 117.86)",
+          "oklch(49% 0.0476 117.86)",
+          "oklch(61% 0.0476 117.86)",
+          "oklch(72% 0.0476 117.86)",
+          "oklch(84% 0.0476 117.86)",
+          "oklch(95% 0.0476 117.86)"
+        ]
+      },
+      "warm-calendar-bengali": {
+        "displayName": "Warm Calendar Bengali",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0683 51.20)",
+          "oklch(26% 0.0683 51.20)",
+          "oklch(38% 0.0683 51.20)",
+          "oklch(49% 0.0683 51.20)",
+          "oklch(61% 0.0683 51.20)",
+          "oklch(72% 0.0683 51.20)",
+          "oklch(84% 0.0683 51.20)",
+          "oklch(95% 0.0683 51.20)"
+        ]
+      },
+      "dim-text": {
+        "displayName": "Dim Text",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0165 347.70)",
+          "oklch(26% 0.0165 347.70)",
+          "oklch(38% 0.0165 347.70)",
+          "oklch(49% 0.0165 347.70)",
+          "oklch(61% 0.0165 347.70)",
+          "oklch(72% 0.0165 347.70)",
+          "oklch(84% 0.0165 347.70)",
+          "oklch(95% 0.0165 347.70)"
+        ]
+      },
+      "dim-muted": {
+        "displayName": "Dim Muted",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0272 331.63)",
+          "oklch(26% 0.0272 331.63)",
+          "oklch(38% 0.0272 331.63)",
+          "oklch(49% 0.0272 331.63)",
+          "oklch(61% 0.0272 331.63)",
+          "oklch(72% 0.0272 331.63)",
+          "oklch(84% 0.0272 331.63)",
+          "oklch(95% 0.0272 331.63)"
+        ]
+      },
+      "dim-accent": {
+        "displayName": "Dim Accent",
+        "role": "primary",
+        "tonalRamp": [
+          "oklch(15% 0.0614 72.50)",
+          "oklch(26% 0.0614 72.50)",
+          "oklch(38% 0.0614 72.50)",
+          "oklch(49% 0.0614 72.50)",
+          "oklch(61% 0.0614 72.50)",
+          "oklch(72% 0.0614 72.50)",
+          "oklch(84% 0.0614 72.50)",
+          "oklch(95% 0.0614 72.50)"
+        ]
+      },
+      "high-bg": {
+        "displayName": "High Bg",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0136 314.46)",
+          "oklch(26% 0.0136 314.46)",
+          "oklch(38% 0.0136 314.46)",
+          "oklch(49% 0.0136 314.46)",
+          "oklch(61% 0.0136 314.46)",
+          "oklch(72% 0.0136 314.46)",
+          "oklch(84% 0.0136 314.46)",
+          "oklch(95% 0.0136 314.46)"
+        ]
+      },
+      "high-surface": {
+        "displayName": "High Surface",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0148 310.68)",
+          "oklch(26% 0.0148 310.68)",
+          "oklch(38% 0.0148 310.68)",
+          "oklch(49% 0.0148 310.68)",
+          "oklch(61% 0.0148 310.68)",
+          "oklch(72% 0.0148 310.68)",
+          "oklch(84% 0.0148 310.68)",
+          "oklch(95% 0.0148 310.68)"
+        ]
+      },
+      "high-surface-raised": {
+        "displayName": "High Surface Raised",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0283 313.36)",
+          "oklch(26% 0.0283 313.36)",
+          "oklch(38% 0.0283 313.36)",
+          "oklch(49% 0.0283 313.36)",
+          "oklch(61% 0.0283 313.36)",
+          "oklch(72% 0.0283 313.36)",
+          "oklch(84% 0.0283 313.36)",
+          "oklch(95% 0.0283 313.36)"
+        ]
+      },
+      "high-text": {
+        "displayName": "High Text",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.88)",
+          "oklch(26% 0.0000 89.88)",
+          "oklch(38% 0.0000 89.88)",
+          "oklch(49% 0.0000 89.88)",
+          "oklch(61% 0.0000 89.88)",
+          "oklch(72% 0.0000 89.88)",
+          "oklch(84% 0.0000 89.88)",
+          "oklch(95% 0.0000 89.88)"
+        ]
+      },
+      "high-muted": {
+        "displayName": "High Muted",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0178 328.51)",
+          "oklch(26% 0.0178 328.51)",
+          "oklch(38% 0.0178 328.51)",
+          "oklch(49% 0.0178 328.51)",
+          "oklch(61% 0.0178 328.51)",
+          "oklch(72% 0.0178 328.51)",
+          "oklch(84% 0.0178 328.51)",
+          "oklch(95% 0.0178 328.51)"
+        ]
+      },
+      "high-accent": {
+        "displayName": "High Accent",
+        "role": "primary",
+        "tonalRamp": [
+          "oklch(15% 0.0799 83.21)",
+          "oklch(26% 0.0799 83.21)",
+          "oklch(38% 0.0799 83.21)",
+          "oklch(49% 0.0799 83.21)",
+          "oklch(61% 0.0799 83.21)",
+          "oklch(72% 0.0799 83.21)",
+          "oklch(84% 0.0799 83.21)",
+          "oklch(95% 0.0799 83.21)"
+        ]
+      },
+      "high-line": {
+        "displayName": "High Line",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0349 327.46)",
+          "oklch(26% 0.0349 327.46)",
+          "oklch(38% 0.0349 327.46)",
+          "oklch(49% 0.0349 327.46)",
+          "oklch(61% 0.0349 327.46)",
+          "oklch(72% 0.0349 327.46)",
+          "oklch(84% 0.0349 327.46)",
+          "oklch(95% 0.0349 327.46)"
+        ]
+      },
+      "high-selected-text": {
+        "displayName": "High Selected Text",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0136 314.46)",
+          "oklch(26% 0.0136 314.46)",
+          "oklch(38% 0.0136 314.46)",
+          "oklch(49% 0.0136 314.46)",
+          "oklch(61% 0.0136 314.46)",
+          "oklch(72% 0.0136 314.46)",
+          "oklch(84% 0.0136 314.46)",
+          "oklch(95% 0.0136 314.46)"
+        ]
+      },
+      "high-calendar-gregorian": {
+        "displayName": "High Calendar Gregorian",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.88)",
+          "oklch(26% 0.0000 89.88)",
+          "oklch(38% 0.0000 89.88)",
+          "oklch(49% 0.0000 89.88)",
+          "oklch(61% 0.0000 89.88)",
+          "oklch(72% 0.0000 89.88)",
+          "oklch(84% 0.0000 89.88)",
+          "oklch(95% 0.0000 89.88)"
+        ]
+      },
+      "high-calendar-hijri": {
+        "displayName": "High Calendar Hijri",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0618 128.34)",
+          "oklch(26% 0.0618 128.34)",
+          "oklch(38% 0.0618 128.34)",
+          "oklch(49% 0.0618 128.34)",
+          "oklch(61% 0.0618 128.34)",
+          "oklch(72% 0.0618 128.34)",
+          "oklch(84% 0.0618 128.34)",
+          "oklch(95% 0.0618 128.34)"
+        ]
+      },
+      "high-calendar-bengali": {
+        "displayName": "High Calendar Bengali",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.0583 63.64)",
+          "oklch(26% 0.0583 63.64)",
+          "oklch(38% 0.0583 63.64)",
+          "oklch(49% 0.0583 63.64)",
+          "oklch(61% 0.0583 63.64)",
+          "oklch(72% 0.0583 63.64)",
+          "oklch(84% 0.0583 63.64)",
+          "oklch(95% 0.0583 63.64)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Largest local time; adaptive viewport sizes override this desktop token."
+      },
+      "countdown": {
+        "displayName": "Countdown",
+        "purpose": "Countdown information."
+      },
+      "waqt": {
+        "displayName": "Waqt",
+        "purpose": "Waqt information."
+      },
+      "date": {
+        "displayName": "Date",
+        "purpose": "Date information."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Heavy offline body text."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Readable supporting labels and controls."
+      }
+    },
+    "shadows": [
+      {
+        "name": "dialog",
+        "value": "0 18px 50px rgba(8,4,12,.35)",
+        "purpose": "Separate the active dialog from the dark overlay."
+      }
+    ],
+    "motion": [
+      {
+        "name": "dialog-entry",
+        "value": "200ms ease-out; opacity .65\u21921; translateY 8px\u21920",
+        "purpose": "Short deliberate dialog entry."
+      },
+      {
+        "name": "control-feedback",
+        "value": "background-color 200ms ease, transform 180ms ease",
+        "purpose": "Tonal hover and one-pixel press; disabled by reduced motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "small-phone",
+        "value": "360px"
+      },
+      {
+        "name": "phone",
+        "value": "600px"
+      },
+      {
+        "name": "tablet",
+        "value": "800px"
+      },
+      {
+        "name": "wide",
+        "value": "1200px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Secondary button",
+      "kind": "button",
+      "refersTo": "button",
+      "description": "Tactile action with visible focus and a shallow press.",
+      "html": "<button class=\"ds-button\">Done</button>",
+      "css": ".ds-button{font-family:Arial,Helvetica,sans-serif;font-weight:800;min-width:44px;min-height:44px;padding:.6rem .85rem;border-radius:9px;border:1px solid var(--muted,#c7b4c4);background:transparent;color:var(--text,#f7ecee);transition:background-color 200ms ease,transform 180ms ease}.ds-button:hover{background:var(--surface-raised,#372b3b)}.ds-button:active{transform:translateY(1px)}.ds-button:focus-visible{outline:2px solid var(--accent,#dfc09a);outline-offset:4px}@media(prefers-reduced-motion:reduce){.ds-button{transition:none}}"
+    },
+    {
+      "name": "Primary button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Tactile action with visible focus and a shallow press.",
+      "html": "<button class=\"ds-primary\">Done</button>",
+      "css": ".ds-primary{font-family:Arial,Helvetica,sans-serif;font-weight:800;min-width:44px;min-height:44px;padding:.6rem .85rem;border-radius:9px;border:1px solid var(--muted,#c7b4c4);background:var(--accent,#dfc09a);color:var(--selected-text,#241b28);transition:background-color 200ms ease,transform 180ms ease}.ds-primary:hover{background:var(--text,#f7ecee)}.ds-primary:active{transform:translateY(1px)}.ds-primary:focus-visible{outline:2px solid var(--accent,#dfc09a);outline-offset:4px}@media(prefers-reduced-motion:reduce){.ds-primary{transition:none}}"
+    },
+    {
+      "name": "City search",
+      "kind": "input",
+      "refersTo": "search",
+      "description": "Offline city search field with a readable placeholder.",
+      "html": "<label class=\"ds-search\">City<input placeholder=\"Search city or country\" /></label>",
+      "css": ".ds-search{font-family:Arial,Helvetica,sans-serif;font-weight:800;display:block;color:var(--muted,#c7b4c4)}.ds-search input{display:block;width:100%;min-height:48px;padding:0 .7rem;border:1px solid var(--muted,#c7b4c4);border-radius:9px;background:transparent;color:var(--text,#f7ecee);font:inherit;font-size:1rem}.ds-search input::placeholder{color:var(--muted,#c7b4c4);opacity:1}.ds-search input:focus-visible{outline:2px solid var(--accent,#dfc09a);outline-offset:4px}"
+    },
+    {
+      "name": "Local clock",
+      "kind": "custom",
+      "refersTo": "clock",
+      "description": "Dominant fixed-width time with a large, bold date underneath; illustrative snapshot.",
+      "html": "<div class=\"ds-clock-wrap\"><div class=\"ds-clock\">13:05</div><div class=\"ds-clock-date\">Sat, 24 Oct 2026</div></div>",
+      "css": ".ds-clock{font-family:Menlo,Monaco,Consolas,\"Courier New\",monospace;font-variant-numeric:tabular-nums;font-weight:900;font-size:5rem;letter-spacing:-.035em;line-height:1.05;color:var(--text,#f7ecee);-webkit-text-stroke:.008em currentColor;white-space:nowrap}.ds-clock-wrap{text-align:center}.ds-clock-date{font-family:Arial,Helvetica,sans-serif;font-size:3rem;font-weight:900;line-height:1.25;color:var(--text,#f7ecee);margin-top:.65rem;overflow-wrap:break-word}@media(max-width:600px){.ds-clock-date{font-size:1.5rem}}"
+    },
+    {
+      "name": "Hijri sighting adjustment",
+      "kind": "custom",
+      "refersTo": "offset-stepper",
+      "description": "Visible manual correction; illustrative control sample.",
+      "html": "<div class=\"ds-stepper\" role=\"group\" aria-label=\"Hijri adjustment\"><button aria-label=\"Back one day\">\u2212</button><output>0 days</output><button aria-label=\"Forward one day\">+</button></div>",
+      "css": ".ds-stepper{font-family:Arial,Helvetica,sans-serif;font-weight:800;display:inline-flex;align-items:center;border:1px solid var(--muted,#c7b4c4);border-radius:9px;color:var(--text,#f7ecee)}.ds-stepper button{min-width:44px;min-height:44px;padding:.6rem;border:0;background:transparent;color:inherit;font:inherit}.ds-stepper output{font-family:Menlo,Consolas,monospace;font-size:.9375rem;min-width:4rem;text-align:center}.ds-stepper button:hover{background:var(--surface-raised,#372b3b)}.ds-stepper button:focus-visible{outline:2px solid var(--accent,#dfc09a);outline-offset:4px}"
+    },
+    {
+      "name": "Textual switch",
+      "kind": "button",
+      "refersTo": "switch",
+      "description": "State is explicit in text and color.",
+      "html": "<button class=\"ds-switch\" role=\"switch\" aria-label=\"High contrast\" aria-checked=\"true\">On</button>",
+      "css": ".ds-switch{font-family:Arial,Helvetica,sans-serif;font-weight:800;width:64px;min-height:44px;border:1px solid var(--muted,#c7b4c4);border-radius:24px;background:var(--accent,#dfc09a);color:var(--selected-text,#241b28);font-size:.9375rem;padding:6px}.ds-switch:focus-visible{outline:2px solid var(--accent,#dfc09a);outline-offset:4px}"
+    },
+    {
+      "name": "Waqt surface",
+      "kind": "card",
+      "refersTo": "waqt-band",
+      "description": "Compact prayer-name and Time left group; illustrative snapshot.",
+      "html": "<div class=\"ds-waqt\"><strong>Dhuhr</strong><div><small>Time left</small><span>01:54:52</span></div></div>",
+      "css": ".ds-waqt{font-family:Arial,Helvetica,sans-serif;font-weight:800;display:flex;flex-wrap:wrap;align-items:center;padding:1.25rem 1.75rem;background:var(--surface,#2a212e);color:var(--muted,#c7b4c4);border-radius:14px}.ds-waqt strong{font-size:2.2rem;color:var(--accent,#dfc09a)}.ds-waqt>div{margin-left:1.5rem}.ds-waqt small{display:block;font-size:.9375rem}.ds-waqt span{font-family:Menlo,Consolas,monospace;font-size:2rem;font-weight:900}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Nocturne",
+    "overview": "Nocturne is a matte household timepiece: warm plum grounds, pearl numerals and a restrained bronze accent. Readability from a shelf or wall decides the visual hierarchy. The owner\u2019s distance-reading refinement makes text deliberately heavy, including dates, prayer names and supporting labels.\n\nThe interface stays quiet at rest. Tonal recesses, shallow pressed controls and sparse rules provide structure; motion appears only in deliberate interactions. Original, Slate, Forest and Warm are palette variations of the same system.",
+    "keyCharacteristics": [
+      "Largest, brightest fixed-width local numerals; quieter, wider waqt band.",
+      "Heavy offline system type, with bold sans-serif dates and prayer names.",
+      "Visible Hijri sighting adjustment and persistent Accessibility and Appearance entry points.",
+      "Semantic palette variations and reading-comfort settings, with no external assets."
+    ],
+    "rules": [
+      {
+        "name": "Distance First",
+        "body": "Keep local time largest and brightest; make essential labels heavy and readable before adding decorative detail.",
+        "section": "typography"
+      },
+      {
+        "name": "Quiet at Rest",
+        "body": "Use short interaction feedback and dialog entry only; do not animate the clock background or continuously pulse loading content.",
+        "section": "elevation"
+      },
+      {
+        "name": "Seven Columns",
+        "body": "Keep calendar weekdays and days aligned in seven columns; use scoped calendar scrolling when text or touch targets need more room.",
+        "section": "typography"
+      }
+    ],
+    "dos": [
+      "Do use the current palette variables for surfaces, text, accents and borders.",
+      "Do preserve fixed-width ticking numerals and the clock\u2019s primary hierarchy in every palette and orientation.",
+      "Do use the heaviest available offline weights and keep essential labels legible from the device\u2019s intended viewing distance.",
+      "Do keep the Hijri manual adjustment visible even when its headline date is switched off.",
+      "Do preserve visible focus, non-color selected cues and reduced-motion behavior.",
+      "Do use margins and wrapping flex layouts compatible with the legacy CSS pipeline."
+    ],
+    "donts": [
+      "Don't restore the old equal-card hero, calendar gradients or decorative glows.",
+      "Don't replace the selected heavy sans-serif dates and prayer names with the earlier preview\u2019s delicate serif styling.",
+      "Don't load fonts, icons, images or data from remote services at runtime.",
+      "Don't shrink the seven-column calendar to make enlarged controls appear to fit.",
+      "Don't treat desktop Chromium captures or design documentation as acceptance on iOS 10.3.4 hardware."
+    ]
+  }
+}

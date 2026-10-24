@@ -2,8 +2,8 @@ import './globals.css';
 
 
 export const metadata = {
-  title: 'Universal Time Clock',
-  description: 'A beautiful location-aware universal time clock featuring English, Hijri, and Bengali calendars.',
+  title: 'iyyam — time, prayer & calendars',
+  description: 'Your local clock, current waqt and Gregorian, Hijri and Bengali calendars. A quiet, customizable desk clock.',
 };
 
 export default function RootLayout({
@@ -16,7 +16,7 @@ export default function RootLayout({
       {/* The Safari-10 globalThis shim + self-hosted core-js are injected at the very top of
           <head> (before Next's chunks) by scripts/transpile-legacy.js — ordering React/Next
           can't guarantee here, and it must work offline. */}
-      <body className="antialiased selection:bg-blue-500/30">
+      <body className="antialiased">
         {children}
       </body>
     </html>

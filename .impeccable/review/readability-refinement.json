@@ -1,0 +1,54 @@
+{
+  "date": "2026-10-24",
+  "scope": "UX-002: prayer name/countdown proximity and larger clock date",
+  "checks": {
+    "typecheck": "PASS",
+    "buildAndLegacyPostbuild": "PASS",
+    "freshReview": "ship",
+    "calculations": "unchanged"
+  },
+  "measurements": [
+    {
+      "viewport": 1982,
+      "textScale": 100,
+      "gap": 24,
+      "dateFontPx": 48
+    },
+    {
+      "viewport": 1024,
+      "textScale": 100,
+      "gap": 24,
+      "dateFontPx": 48
+    },
+    {
+      "viewport": 768,
+      "textScale": 100,
+      "gap": 24,
+      "dateFontPx": 48
+    },
+    {
+      "viewport": 390,
+      "textScale": 100,
+      "verticalGap": 10.4,
+      "dateFontPx": 24
+    },
+    {
+      "viewport": 1982,
+      "textScale": 200,
+      "gap": 48,
+      "dateFontPx": 96
+    },
+    {
+      "viewport": 320,
+      "textScale": 200,
+      "verticalGap": 20.8,
+      "dateFontPx": 48
+    }
+  ],
+  "dateWeight": 900,
+  "dateColor": "primary text",
+  "pageOrDateOverflow": false,
+  "limits": [
+    "Actual iOS 10.3.4 hardware not operated"
+  ]
+}

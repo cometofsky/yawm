@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-24",
+  "surface": "static out/ served on 127.0.0.1:3098",
+  "checks": {
+    "typecheck": "PASS",
+    "settingsRegression": "PASS: legacy migration, enum/boolean validation, unknown-key rejection, all four themes and text scales",
+    "domainTests": "PASS: 12645 Hijri comparisons, prayer fixtures and foreign-device-timezone case; calculations unchanged after this run",
+    "build": "PASS: static export; Babel compiled 9 files; Safari-10 boot scripts injected into 4 HTML files",
+    "browser": "PASS: all section toggles, four themes and persistence, scoped resets, focus trap/Escape/return, city keyboard/empty results, Hijri +/- correction, month/day details, synchronized Asr and system/manual motion reduction",
+    "offline": "PASS: loaded fresh isolated context, disabled network, then changed text size, Forest theme, Dhaka city and Hijri offset; no external requests",
+    "blockedStorageAsr": "PASS: Storage get/set throw; Standard15:00 -> Hanafi15:49 -> hide/remount timetable -> Hanafi15:49",
+    "largeText": {"viewport": [320,800], "pageClientAndScrollWidth": [320,320], "rootText": "200%", "largeTargetMinimum": 56, "undersizedButtons": 0, "calendarWidth": 784, "overflowingWeekdayLabels": 0, "dialogClientAndScrollWidth": [281,281]},
+    "fontWeights": {"body": 800, "clock": 900, "clockStroke": "0.008em", "datesAndPrayer": "bold local sans"},
+    "contrast": {"normalThemesMinimumMuted": 5.89, "dimForestMinimumMutedAfterFix": 5.19, "knownFailControl": 4.48, "method": "canvas-painted sRGB luminance; control borders use muted color"},
+    "finishReview": "ship: both identified material fixes resolved; heavy typography accepted in all eight captures"
+  },
+  "limits": ["Actual iOS 10.3.4 iPad operation and distance readability require device acceptance", "Existing Bengali headline/day-detail time-of-day inconsistency logged as DATE-001", "No deployment or publication"]
+}

@@ -56,6 +56,8 @@ never only tool memory.
 ### Repo-specific docs
 | Doc | Read when |
 | :--- | :--- |
+| `specs/NOCTURNE/product.md` + `specs/NOCTURNE/tech.md` | Implementing or checking the selected Nocturne redesign, accessibility preferences and color themes |
+| `docs/design-proposals.md` | Comparing the three proposed replacement visual directions before owner selection |
 | `DESIGN.md` | Changing anything a user sees — the visual system (tokens, themes, components); `app/globals.css` + the Tailwind classes in `app/page.tsx` and `app/components/*.tsx` are the source of truth, this file describes it |
 | `docs/agents/codebase-map.md` | Changing the stack, static-export config, transpile/postbuild path or generated city data; locating where code lives; using graphify |
 | `docs/agents/verification.md` | Choosing which check to run, or before running `npm run build` |

@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { MapPin } from 'lucide-react';
 
 interface ClockProps {
   timeZone?: string;
@@ -59,15 +58,7 @@ export default function Clock({
   }, [label]);
 
   if (!time) {
-    return (
-      <div
-        className={`flex justify-center items-center ${
-          isMain ? 'h-48' : 'h-16'
-        } animate-pulse text-white/50 text-4xl font-light font-mono tracking-wider`}
-      >
-        --:--
-      </div>
-    );
+    return <div className={isMain ? 'local-clock clock-loading' : 'world-clock'} aria-label="Loading clock"><span className={isMain ? 'clock-numerals' : 'world-numerals'}>--:--</span></div>;
   }
 
   const formatOptions: Intl.DateTimeFormatOptions = {
@@ -106,62 +97,18 @@ export default function Clock({
       });
     }
 
-    // PRIMARY hero, deliberately in the NARROWER (3/8) column. Width runs counter to the
-    // hierarchy here, so scale and luminance carry it outright: this card owns the lit surface
-    // (#121212 + shadow), pure white, and the page's largest numeral (~1.5-1.7x the waqt
-    // countdown). The location name is stated once here, not three times.
-    // PRIMARY hero. If isFullHero is true (e.g. prayer times toggled off), the card expands
-    // into a grand centerpiece desk-clock with larger typography and centered alignment.
     return (
-      <div
-        className={`relative overflow-hidden rounded-3xl bg-[#121212] border border-white/10 shadow-2xl h-full flex flex-col justify-center ${
-          isFullHero
-            ? 'p-6 sm:p-10 md:p-12 items-center text-center'
-            : 'p-5 sm:p-6 items-start'
-        }`}
-      >
-        <div
-          className={`flex items-center space-x-2 text-white/70 max-w-full mb-3 ${
-            isFullHero ? 'justify-center' : ''
-          }`}
-        >
-          <MapPin className="w-3.5 h-3.5 shrink-0 text-amber-400/80" />
-          <span className="uppercase tracking-widest text-[11px] sm:text-xs font-semibold truncate">
-            {displayLabel}
-          </span>
-        </div>
-
-        <span
-          className={`font-bold font-mono text-white tracking-tight leading-none ${
-            isFullHero
-              ? 'text-6xl sm:text-8xl md:text-9xl my-2'
-              : 'text-5xl sm:text-6xl md:text-7xl lg:text-7xl'
-          }`}
-        >
-          {formattedTime}
-        </span>
-
-        <span
-          className={`text-white/60 ${
-            isFullHero ? 'mt-3 text-sm sm:text-base' : 'mt-2.5 text-xs sm:text-sm'
-          }`}
-        >
-          {sublabel || enDate}
-        </span>
+      <div className="local-clock">
+        <span className="clock-numerals">{formattedTime}</span>
+        <span className="clock-date">{sublabel || enDate}</span>
       </div>
     );
   }
 
-  // Tertiary world clock pill. Recessed #0c0c0c and no shadow, so it stays below both heroes;
-  // the lit #121212 + shadow now belongs to the primary local clock.
   return (
-    <div className="flex flex-col items-center justify-center bg-[#0c0c0c] px-4 py-2.5 rounded-2xl border border-white/10 min-w-[110px]">
-      <span className="text-white/50 uppercase tracking-wider text-[10px] font-semibold">
-        {displayLabel}
-      </span>
-      <span className="text-xl sm:text-2xl font-bold text-white font-mono tracking-tight mt-0.5">
-        {formattedTime}
-      </span>
+    <div className="world-clock">
+      <span className="world-label">{displayLabel}</span>
+      <span className="world-numerals">{formattedTime}</span>
     </div>
   );
 }

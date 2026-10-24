@@ -27,6 +27,16 @@ built as **planned**; never describe a design as a running system.
 ## Cross-cutting concepts
 <!-- Security and authorisation, error handling, logging, AI/LLM boundaries, accessibility, i18n. -->
 
+### Display preferences and dialogs
+
+The Nocturne interface keeps calculations in the existing offline date/prayer modules. `useSettings.ts` validates an allowlist of settings from `iyyam.settings`, merges legacy display switches with defaults and ignores malformed values. Color theme, text size, contrast, motion, target size and luminance update the page immediately; root attributes also theme the document background. Storage failures preserve in-memory operation.
+
+Appearance and accessibility resets update only their own fields; display reset preserves those preferences. City choice, Hijri adjustment and Asr method retain their separate keys. Themes never change date/prayer arithmetic. No new network service, dependency or raster asset is introduced.
+
+`DisplayDialog.tsx` supplies a shared accessible name, Escape handling, contained focus, background hiding and focus restoration for settings, accessibility, city search and date detail. Opening focus is captured in a layout effect before the city input’s autofocus effect. Time/countdown updates remain quiet for screen readers; user-driven sighting corrections and search results have polite feedback.
+
+CSS uses inherited palette variables, rem reading text and bounded viewport-based clock numerals. Motion is brief and interaction-driven; either the device preference or the explicit Reduce motion setting stops it. The calendar preserves seven columns through a scoped horizontal scroll at small widths/large targets. Build/postbuild stays the legacy compatibility boundary; a successful ES5 build is not evidence of operated iOS 10 Safari behavior.
+
 ### AI layer — forward design (nothing built) <a id="ai-layer"></a>
 
 No AI/LLM code exists in this repo today. This page is the design to pick up *if* one is ever

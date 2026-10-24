@@ -15,9 +15,12 @@ Every plan task needs a matching `| P1-01 | … |` row in `TASKS.md`, and no `- 
 ## Purpose and baseline
 <!-- What this plan delivers, the release scope, and what is deliberately deferred. -->
 
-## Phase 1 — <name>
+## Phase 1 — Nocturne redesign
 
 ### Tasks
+
+- **P1-01 — Implement the selected Nocturne design** <a id="p1-01"></a>
+  Scope and acceptance: [product](../specs/NOCTURNE/product.md) and [implementation](../specs/NOCTURNE/tech.md). Preserve calculations while replacing the complete UI, adding accessibility controls and four locally remembered themes. Verify the static export and rendered interactions; record hardware limits separately.
 
 ### Acceptance
 <!-- The gate: the checks and evidence that let the next phase start. -->

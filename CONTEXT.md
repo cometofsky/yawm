@@ -30,3 +30,9 @@ is the deterministic source for every Hijri conversion here.
 **Desk-clock layout**:
 The single hero row: the waqt card and the local clock side by side, read from across a room.
 Their relative prominence is a product rule — see `PRODUCT.md`.
+
+**Nocturne**:
+The owner-selected visual system: a centered pearl local clock on plum, with a quieter wider waqt band. Original, Slate, Forest and Warm are color themes within this system, not separate layouts.
+
+**Display luminance**:
+Normal/Dim changes page colors for reading comfort. It does not change device hardware brightness.

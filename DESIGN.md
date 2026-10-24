@@ -1,380 +1,259 @@
 ---
 name: iyyam
-description: An always-on Islamic desk clock for an old iPad — white numerals on near-black cards, one hue per calendar, read from across a room.
+description: "Nocturne: a bold, quiet household timepiece in plum, pearl and bronze."
 colors:
-  page-black: "#000"
-  numeral-white: "#fff"
-  body-background: "#050505"
-  body-foreground: "#ededed"
-  surface-lit: "#121212"
-  surface-panel: "#111"
-  surface-recessed: "#0c0c0c"
-  surface-sheet: "#0a0a0a"
+  nocturne-bg: "#211b27"
+  nocturne-surface: "#2a212e"
+  nocturne-surface-raised: "#372b3b"
+  nocturne-text: "#f7ecee"
+  nocturne-muted: "#c7b4c4"
+  nocturne-accent: "#dfc09a"
+  nocturne-line: "#665267"
+  nocturne-selected-text: "#241b28"
+  nocturne-calendar-gregorian: "#e5d7e4"
+  nocturne-calendar-hijri: "#c9d8bb"
+  nocturne-calendar-bengali: "#e7b99c"
+  slate-bg: "#19232c"
+  slate-surface: "#202f3b"
+  slate-surface-raised: "#2d4050"
+  slate-text: "#edf3f8"
+  slate-muted: "#b7cad7"
+  slate-accent: "#c8d6e7"
+  slate-line: "#526d81"
+  slate-selected-text: "#182631"
+  slate-calendar-gregorian: "#e5edf5"
+  slate-calendar-hijri: "#bfdbd1"
+  slate-calendar-bengali: "#e5c8ad"
+  forest-bg: "#182a24"
+  forest-surface: "#21382f"
+  forest-surface-raised: "#2d483c"
+  forest-text: "#edf3e8"
+  forest-muted: "#b9cebf"
+  forest-accent: "#d7d6a6"
+  forest-line: "#526f5d"
+  forest-selected-text: "#1c3024"
+  forest-calendar-gregorian: "#e3e8d5"
+  forest-calendar-hijri: "#c4deba"
+  forest-calendar-bengali: "#e8c3a7"
+  warm-bg: "#2c241e"
+  warm-surface: "#372d25"
+  warm-surface-raised: "#493c31"
+  warm-text: "#fbf0df"
+  warm-muted: "#d0beaa"
+  warm-accent: "#e8c39e"
+  warm-line: "#78604b"
+  warm-selected-text: "#302319"
+  warm-calendar-gregorian: "#f0e1cd"
+  warm-calendar-hijri: "#d1d9b6"
+  warm-calendar-bengali: "#edbca0"
+  dim-text: "#dacdd3"
+  dim-muted: "#c7b6c4"
+  dim-accent: "#c4a681"
+  high-bg: "#141016"
+  high-surface: "#1b171e"
+  high-surface-raised: "#2d2432"
+  high-text: "#fff"
+  high-muted: "#eee3ed"
+  high-accent: "#ffe1a8"
+  high-line: "#bca8bb"
+  high-selected-text: "#141016"
+  high-calendar-gregorian: "#fff"
+  high-calendar-hijri: "#e3f8cc"
+  high-calendar-bengali: "#ffdbbb"
 typography:
   display:
-    fontFamily: "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace"
-    fontSize: "4.5rem"
-    fontWeight: 700
-    lineHeight: 1
-    letterSpacing: "-0.025em"
-  headline:
-    fontFamily: "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace"
+    fontFamily: "Menlo, Monaco, Consolas, Courier New, monospace"
+    fontSize: "11rem"
+    fontWeight: 900
+    lineHeight: 1.05
+    letterSpacing: "-0.035em"
+  countdown:
+    fontFamily: "Menlo, Consolas, Courier New, monospace"
     fontSize: "3rem"
-    fontWeight: 700
-    lineHeight: 1
-    letterSpacing: "-0.025em"
-  title:
+    fontWeight: 900
+    lineHeight: 1.2
+  waqt:
     fontFamily: "Arial, Helvetica, sans-serif"
-    fontSize: "1.875rem"
+    fontSize: "2.2rem"
     fontWeight: 800
-    letterSpacing: "-0.025em"
+    lineHeight: 1.25
   date:
     fontFamily: "Arial, Helvetica, sans-serif"
-    fontSize: "1.5rem"
-    fontWeight: 600
-    lineHeight: 1.375
+    fontSize: "1.25rem"
+    fontWeight: 900
+    lineHeight: 1.5
   body:
     fontFamily: "Arial, Helvetica, sans-serif"
-    fontSize: "0.875rem"
-    fontWeight: 500
+    fontWeight: 800
   label:
     fontFamily: "Arial, Helvetica, sans-serif"
-    fontSize: "0.75rem"
-    fontWeight: 600
-    letterSpacing: "0.05em"
+    fontSize: "0.9375rem"
+    fontWeight: 800
 rounded:
-  md: "6px"
-  lg: "8px"
-  xl: "12px"
-  2xl: "16px"
-  3xl: "24px"
-  full: "9999px"
+  day: "8px"
+  control: "9px"
+  empty: "12px"
+  panel: "14px"
+  switch: "24px"
 spacing:
-  unit: "0.25rem"
+  compact: "0.5rem"
+  control: "0.75rem"
+  standard: "1rem"
+  panel: "1.25rem"
+  section: "1.5rem"
+  page: "2.5rem"
 components:
-  clock-hero:
-    backgroundColor: "{colors.surface-lit}"
-    textColor: "{colors.numeral-white}"
-    typography: "{typography.display}"
-    rounded: "{rounded.3xl}"
-    padding: "20px"
-  waqt-card:
-    backgroundColor: "{colors.surface-recessed}"
-    typography: "{typography.headline}"
-    rounded: "{rounded.3xl}"
-    padding: "20px"
-  calendar-card:
-    backgroundColor: "{colors.surface-lit}"
-    typography: "{typography.date}"
-    rounded: "{rounded.3xl}"
-    padding: "20px"
-  world-clock-pill:
-    backgroundColor: "{colors.surface-recessed}"
-    textColor: "{colors.numeral-white}"
-    rounded: "{rounded.2xl}"
-    padding: "10px 16px"
-  prayer-ribbon:
-    backgroundColor: "{colors.surface-recessed}"
-    rounded: "{rounded.2xl}"
-    padding: "8px"
-  modal-settings:
-    backgroundColor: "{colors.surface-lit}"
-    rounded: "{rounded.3xl}"
-    padding: "20px"
-  modal-panel:
-    backgroundColor: "{colors.surface-panel}"
-    rounded: "{rounded.3xl}"
+  button:
+    backgroundColor: "transparent"
+    textColor: "{colors.nocturne-text}"
+    rounded: "{rounded.control}"
+    padding: "0.6rem 0.85rem"
   button-primary:
-    backgroundColor: "{colors.numeral-white}"
-    textColor: "{colors.page-black}"
-    rounded: "{rounded.xl}"
-    padding: "8px 16px"
+    backgroundColor: "{colors.nocturne-accent}"
+    textColor: "{colors.nocturne-selected-text}"
+    rounded: "{rounded.control}"
+    padding: "0.6rem 0.85rem"
+  waqt-band:
+    backgroundColor: "{colors.nocturne-surface}"
+    textColor: "{colors.nocturne-muted}"
+    rounded: "{rounded.panel}"
+    padding: "1.25rem 1.75rem"
+  clock:
+    textColor: "{colors.nocturne-text}"
+    typography: "{typography.display}"
+  offset-stepper:
+    textColor: "{colors.nocturne-text}"
+    rounded: "{rounded.control}"
   switch:
-    rounded: "{rounded.full}"
-    height: "24px"
-    width: "44px"
+    backgroundColor: "{colors.nocturne-bg}"
+    textColor: "{colors.nocturne-muted}"
+    height: "44px"
+    width: "64px"
+    padding: "6px"
+  search:
+    textColor: "{colors.nocturne-text}"
+    rounded: "{rounded.control}"
+    padding: "0 0.7rem"
 ---
 
 # Design System: iyyam
 
-<!-- Source of truth: app/globals.css (the only CSS file: body colours/font and the @theme
-     block) and the Tailwind classes in app/page.tsx and app/components/*.tsx — there is no
-     tailwind.config and no shared primitive file, so the components ARE the system. This file
-     describes them; when the two disagree, the code wins and this file is the bug. There is one
-     theme (dark). The anchors below fail when this file drifts. -->
-<!-- claim: cmd=`grep -cF -e '--background: #050505' -e '--foreground: #ededed' -e '--font-mono: ui-monospace, SFMono-Regular, Menlo' -e 'font-family: Arial, Helvetica, sans-serif' app/globals.css` expect=`4` -->
-<!-- claim: cmd=`grep -cF -e 'bg-[#121212] border border-white/10 shadow-2xl' -e 'bg-[#0c0c0c] px-4 py-2.5 rounded-2xl' app/components/Clock.tsx` expect=`2` -->
-<!-- claim: cmd=`grep -cF -e 'rounded-3xl bg-[#0c0c0c] border border-white/10 p-5 sm:p-6 md:p-7' -e 'font-bold font-mono text-white/70' app/components/PrayerDisplay.tsx` expect=`2` -->
-<!-- claim: cmd=`grep -cF -e 'md:grid-cols-8' -e 'md:col-span-5' -e 'md:col-span-3' app/page.tsx` expect=`3` -->
+## Overview
 
-## 1. Overview
+**Creative North Star: "Nocturne"**
 
-**Creative North Star: "The Desk Clock"** — the code's own name for its layout
-(`app/page.tsx`: "Desk-clock layout optimized for iPad 4 / desktop clock"; `CONTEXT.md`: "read
-from across a room"). One static screen on a 2014-era iPad propped on a shelf: big white
-numerals on near-black rounded cards, everything else small and dimmed. The user glances and
-reads, in order, the local time, then the current waqt and its countdown, then the Hijri date
-(`PRODUCT.md`).
+Nocturne is a matte household timepiece: warm plum grounds, pearl numerals and a restrained bronze accent. Readability from a shelf or wall decides the visual hierarchy. The owner’s distance-reading refinement makes text deliberately heavy, including dates, prayer names and supporting labels.
 
-The page is always dark. There is no light theme, no `dark:` variant and no
-`prefers-color-scheme` branch (0 `dark:` uses). Depth comes from three near-black surface steps
-(`#121212` lit, `#111` panel, `#0c0c0c` recessed) on a `bg-black` page, with `white/NN`
-opacity steps for all text and hairlines. Hue is used as a **label per calendar or feature**:
-blue for Gregorian, emerald for Hijri, orange for Bengali, amber for prayer.
+The interface stays quiet at rest. Tonal recesses, shallow pressed controls and sparse rules provide structure; motion appears only in deliberate interactions. Original, Slate, Forest and Warm are palette variations of the same system.
 
-The hero hierarchy is a recorded product decision, not taste (→ ADR-0001): the local clock is
-primary, the waqt card is secondary, and the waqt card still gets the **wider** column.
+Source of truth: [the stylesheet](app/globals.css), [page composition](app/page.tsx), and the components under `app/components/`. This reference replaces the pre-redesign black-card system. The selected preview establishes the direction; the finished code, including the owner’s later heavier-type instruction, establishes the actual system. Product behavior lives in [PRODUCT.md](PRODUCT.md); route-specific composition and acceptance live in [the Nocturne spec](specs/NOCTURNE/tech.md).
 
 **Key Characteristics:**
-- Single dark theme; page `bg-black text-white` (`app/page.tsx`).
-- No design-token layer: values are Tailwind v4 defaults plus four arbitrary hex surfaces
-  written inline (`bg-[#121212]` ×5, `bg-[#0c0c0c]` ×6, `bg-[#111]` ×2, `bg-[#0a0a0a]` ×1).
-- Text and borders are white at fixed opacities: `border-white/10` (25 uses) is the hairline;
-  `text-white/90` (21), `/80` (13), `/60` (9), `/50` (14) and `/40` (13) are the text steps.
-- Large rounding: `rounded-3xl` (24px) on every card and modal, `rounded-2xl` (16px) on
-  pills and inner wells, `rounded-xl` (12px) on buttons and cells.
-- Dense small type around very large numerals: `text-xs` (32 uses) and `text-sm` (20) carry
-  the UI; the clock goes to `text-9xl`.
-- Arial everywhere except the numerals: `font-mono` (7 uses) is the system monospace stack
-  (see Typography).
-- Built for iOS 10.3.4 Safari: `postcss.config.mjs` targets `ios_saf >= 10` and flattens
-  `oklab()`; flex `gap` is avoided in favour of `space-x-*` / `space-y-*` (33 / 16 uses).
-- Motion is colour fades only: `transition-colors` (27), `duration-200` (7) / `-300` (4),
-  `animate-pulse` on loading placeholders, and a 200ms opacity fade-in on the three modal
-  overlays (`animate-in fade-in`, plain CSS keyframes in `app/globals.css`). A
-  `prefers-reduced-motion: reduce` rule in `app/globals.css` cuts every animation and
-  transition to 0.01ms.
 
-## 2. Colors
+- Largest, brightest fixed-width local numerals; quieter, wider waqt band.
+- Heavy offline system type, with bold sans-serif dates and prayer names.
+- Visible Hijri sighting adjustment and persistent Accessibility and Appearance entry points.
+- Semantic palette variations and reading-comfort settings, with no external assets.
 
-Near-black greys and white opacity steps, plus one Tailwind palette hue per calendar.
+## Colors
 
 ### Primary
-There is no single brand accent. Hue is a per-domain label, always a Tailwind v4 palette step
-(defined in OKLCH by Tailwind; no hex is copied here):
-- **Gregorian Blue** (`blue-400` text and icons, `blue-500` fills): Gregorian card icon and
-  top bar (`from-blue-400 to-indigo-500`), the "today" cell in the month grid
-  (`bg-blue-500/10 border-blue-400/50` plus a blue glow), the World Clocks and Gregorian
-  switches, and the text-selection colour (`selection:bg-blue-500/30` in `app/layout.tsx`).
-- **Hijri Emerald** (`emerald-400` / `emerald-500`): Hijri card icon and top bar
-  (`from-emerald-400 to-teal-500`), Hijri day numbers in the month grid, the "· after
-  Maghrib" note, the location picker's active row (`bg-emerald-500/20`) and focus border
-  (`focus-within:border-emerald-400/60`), and the dot on the current prayer.
-- **Bengali Orange** (`orange-400` / `orange-500`): Bengali card icon and top bar
-  (`from-orange-400 to-amber-500`), Bengali day numbers, the Bengali switch.
-- **Prayer Amber** (`amber-300` / `amber-400`): the waqt name (`text-amber-300/80`), the
-  progress bar (`bg-amber-300/60`), the current prayer cell in the ribbon (solid `bg-amber-300`
-  with black text), the Iftar label, the Prayer Times switch and the active display-mode
-  segment (`bg-amber-400 text-black`). The local clock's map pin is `amber-400/80`.
-- Waqt icons each take their own hue (`PrayerDisplay.tsx` `getWaqtIcon`): Fajr `amber-300`,
-  Sunrise `amber-400`, Dhuhr `yellow-400`, Asr `orange-400`, Maghrib `rose-400`, Isha
-  `indigo-300`. The monthly-grid switch is `indigo-500`.
 
-Measured usage: emerald 19, blue 18, amber 15, orange 13, indigo 3, rose 2, yellow 1, teal 1.
+Bronze is the Original palette’s restrained accent: current waqt, Iftar emphasis, selected switches and primary actions. Pearl carries the local clock and primary content. Values are recorded in frontmatter directly from the semantic CSS variables.
+
+### Secondary
+
+The month grid uses three related content tones: Gregorian pearl, Hijri pale botanical and Bengali muted peach. These support labels and positions; selected states also use weight, underlines, borders or filled surfaces.
 
 ### Neutral
-- **Page Black** (#000, Tailwind `black`): the `<main>` background. Also the text colour on
-  amber and white fills.
-- **Numeral White** (#fff, Tailwind `white`): the local clock and world-clock numerals, the
-  primary button fill, every `white/NN` text and border step.
-- **Lit Surface** (#121212): the primary local clock card, the three calendar cards and the
-  settings modal. The brightest surface, always with a shadow (`shadow-2xl` or `shadow-xl`).
-- **Panel Surface** (#111): the monthly calendar container and the location picker.
-- **Recessed Surface** (#0c0c0c): the waqt card, world-clock pills, the prayer ribbon and the
-  prayer loading/empty states. Sits below the lit surface on purpose (`Clock.tsx` comment).
-- **Sheet Surface** (#0a0a0a): the "Detailed View" day modal only.
-- **Body Background / Foreground** (#050505 / #ededed): `--background` / `--foreground` on
-  `body` in `app/globals.css`. Both are painted over by `<main>`'s `bg-black text-white`, so
-  neither is what a user sees on the main screen.
-- **Hairline** (`border-white/10`): the default 1px border on every card, modal and pill;
-  `border-white/5` for inner wells and dividers.
-- Overlays: `bg-black/80` + `backdrop-blur-sm` behind settings; `bg-black/90` behind the
-  location picker and day modal.
 
-### Named Rules
-**The One-Hue-Per-Calendar Rule.** Gregorian is blue, Hijri is emerald, Bengali is orange,
-everywhere they appear: card, grid, legend, detail modal and settings switch. This is a
-measured pattern across `CalendarDisplay.tsx`, `MonthlyCalendar.tsx` and `SettingsModal.tsx`,
-not a written rule.
+The Original palette uses plum ground, a recessed surface and a raised plum surface. Muted text remains intentionally readable. The final shared control border uses the muted-text variable, while separators use the line variable.
 
-**The Dim-Amber Rule.** The waqt card's amber is deliberately desaturated (`amber-300/80`) so
-it cannot out-shout the white local clock. ADR-0001 records that a saturated amber heading once
-made the secondary card read louder.
+Slate replaces the ground with blue slate; Forest uses pine; Warm uses umber. Each includes its own ground, surfaces, text, accent, separators and calendar tones. Dim replaces text, muted and accent values across the selected theme. High contrast overrides the theme and dim settings with a dark ground, white text and stronger separators. System increased-contrast and forced-color preferences have additional CSS accommodations.
 
-## 3. Typography
+Text selection currently uses the Original bronze/plum pair across all themes. It is an observed fixed treatment, not an instruction to add new hard-coded theme colors.
 
-**Text Font:** Arial (Helvetica, sans-serif fallback), set on `body` in `app/globals.css` — all
-headings, labels and body copy
-**Numeral Font:** the Mono Font below — the Display and Headline numerals
-**Mono Font:** the system monospace stack (`ui-monospace, SFMono-Regular, Menlo, …,
-monospace`), set as `--font-mono` in `@theme` in `app/globals.css`. No font file is loaded (the
-app is offline-only); Menlo / Courier ship with iOS 10. Used by every ticking or tabular numeral:
-the local clock, world clocks, waqt countdown, ribbon times, Iftar time and the Hijri offset
-value. (`--font-sans` still points at an undefined `var(--font-geist-sans)`; `body` sets Arial,
-so it has no visible effect.)
+## Typography
 
-**Character:** plain system faces used at two extremes: tight, bold, very large monospace
-numerals and small uppercase sans labels with wide tracking.
+Body and controls use Arial/Helvetica/sans-serif at the heaviest available weight requested by the owner. Ticking values use locally available monospace faces. No font files are fetched or shipped. Platform font availability determines whether numeric weights are synthesized; `900` is a CSS request, not proof of a distinct installed face.
 
-### Hierarchy
-- **Display** (700, `text-5xl` → `sm:text-6xl` → `md:text-7xl`, i.e. 3rem → 4.5rem, line
-  height 1, `tracking-tight`): the local clock in the split hero. Pure white. When prayer
-  times are switched off it becomes the full-width hero at `text-6xl` → `text-8xl` →
-  `md:text-9xl` (8rem), centred.
-- **Headline** (700, `text-3xl` → `lg:text-5xl`, line height 1, `tracking-tight`): the waqt
-  countdown at `text-white/70`, sized to about 1/1.6 of the clock numeral.
-- **Title** (800, `text-xl` → `md:text-3xl`, `tracking-tight`): the page heading "Universal
-  Time" at `text-white/90`; the waqt name (`text-2xl` → `sm:text-3xl`, uppercase, amber).
-  The monthly calendar uses 700 at `text-2xl` / `md:text-3xl`.
-- **Date** (600, `text-xl` → `sm:text-2xl`, `leading-snug` 1.375): the date line on each
-  calendar card, `text-white/90`, `break-words`.
-- **Body** (500, `text-sm`; captions `text-xs`): settings row titles at `text-white/90`,
-  descriptions at `text-white/50`. The location list uses `text-[15px]`, the search input
-  `text-base`.
-- **Label** (600, `text-xs` or `text-[10px]` / `text-[11px]`, uppercase, `tracking-wider`
-  0.05em; `tracking-widest` 0.1em on the two hero labels): "Current Waqt", the clock's city,
-  card headings ("Gregorian", "Hijri"), weekday headers and section titles in settings.
+- **Local clock:** weight 900, line height 1.05, tracking −0.035em, with a subtle same-color WebKit stroke (0.008em). The desktop size is 11rem from 1200px; compact desktop/tablet uses 17vw; phones through 600px use 24vw. These later viewport rules supersede earlier fallback sizes.
+- **Countdown:** weight 900, 3rem desktop, 2.7rem tablet, 10.5vw phone. It remains smaller and quieter than the local clock.
+- **Waqt:** bold sans-serif at weight 800, 2.2rem desktop and 1.9rem phone. The earlier preview’s Georgia styling is replaced.
+- **Dates:** weight 900; ordinary dates start at 1.25rem, Hijri at 1.6rem, with narrower-layout adjustments. World numerals, calendar day numerals and ribbon times also request 900.
+- **Labels and controls:** mostly 0.875–0.9375rem, weight 800. Help text is readable content, not fine print. The clock date is a separate distance-reading line: 3rem on desktop/tablets and 1.5rem on phones, in primary text at weight 900.
 
-### Named Rules
-**The Fixed-Width-Digits Rule.** Every ticking numeral carries `font-mono`, which now resolves
-to a real monospace face, so its digits do not shift width as they change. Don't drop
-`font-mono` from a ticking string: in proportional Arial a centred or right-aligned countdown
-visibly jitters (about 12px spread at 72px, measured on canvas, `lessons_learned.md`).
+Root text size supports 100%, 125%, 150% and 200%. Rem-based text and spacing grow; viewport-sized clock/countdown numerals continue to fit the physical display. Page and dialogs may scroll vertically.
 
-## 4. Elevation
+**The Distance First Rule.** Keep local time largest and brightest; make essential labels heavy and readable before adding decorative detail.
 
-A hybrid of tonal steps and Tailwind's default black shadows. On a black page the shadows are
-faint; the surface step (`#121212` against `#0c0c0c`) does most of the work. ADR-0001 names
-"surface elevation" as one of the four channels that separate the local clock from the waqt
-card: the clock is lit `#121212` with `shadow-2xl`, the waqt card is recessed `#0c0c0c` with
-no shadow.
+## Layout
 
-### Shadow Vocabulary
-- **Hero / modal** (`shadow-2xl`: `0 25px 50px -12px #00000040`): the primary local clock,
-  settings modal, monthly calendar, location picker and day modal (5 uses).
-- **Calendar card** (`shadow-xl`: `0 20px 25px -5px #0000001a, 0 8px 10px -6px #0000001a`): the
-  three calendar cards (3 uses).
-- **Current prayer** (`shadow-lg`): the solid amber cell in the prayer ribbon (1 use).
-- **Day cell** (`shadow-sm`): every month-grid cell (1 class, applied per cell).
-- **Glows** (coloured, grid only): today's cell `shadow-[0_0_15px_rgba(59,130,246,0.3)]`; on
-  legend hover or keyboard focus, `drop-shadow-[0_0_8px_…]` in blue, emerald, orange or white on the matching
-  day numbers.
-- Recessed surfaces (`#0c0c0c`) carry no shadow, by design.
+The one-page composition centers a dominant clock above a wider, quieter horizontal waqt band. The shared container is capped at 78rem. The clock stage is 85% wide, capped at 60rem; the waqt stage is full width, capped at 65rem. On phones the clock stage expands to full width. The prayer ribbon, Hijri-first dateline, month calendar and world clocks continue below.
 
-### Named Rules
-**The Recessed-Stays-Flat Rule.** A `#0c0c0c` surface never gets a shadow. The lit surface plus
-shadow belongs to the primary local clock; giving it to the waqt card or a world clock re-creates
-the tie ADR-0001 exists to break (`Clock.tsx` comments).
+Page padding changes from 1.5rem × 2.5rem to 1.25rem × 1.5rem at 800px, then 1rem horizontally at 600px. Controls wrap before content clips. Waqt utilities move below the countdown on tablets; phones stack the band and date sections. The smallest header becomes a vertical flow at 360px. The prayer ribbon wraps through a 6.5rem flex basis rather than forcing six columns.
 
-## 5. Components
+The calendar retains seven aligned columns. Its inner surface is at least 21rem wide, or 24.5rem with larger controls. Its own horizontal scroll container absorbs the extra width; the page does not need to expand. These rem minimums grow with reading size.
 
-There is no primitive library: each component in `app/components/` writes its own classes, so
-the same pattern is repeated rather than shared (the switch is copied six times in
-`SettingsModal.tsx`). Icons are `lucide-react`, mostly `w-3.5`–`w-5` (14–20px), up to
-`w-6`–`w-8` in headers and the day modal.
+**The Seven Columns Rule.** Keep calendar weekdays and days aligned in seven columns; use scoped calendar scrolling when text or touch targets need more room.
 
-### Buttons
-- **Primary** ("Done" in settings): `bg-white text-black`, `font-semibold text-xs`,
-  `px-4 py-2`, `rounded-xl` (12px); hover `bg-white/90`. The only filled button.
-- **Icon buttons** (settings cog, modal close, clear search): no fill, `text-white/40`–`/50`,
-  `p-1.5`–`p-2`, `rounded-xl`; hover to `text-white` and `bg-white/5`–`/10`. Exception: the
-  day modal's close button is `rounded-full bg-white/5 text-white/60`. Month navigation
-  uses a filled variant: `p-3 bg-white/5 border border-white/10 rounded-xl`, `active:scale-95`.
-- **Text button** ("Reset to defaults"): `text-xs text-white/50`, hover `text-white/80` and
-  `bg-white/5`, `rounded-lg`.
-- **Segmented toggles:** a `rounded-xl` track (`bg-black/40`–`/50`, `border-white/10`, `p-0.5`
-  or `p-1`) holding `rounded-lg` segments. Active Asr segment `bg-white/20 text-white` with
-  `aria-pressed`; active display-mode segment `bg-amber-400 text-black`.
-- **Focus:** elements that set `focus:outline-none` replace it with a ring: the settings cog
-  `focus-visible:ring-2 focus-visible:ring-white/20`, the six switches
-  `focus-visible:ring-2 focus-visible:ring-white/80` (about 11:1 against the settings well,
-  computed). Other buttons keep the browser's default outline.
+## Elevation & Depth
 
-### Chips / Pills
-- **Iftar pill:** `rounded-xl bg-white/5 border border-white/10 px-2.5 py-1`, an amber
-  uppercase `text-[10px]` label then the time.
-- **Switch:** `role="switch"` with `aria-checked`, `h-6 w-11 rounded-full` (24×44px), off
-  `bg-white/20`, on in the section's hue (blue, amber, emerald, orange, indigo); a 16px knob
-  slides `translate-x-1` → `translate-x-6`.
-- **Hijri offset stepper:** `bg-white/10 rounded-lg p-0.5 border-white/10` with `−` / `+`
-  icon buttons (`p-1`, 14px icon) around a `text-xs` value. Each button has a `title` and an
-  `aria-label` ("Shift Hijri date back / forward one day"). `PRODUCT.md` forbids removing or hiding this control.
+Tonal layering carries the resting screen. The clock is unboxed; the secondary waqt rests on a recessed surface. Buttons gain a raised tonal fill on hover and depress by one pixel on activation. Dialogs alone carry a broad soft shadow (`0 18px 50px rgba(8,4,12,.35)`) over a dark overlay (`rgba(12,8,15,.86)`).
 
-### Cards / Containers
-- **Corner Style:** `rounded-3xl` (24px) on every card and modal (13 uses).
-- **Background:** lit `#121212` (local clock, calendar cards), recessed `#0c0c0c` (waqt card),
-  panel `#111` (monthly calendar). See Colors.
-- **Border:** `border border-white/10`.
-- **Shadow Strategy:** see Elevation.
-- **Top bar:** calendar cards and the waqt card carry a 4px (`h-1`) gradient strip across the top
-  in their hue, at 70% opacity on calendar cards and 40% on the waqt card.
-- **Internal Padding:** `p-5 sm:p-6` (20 → 24px); the waqt card adds `md:p-7`; the full-width
-  clock hero uses `p-6 sm:p-10 md:p-12`; the monthly calendar `p-4 sm:p-6 md:p-8`.
-- **Inner wells:** settings groups `bg-white/5 rounded-2xl p-4 border-white/5`; icon wells on
-  card headers `p-2 rounded-xl bg-<hue>-500/15`.
+Dialog entry lasts 200ms with ease-out, opacity 0.65→1 and an 8px vertical movement. Controls use 200ms background feedback and 180ms press feedback; calendar hover uses 180ms. Both the explicit reduced-motion setting and system reduced-motion preference disable transitions and animation. No perpetual loading animation remains.
 
-### Inputs / Fields
-- **Location search** (`LocationPicker.tsx`, a WAI-ARIA combobox because `<datalist>` renders
-  nothing on iOS 10): `bg-white/5 border border-white/10 rounded-2xl px-3`, input `text-base
-  py-3`, placeholder `white/30`.
-- **Focus:** the wrapper border turns emerald (`focus-within:border-emerald-400/60`), 200ms.
-- **Options:** `min-h-[48px] rounded-xl px-3 py-3`; active `bg-emerald-500/20 text-white`;
-  selected shows an emerald check. "Recent" header is a `text-[11px]` uppercase label.
+**The Quiet at Rest Rule.** Use short interaction feedback and dialog entry only; do not animate the clock background or continuously pulse loading content.
 
-### Navigation
-There is no navigation bar. The header is the centred page title plus the absolute-positioned
-settings cog on the right. Everything else is one scrolling column (`max-w-6xl`, centred).
+## Shapes
 
-### Signature: the Desk-Clock Hero
-`app/page.tsx` lays the hero out as an 8-column grid from `md:` up: the waqt card takes
-`md:col-span-5`, the local clock `md:col-span-3`. Below `md:` both stack full width. The clock
-is primary through scale (about 1.5× the countdown), luminance (`#fff` against `white/70`),
-surface (`#121212` + shadow against flat `#0c0c0c`) and chroma (white against dim amber). When
-prayer times are off, the clock alone fills the hero, centred at up to `text-9xl`.
+Controls use gently rounded 9px corners; selected day and option surfaces use 8px. Waqt bands and dialogs use 14px; unavailable/loading surfaces use 12px. Textual On/Off switches use a compact pill outline (24px radius), not a sliding knob. Most calendar cells remain square, separated by fine horizontal rules.
 
-### Monthly Calendar
-A 7-column grid of `rounded-xl` cells (`h-16` → `xl:h-32`), each showing three numbers: the
-Gregorian day centred, the Hijri day top-right (emerald, bold) and the Bengali day bottom-left
-(orange). Hovering or keyboard-focusing a legend entry dims the other two systems to `opacity-20`.
-Cells and legend entries are `<button>`s (each cell's `aria-label` is its full Gregorian date;
-the legend buttons wrap their content in an inner flex `<span>`, because iOS 10 Safari cannot
-make a `<button>` a flex container). Clicking or pressing a cell opens the `#0a0a0a` "Detailed View" modal, one tinted
-row per calendar (`bg-<hue>-500/10 border-<hue>-500/20 rounded-2xl`).
+## Components
 
-## 6. Do's and Don'ts
+### Clock and waqt
+
+The local clock uses the brightest text and strongest scale without a surrounding card. Its date is a prominent 3rem, weight-900 line in primary text, reduced to 1.5rem on phones, with centered wrapping for enlarged reading sizes. The waqt name and smaller muted countdown form one compact reading group with a fixed 1.5rem separation on wide screens and a short vertical stack on phones. An explicit “Time left” label links the countdown to the current period. The elapsed line stays with that pair; Iftar and the Standard/Hanafi selector sit separately as supporting controls. The prayer ribbon marks the current period with accent and underline. Asr state is shared by the band and ribbon.
+
+Loading retains meaningful placeholders without animation. Missing coordinates keep available content visible and offer city selection; an unavailable calculation offers another-city recovery. These are real partial-data states, not decorative blank cards.
+
+### Buttons and selectors
+
+Buttons have at least 44px targets; larger-controls mode raises buttons, location options and the city input to at least 56px. Primary buttons use accent with selected-text ink; secondary controls remain transparent until hover. Focus uses a 2px accent outline with 4px offset; calendar focus moves the outline inside the cell. Selected segments combine a filled surface, underline and heavier weight. Disabled buttons use reduced opacity and a default cursor.
+
+Theme choices use miniature clock-face previews with a thicker selected border and checkmark. Their responsive flex basis is 10rem. On/Off switches expose their state in text as well as color.
+
+### Dates and calendar
+
+The Hijri date leads, explicitly marked predicted, with the sighting stepper directly visible. If the Hijri headline is hidden, an adjustment strip remains. The stepper’s current offset uses an output element. Day cells place Gregorian centrally, Hijri above-right and Bengali below-left; calendar highlight reduces other values only to 0.85 opacity. Selecting a day opens all three dates in the shared dialog.
+
+### Search and dialogs
+
+The city input uses a bordered rounded field with an inline search icon, clear action and matching placeholder contrast. Results wrap long names, show the selected city, and provide keyboard combobox navigation. Empty results offer a clear next step.
+
+Location, day details, Appearance and Accessibility use the shared dialog: header and close control, scrollable content and appropriate footer actions. It traps focus, captures/restores the opener, supports Escape, hides the background from assistive technology and locks background scrolling. Icons are existing Lucide SVGs; there are no shipping raster assets.
+
+### Appearance and accessibility
+
+Appearance controls the four palettes and visible sections. Accessibility controls reading size, high contrast, reduced motion, larger controls and luminance. Preferences persist locally; resets are scoped. Visible labels accompany the persistent header actions. Forced-color and system contrast preferences retain usable outlines and state cues.
+
+## Do's and Don'ts
 
 ### Do:
-- **Do** keep the local clock primary and the waqt card secondary on all four channels at once:
-  numeral scale, luminance, surface elevation and accent chroma (ADR-0001, `PRODUCT.md`).
-- **Do** keep the waqt card in the wider column (`md:col-span-5` against `md:col-span-3`). Width
-  runs counter to emphasis on purpose, because the countdown is the longer string.
-- **Do** size the clock in portrait to the largest step that fits its column, not to a copy of
-  the landscape value ("in portrait mode, make the local time more bigger", `PRODUCT.md`).
-- **Do** check every layout on the target, a 2014-era iPad on iOS 10.3.4 Safari. A layout that
-  only works on a modern browser is not done (`PRODUCT.md`).
-- **Do** use `space-x-*` / `space-y-*` between flex children. Tailwind v4 emits bare `gap:` with
-  no fallback, and flex `gap` is dropped on iOS 10 (`lessons_learned.md`). No flex row uses
-  `gap-*`; the remaining `gap-*` classes are on grids.
-- **Do** answer CSS-support questions against the built `out/_next/static/**/*.css`, which is
-  the only place they can be answered (`lessons_learned.md`).
-- **Do** measure contrast by painting the colour to a canvas, with a known-failing control.
-  Tailwind v4 emits `oklab()` / `color-mix()`, and regex-parsing `getComputedStyle()` reports
-  nonsense such as 1.02:1 (`lessons_learned.md`).
-- **Do** keep a calendar's hue consistent everywhere it appears: blue Gregorian, emerald Hijri,
-  orange Bengali.
+
+- Do use the current palette variables for surfaces, text, accents and borders.
+- Do preserve fixed-width ticking numerals and the clock’s primary hierarchy in every palette and orientation.
+- Do use the heaviest available offline weights and keep essential labels legible from the device’s intended viewing distance.
+- Do keep the Hijri manual adjustment visible even when its headline date is switched off.
+- Do preserve visible focus, non-color selected cues and reduced-motion behavior.
+- Do use margins and wrapping flex layouts compatible with the legacy CSS pipeline.
 
 ### Don't:
-- **Don't** equalise or invert the two hero cards, and don't tune only one channel. They were
-  identical once and the user had to ask for hierarchy three times (ADR-0001).
-- **Don't** give a recessed `#0c0c0c` surface a shadow, or move the waqt card onto `#121212`.
-- **Don't** drop `font-mono` from a ticking numeral, or point `--font-mono` back at a font that
-  is not available offline: the digits would fall back to proportional Arial and jitter.
-- **Don't** create a `tailwind.config`. Tailwind v4 is configured CSS-first in `app/globals.css`
-  (`docs/agents/do-not-guess.md`).
-- **Don't** load a web font, icon font or any other asset from the network. The app must be fully
-  offline after load (`PRODUCT.md`); this is also why no Geist font is loaded.
-- **Don't** expect other `tailwindcss-animate` classes to work. No animation plugin is installed;
-  `animate-in fade-in` works only because `app/globals.css` defines that exact pair (200ms
-  opacity fade, cut by the reduced-motion rule).
-- **Don't** remove, hide or auto-apply the Hijri manual ± offset control. It is the user's final
-  authority over the computed date (`PRODUCT.md`).
+
+- Don't restore the old equal-card hero, calendar gradients or decorative glows.
+- Don't replace the selected heavy sans-serif dates and prayer names with the earlier preview’s delicate serif styling.
+- Don't load fonts, icons, images or data from remote services at runtime.
+- Don't shrink the seven-column calendar to make enlarged controls appear to fit.
+- Don't treat desktop Chromium captures or design documentation as acceptance on iOS 10.3.4 hardware.
+
+The documented system describes the final source and the locally reviewed static export. Actual iOS 10.3.4 hardware has not been operated in this verification; device acceptance remains a separate task record.

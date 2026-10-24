@@ -118,3 +118,9 @@ prints the remote it will pull from and uses `git pull --ff-only`.
 2026-10-10 · DESIGN.md scan defects fixed · `--font-mono` now the system monospace stack (supersedes the 2026-09-02 no-op note);
 `animate-in fade-in` implemented as plain keyframes in `globals.css` + a `prefers-reduced-motion` rule; switch focus rings, keyboard
 month grid/legend (`<button>` with an inner flex `<span>` — iOS 10 can't flex a button), stepper `aria-label`s, 3 flex `gap-*` → `space-x-*`.
+
+2026-10-24 · Redesign discovery confirmed iyyam is a household glance clock; equal component treatments obscure its reading order. Preserve local-time dominance, quieter waqt and visible Hijri correction across every visual proposal. Next time I see a theme-only redesign, I will compare composition as well as color.
+
+2026-10-24 · A city picker’s autofocus can run before a parent dialog’s passive effect, losing the opener on close · Capture opening focus in a layout effect; verify city-selection focus restoration and wait for animations before review screenshots. Next time I see focus return to the body, I will check child autofocus ordering.
+
+2026-10-24 · Distributing a prayer name and countdown with space-between breaks their relationship on wide/zoomed clock screens · Group them before distributing supporting controls; make the clock date a distance-reading line. Next time I see related values drift apart, I will measure their gap at 100% and 200% text.

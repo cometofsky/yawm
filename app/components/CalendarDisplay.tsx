@@ -1,11 +1,12 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { CalendarDays, Globe, MapPin, Moon, Plus, Minus } from 'lucide-react';
+import { Plus, Minus } from 'lucide-react';
+import DisplayDialog from './DisplayDialog';
 import MonthlyCalendar from './MonthlyCalendar';
 import LocationPicker from './LocationPicker';
 import { resolveHijri } from '../lib/hijri';
-import { CITIES, City } from '../lib/locations';
+import { CITIES } from '../lib/locations';
 import { useLocationState, locationLabel } from '../lib/useLocationState';
 import { CustomizationSettings } from '../lib/useSettings';
 
@@ -99,159 +100,21 @@ export default function CalendarDisplay({
   const showBengali = settings ? settings.showBengali : true;
   const showMonthlyCalendar = settings ? settings.showMonthlyCalendar : true;
 
-  const activeCardsCount = (showGregorian ? 1 : 0) + (showHijri ? 1 : 0) + (showBengali ? 1 : 0);
-
-  const gridColsClass =
-    activeCardsCount === 3
-      ? 'grid-cols-1 md:grid-cols-3'
-      : activeCardsCount === 2
-      ? 'grid-cols-1 md:grid-cols-2'
-      : 'grid-cols-1 max-w-2xl mx-auto w-full';
+  const offsetControl = <div className="offset-stepper" role="group" aria-label="Hijri manual sighting adjustment"><button type="button" onClick={() => updateOffset(hijriOffset - 1)} aria-label="Shift Hijri date back one day"><Minus aria-hidden="true"/></button><output aria-live="polite" aria-label="Hijri sighting correction">{hijriOffset > 0 ? '+' : ''}{hijriOffset} days</output><button type="button" onClick={() => updateOffset(hijriOffset + 1)} aria-label="Shift Hijri date forward one day"><Plus aria-hidden="true"/></button></div>;
 
   return (
-    <div className="w-full grid grid-cols-1 gap-4 md:gap-5">
-      {/* Calendar Cards: dynamically adapt columns to active count */}
-      {activeCardsCount > 0 && (
-        <div className={`grid ${gridColsClass} gap-3 sm:gap-4 md:gap-5`}>
-          {/* Gregorian Card */}
-          {showGregorian && (
-            <div className="relative group overflow-hidden rounded-3xl bg-[#121212] border border-white/10 p-5 sm:p-6 shadow-xl flex flex-col justify-between">
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-indigo-500 opacity-70"></div>
-              <div className="flex items-center space-x-3 mb-3">
-                <div className="p-2 bg-blue-500/15 rounded-xl text-blue-400">
-                  <Globe className="w-5 h-5" />
-                </div>
-                <h2 className="text-sm font-semibold text-white/90 tracking-wider uppercase">
-                  Gregorian
-                </h2>
-              </div>
-              <p className="text-xl sm:text-2xl font-semibold text-white/90 leading-snug break-words">
-                {englishDate}
-              </p>
-            </div>
-          )}
-
-          {/* Hijri Card */}
-          {showHijri && (
-            <div className="relative group overflow-hidden rounded-3xl bg-[#121212] border border-white/10 p-5 sm:p-6 shadow-xl flex flex-col justify-between">
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-400 to-teal-500 opacity-70"></div>
-              <div>
-                <div className="flex justify-between items-center mb-3">
-                  <div className="flex items-center space-x-3">
-                    <div className="p-2 bg-emerald-500/15 rounded-xl text-emerald-400">
-                      <Moon className="w-5 h-5" />
-                    </div>
-                    <h2 className="text-sm font-semibold text-white/90 tracking-wider uppercase">
-                      Hijri
-                    </h2>
-                  </div>
-
-                  {/* Offset adjuster */}
-                  <div
-                    className="flex items-center bg-white/10 rounded-lg p-0.5 border border-white/10"
-                    title="Local sighting adjustment"
-                  >
-                    <button
-                      type="button"
-                      onClick={() => updateOffset(hijriOffset - 1)}
-                      className="p-1 hover:bg-white/20 rounded-md transition-colors text-white/60 hover:text-white"
-                      title="−1 day"
-                      aria-label="Shift Hijri date back one day"
-                    >
-                      <Minus className="w-3.5 h-3.5" />
-                    </button>
-                    <span className="text-xs font-mono w-6 text-center text-white/80">
-                      {hijriOffset > 0 ? `+${hijriOffset}` : hijriOffset}
-                    </span>
-                    <button
-                      type="button"
-                      onClick={() => updateOffset(hijriOffset + 1)}
-                      className="p-1 hover:bg-white/20 rounded-md transition-colors text-white/60 hover:text-white"
-                      title="+1 day"
-                      aria-label="Shift Hijri date forward one day"
-                    >
-                      <Plus className="w-3.5 h-3.5" />
-                    </button>
-                  </div>
-                </div>
-
-                <p className="text-xl sm:text-2xl font-semibold text-white/90 leading-snug break-words">
-                  {hijriDateStr}
-                  {rolledOver && (
-                    <span className="ml-1.5 text-xs font-normal text-emerald-400/80 whitespace-nowrap">
-                      · after Maghrib
-                    </span>
-                  )}
-                </p>
-              </div>
-
-              <div className="flex items-center space-x-2 text-xs text-white/50 mt-3 pt-2 border-t border-white/5">
-                <button
-                  type="button"
-                  onClick={() => setPickerOpen(true)}
-                  className="flex items-center space-x-1.5 min-w-0 hover:text-white/80 transition-colors"
-                  title="Change location"
-                >
-                  <MapPin className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                  <span className="truncate">{locationLabel(location)}</span>
-                </button>
-                {location.source === 'city' && (
-                  <button
-                    type="button"
-                    onClick={clearLocation}
-                    className="underline hover:text-white/80 shrink-0 ml-1"
-                  >
-                    Auto
-                  </button>
-                )}
-              </div>
-            </div>
-          )}
-
-          {/* Bengali Card */}
-          {showBengali && (
-            <div className="relative group overflow-hidden rounded-3xl bg-[#121212] border border-white/10 p-5 sm:p-6 shadow-xl flex flex-col justify-between">
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-orange-400 to-amber-500 opacity-70"></div>
-              <div className="flex items-center space-x-3 mb-3">
-                <div className="p-2 bg-orange-500/15 rounded-xl text-orange-400">
-                  <CalendarDays className="w-5 h-5" />
-                </div>
-                <h2 className="text-sm font-semibold text-white/90 tracking-wider uppercase">
-                  Bengali
-                </h2>
-              </div>
-              <p className="text-xl sm:text-2xl font-semibold text-white/90 leading-snug break-words">
-                {bengaliDate}
-              </p>
-            </div>
-          )}
-        </div>
-      )}
-
-      {/* Monthly Calendar Section */}
-      {showMonthlyCalendar && (
-        <div className="mt-1">
-          <MonthlyCalendar location={location} manualOffset={hijriOffset} />
-        </div>
-      )}
-
-      {/* Location picker modal */}
-      {pickerOpen && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 animate-in fade-in duration-200"
-          onClick={() => setPickerOpen(false)}
-        >
-          <div onClick={(e) => e.stopPropagation()} className="w-full max-w-md">
-            <LocationPicker
-              cities={CITIES}
-              value={selectedCity}
-              recents={recents}
-              onSelect={handleSelectCity}
-              onClose={() => setPickerOpen(false)}
-            />
-          </div>
-        </div>
-      )}
+    <div className="calendar-section">
+      {(showHijri || showGregorian || showBengali) && <div className="calendar-dates">
+        {showHijri && <section className="date-block hijri-date"><h2>Hijri · predicted</h2><p className="date-text">{hijriDateStr}</p>{rolledOver && <p className="date-note">After Maghrib</p>}{offsetControl}<p className="date-note">Adjust to your local moon sighting.</p></section>}
+        {showGregorian && <section className="date-block"><h2>Gregorian</h2><p className="date-text">{englishDate}</p></section>}
+        {showBengali && <section className="date-block"><h2>Bengali</h2><p className="date-text" lang={bengaliDate === 'Unavailable' || bengaliDate === 'Calculating...' ? 'en' : 'bn'}>{bengaliDate}</p></section>}
+      </div>}
+      {!showHijri && <div className="adjustment-only"><span className="date-note">Hijri sighting adjustment</span>{offsetControl}</div>}
+      {location.source === 'city' && <p className="date-note">Using {locationLabel(location)}. <button type="button" className="ui-button" onClick={clearLocation}>Use device location</button></p>}
+      {showMonthlyCalendar && <MonthlyCalendar location={location} manualOffset={hijriOffset} />}
+      <DisplayDialog isOpen={pickerOpen} onClose={() => setPickerOpen(false)} title="Choose location">
+        <div className="ui-dialog-body"><LocationPicker cities={CITIES} value={selectedCity} recents={recents} onSelect={handleSelectCity} onClose={() => setPickerOpen(false)} /></div>
+      </DisplayDialog>
     </div>
   );
 }

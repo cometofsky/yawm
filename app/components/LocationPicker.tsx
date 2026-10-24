@@ -114,109 +114,13 @@ export default function LocationPicker({ cities, value, recents, onSelect, onClo
   const activeDescId = activeIndex >= 0 ? optionId(activeIndex) : undefined;
 
   return (
-    <div className="w-full max-w-md bg-[#111] border border-white/10 rounded-3xl shadow-2xl overflow-hidden">
-      {/* Header */}
-      <div className="flex items-center justify-between px-5 py-4 border-b border-white/10">
-        <h2 className="text-base font-semibold text-white/90 tracking-wide">Choose location</h2>
-        <button
-          type="button"
-          onClick={onClose}
-          aria-label="Close"
-          className="p-2 -mr-2 rounded-xl text-white/50 hover:text-white hover:bg-white/10 transition-colors duration-200"
-        >
-          <X className="w-5 h-5" />
-        </button>
-      </div>
-
-      {/* Search input (combobox) */}
-      <div className="px-4 pt-4 pb-2">
-        <div className="flex items-center space-x-2 bg-white/5 border border-white/10 rounded-2xl px-3 focus-within:border-emerald-400/60 transition-colors duration-200">
-          <Search className="w-5 h-5 text-white/40 shrink-0" />
-          <input
-            ref={inputRef}
-            type="text"
-            role="combobox"
-            aria-expanded="true"
-            aria-controls={listboxId}
-            aria-autocomplete="list"
-            aria-activedescendant={activeDescId}
-            aria-label="Search for a city or country"
-            autoComplete="off"
-            autoCorrect="off"
-            autoCapitalize="off"
-            spellCheck={false}
-            placeholder="Search city or country"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            onKeyDown={onKeyDown}
-            className="flex-1 bg-transparent text-white/90 placeholder-white/30 text-base py-3 outline-none min-w-0"
-          />
-          {query !== '' && (
-            <button
-              type="button"
-              onClick={() => {
-                setQuery('');
-                if (inputRef.current) inputRef.current.focus();
-              }}
-              aria-label="Clear search"
-              className="p-1.5 rounded-lg text-white/40 hover:text-white hover:bg-white/10 transition-colors duration-200 shrink-0"
-            >
-              <X className="w-4 h-4" />
-            </button>
-          )}
-        </div>
-      </div>
-
-      {/* Listbox */}
-      <ul
-        ref={listRef}
-        id={listboxId}
-        role="listbox"
-        aria-label="Locations"
-        className="max-h-[50vh] overflow-y-auto px-2 pb-3 pt-1"
-      >
-        {showRecent && (
-          <li
-            role="presentation"
-            className="px-3 py-2 text-[11px] font-semibold uppercase tracking-wider text-white/40"
-          >
-            Recent
-          </li>
-        )}
-
-        {options.length === 0 ? (
-          <li role="presentation" className="px-3 py-6 text-center text-sm text-white/40">
-            No matches
-          </li>
-        ) : (
-          options.map((c, i) => {
-            const selected = sameCity(c, value);
-            const active = i === activeIndex;
-            return (
-              <li
-                key={c.name + '|' + c.country + '|' + c.lat + '|' + c.lon}
-                id={optionId(i)}
-                role="option"
-                aria-selected={selected}
-                onClick={() => onSelect(c)}
-                onMouseEnter={() => setActiveIndex(i)}
-                className={
-                  'flex items-center space-x-3 px-3 py-3 min-h-[48px] rounded-xl cursor-pointer transition-colors duration-200 ' +
-                  (active ? 'bg-emerald-500/20 text-white' : 'text-white/80 hover:bg-white/5')
-                }
-              >
-                <MapPin
-                  className={'w-4 h-4 shrink-0 ' + (active ? 'text-emerald-400' : 'text-white/40')}
-                />
-                <span className="flex-1 min-w-0 truncate text-[15px]">
-                  {c.name}
-                  <span className="text-white/40">, {c.country}</span>
-                </span>
-                {selected && <Check className="w-4 h-4 shrink-0 text-emerald-400" />}
-              </li>
-            );
-          })
-        )}
+    <div className="location-picker">
+      <p className="ui-help">Search the saved city list. Choosing a city updates the clock, waqt and Hijri prediction.</p>
+      <div className="location-search"><Search aria-hidden="true" size={18}/><input ref={inputRef} type="text" role="combobox" aria-expanded="true" aria-controls={listboxId} aria-autocomplete="list" aria-activedescendant={activeDescId} aria-label="Search for a city or country" autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck={false} placeholder="Search city or country" value={query} onChange={e => setQuery(e.target.value)} onKeyDown={onKeyDown} />{query !== '' && <button type="button" className="ui-icon-button" onClick={() => { setQuery(''); inputRef.current?.focus(); }} aria-label="Clear search"><X aria-hidden="true" size={16}/></button>}</div>
+      <p className="ui-help" role="status" aria-live="polite">{options.length === 0 ? 'No matching city.' : showRecent ? options.length + ' recent cities.' : 'Showing ' + options.length + (options.length === MAX_ROWS ? ' locations. Type to narrow the list.' : ' matching locations.')}</p>
+      <ul ref={listRef} id={listboxId} role="listbox" aria-label="Locations" className="location-list">
+        {showRecent && <li role="presentation" className="location-recent">Recent cities</li>}
+        {options.length === 0 ? <li role="presentation" className="location-empty">No matching city. Try a country name or clear your search.</li> : options.map((city, i) => <li key={city.name + '|' + city.country + '|' + city.lat + '|' + city.lon} id={optionId(i)} role="option" aria-selected={sameCity(city, value)} onClick={() => onSelect(city)} onMouseEnter={() => setActiveIndex(i)} className={'location-option' + (i === activeIndex ? ' is-active' : '')}><MapPin aria-hidden="true" size={16}/><span>{city.name}<span className="location-country">, {city.country}</span></span>{sameCity(city, value) && <Check aria-hidden="true" size={16}/>}</li>)}
       </ul>
     </div>
   );
